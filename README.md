@@ -4,12 +4,12 @@ A list of web full stack resources and summarize.
 
 ## 目录
 
-- [Javascript](#Javascript)
+- [JavaScript](#JavaScript)
 - [Babel](#Babel)
 - [jQuery](#jQuery)
 - [Node](#Node)
 
-## Javascript
+## JavaScript
 
 * [JavaScript 指南](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript) - MDN web docs 的完整的 JavaScript 参考文档
 * [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/) - 　阮一峰 JavaScript 标准参考教程。
