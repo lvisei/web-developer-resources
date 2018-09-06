@@ -18,6 +18,7 @@ A list of web full stack resources and summarize.
   - [Web&Native&Hybrid](#webnativehybrid)
 - [Front-End 工程化&构建](#front-end-工程化构建)
   - [Babel](#babel)
+  - [Webpack](#webpack)
 - [Front-End Resources](#front-end-resources)
 - [Node](#node)
 - [Other](#other)
@@ -70,11 +71,13 @@ A list of web full stack resources and summarize.
 ### Babel
 
 *引入babel来解决代码兼容性的问题*
-
 * [Babel](https://babel.docschina.org/) - Babel中文站。
 * [babel-polyfill VS babel-runtime VS babel-preset-env](https://juejin.im/post/5aefe0a6f265da0b9e64fa54) - 当运行环境不支持新的API,对比这几种的解决方案。
 
+### Webpack
 
+*tree Shaking*
+* [Tree Shaking in Webpack](https://github.com/easonyq/easonyq.github.io/blob/master/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/webpack/treeShaking.md) - Tree Shaking in Webpack 介绍
 ## Front-End Resources
 
 * [Front-End Api Map](http://www.jintiankansha.me/t/h4cWPn140e) - 一大波前端“小抄”来袭！
