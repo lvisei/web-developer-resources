@@ -59,6 +59,7 @@ A list of web full stack resources and summarize.
 
 ## WeChat Mini-Program 
 
+* [小程序攻略](https://yuchengkai.cn/docs/zh/frontend/mp.html) - 由银科控股融汇研发部曹俊及其团队总结。
 
 ## Mobile App 
 
