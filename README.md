@@ -7,18 +7,18 @@ A list of web full stack resources and summarize.
 - [Categories](#categories)
 - [JavaScript](#javascript)
 - [Front-End Library](#front-end-library)
-  - [jQuery](#jquery)
-    - [Deferred](#deferred)
+    - [jQuery](#jquery)
+        - [Deferred](#deferred)
 - [Canvas](#canvas)
 - [Front-End Frame](#front-end-frame)
-  - [Vue](#vue)
-  - [React](#react)
+    - [Vue](#vue)
+    - [React](#react)
 - [WeChat Mini-Program](#wechat-mini-program)
 - [Mobile App](#mobile-app)
-  - [Web&Native&Hybrid](#webnativehybrid)
+    - [Web&Native&Hybrid](#webnativehybrid)
 - [Front-End 工程化&构建](#front-end-工程化构建)
-  - [Babel](#babel)
-  - [Webpack](#webpack)
+    - [Babel](#babel)
+    - [Webpack](#webpack)
 - [Front-End Resources](#front-end-resources)
 - [Node](#node)
 - [Other](#other)
@@ -36,6 +36,8 @@ A list of web full stack resources and summarize.
 
 ## Front-End Library
 
+* 待续
+
 ### jQuery
 
 #### Deferred
@@ -49,27 +51,37 @@ A list of web full stack resources and summarize.
 
 ## Canvas
 
+* 待续
 
 ## Front-End Frame
 
+* 待续
 
 ### Vue
 
+* [Vue 实践技巧](https://segmentfault.com/a/1190000014085613) - vue 实用的小技巧
+* [vue 修饰符总结](https://segmentfault.com/a/1190000016786254) - 详细的 vue 修饰符总结
 
 ### React
 
+* 待续
 
 ## WeChat Mini-Program 
 
 * [小程序攻略](https://yuchengkai.cn/docs/zh/frontend/mp.html) - 由银科控股融汇研发部曹俊及其团队总结。
 
 
-## Mobile App 
+## Mobile App
+
+* 待续
 
 ### Web&Native&Hybrid
 
+* 待续
 
 ## Front-End 工程化&构建
+
+* 待续
 
 ### Babel
 
@@ -81,11 +93,16 @@ A list of web full stack resources and summarize.
 
 *tree Shaking*
 * [Tree Shaking in Webpack](https://github.com/easonyq/easonyq.github.io/blob/master/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/webpack/treeShaking.md) - Tree Shaking in Webpack 介绍
+
+
 ## Front-End Resources
 * [Front-End Api Map](http://www.jintiankansha.me/t/h4cWPn140e) - 一大波前端“小抄”来袭！
 
 
 ## Node
 
+* 待续
 
 ## Other
+
+* [从输入URL到页面加载的过程](https://segmentfault.com/a/1190000013662126#articleHeader56) - 梳理一个较为完整的前端向知识体系
