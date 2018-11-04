@@ -29,14 +29,9 @@ A list of web full stack resources and summarize.
 * [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/) - 　阮一峰 JavaScript 标准参考教程。
 * [零基础JavaScript全栈教程](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000) - 廖学峰的JavaScript教程。
 * [JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89) - 浅读JavaScript执行机制。
-* [Javascript ES2015 特性](https://devhints.io/es6) - Api Map
-* [Javascript Overapi](https://devhints.io/es6) - Api Map
-* [Javascript 正则表达式](https://devhints.io/es6) - Api Map
 
 
 ## Front-End Library
-
-* 待续
 
 ### jQuery
 
@@ -51,16 +46,15 @@ A list of web full stack resources and summarize.
 
 ## Canvas
 
-* 待续
+* [Canvas 教程](https://airingursb.gitbooks.io/canvas/content/) - 连载详细的Canvas教程
 
 ## Front-End Frame
-
-* 待续
 
 ### Vue
 
 * [Vue 实践技巧](https://segmentfault.com/a/1190000014085613) - vue 实用的小技巧
 * [vue 修饰符总结](https://segmentfault.com/a/1190000016786254) - 详细的 vue 修饰符总结
+* [Vue 父子组件通信总结](https://juejin.im/post/5bd18c72e51d455e3f6e4334) - Vue 父子组件通信的十种方式
 
 ### React
 
@@ -77,7 +71,7 @@ A list of web full stack resources and summarize.
 
 ### Web&Native&Hybrid
 
-* 待续
+* [React Native vs. Cordova、PhoneGap、Ionic](https://zhuanlan.zhihu.com/p/45356420) - [译] React Native vs. Cordova、PhoneGap、Ionic，等等 
 
 ## Front-End 工程化&构建
 
@@ -96,7 +90,7 @@ A list of web full stack resources and summarize.
 
 
 ## Front-End Resources
-* [Front-End Api Map](http://www.jintiankansha.me/t/h4cWPn140e) - 一大波前端“小抄”来袭！
+* [devhints](https://devhints.io/) - 优雅的 cheatsheet 大全
 
 
 ## Node
