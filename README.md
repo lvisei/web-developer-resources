@@ -2,6 +2,8 @@
 
 A list of web full stack resources and summarize.
 
+*在软件开发中，技术变化如此之快，你花费了大量时间学习技术和工具，一旦这些技术被取代，你的知识将变得毫无价值，因为它们大部分都是实施的细节。*
+
 ## Categories
 - [summarize-web-resources](#summarize-web-resources)
 - [Categories](#categories)
