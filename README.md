@@ -17,6 +17,7 @@ A list of web full stack resources and summarize.
     - [React](#react)
 - [WeChat Mini-Program](#wechat-mini-program)
 - [Mobile App](#mobile-app)
+    - [适配](#适配)
     - [Web&Native&Hybrid](#webnativehybrid)
 - [Front-End 工程化&构建](#front-end-工程化构建)
     - [Babel](#babel)
@@ -71,9 +72,13 @@ A list of web full stack resources and summarize.
 
 * 待续
 
+### 适配
+
+* [Retina屏下的图片优化](https://github.com/laizimo/zimo-article/issues/55#issuecomment-441607149) - 设备分辨率，屏幕密度(PPI)，Retina屏(DIPS) 等概念。
+
 ### Web&Native&Hybrid
 
-* [React Native vs. Cordova、PhoneGap、Ionic](https://zhuanlan.zhihu.com/p/45356420) - [译] React Native vs. Cordova、PhoneGap、Ionic，等等 
+* [React Native vs. Cordova、PhoneGap、Ionic](https://zhuanlan.zhihu.com/p/45356420) - [译] React Native vs. Cordova、PhoneGap、Ionic，等等。
 
 ## Front-End 工程化&构建
 
