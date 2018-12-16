@@ -9,19 +9,19 @@ A list of web full stack resources and summarize.
 - [Categories](#categories)
 - [JavaScript](#javascript)
 - [Front-End Library](#front-end-library)
-    - [jQuery](#jquery)
-        - [Deferred](#deferred)
+  - [jQuery](#jquery)
+    - [Deferred](#deferred)
 - [Canvas](#canvas)
 - [Front-End Frame](#front-end-frame)
-    - [Vue](#vue)
-    - [React](#react)
+  - [Vue](#vue)
+  - [React](#react)
 - [WeChat Mini-Program](#wechat-mini-program)
 - [Mobile App](#mobile-app)
-    - [适配](#适配)
-    - [Web&Native&Hybrid](#webnativehybrid)
+  - [适配](#适配)
+  - [Web&Native&Hybrid](#webnativehybrid)
 - [Front-End 工程化&构建](#front-end-工程化构建)
-    - [Babel](#babel)
-    - [Webpack](#webpack)
+  - [Babel](#babel)
+  - [Webpack](#webpack)
 - [Front-End Resources](#front-end-resources)
 - [Node](#node)
 - [Other](#other)
@@ -32,7 +32,7 @@ A list of web full stack resources and summarize.
 * [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/) - 　阮一峰 JavaScript 标准参考教程。
 * [零基础JavaScript全栈教程](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000) - 廖学峰的JavaScript教程。
 * [JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89) - 浅读JavaScript执行机制。
-
+* [浅谈 AST（抽象语法树）](https://github.com/CodeLittlePrince/blog/issues/19) - 平庸前端码农之蜕变 — AST
 
 ## Front-End Library
 
@@ -61,7 +61,7 @@ A list of web full stack resources and summarize.
 
 ### React
 
-* 待续
+* [实现简版 react](https://juejin.im/post/5c0c7304f265da613e22106c) - 200行代码实现简版 react
 
 ## WeChat Mini-Program 
 
@@ -107,3 +107,4 @@ A list of web full stack resources and summarize.
 ## Other
 
 * [从输入URL到页面加载的过程](https://segmentfault.com/a/1190000013662126#articleHeader56) - 梳理一个较为完整的前端向知识体系
+* [前端工程思想](https://www.yuque.com/es2049/blog/al62bl) - 想写好前端，先练好内功
