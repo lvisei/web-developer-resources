@@ -58,6 +58,7 @@ A list of web full stack resources and summarize.
 * [Vue 实践技巧](https://segmentfault.com/a/1190000014085613) - vue 实用的小技巧
 * [vue 修饰符总结](https://segmentfault.com/a/1190000016786254) - 详细的 vue 修饰符总结
 * [Vue 父子组件通信总结](https://juejin.im/post/5bd18c72e51d455e3f6e4334) - Vue 父子组件通信的十种方式
+* [加快Vue项目的开发速度](https://github.com/QDMarkMan/CodeBlog/blob/master/Vue/%E5%8A%A0%E5%BF%ABVue%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BC%80%E5%8F%91%E9%80%9F%E5%BA%A6.md) - 巧用工具开发 vue 项目
 
 ### React
 
