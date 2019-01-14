@@ -32,9 +32,10 @@ A list of web full stack resources and summarize.
 * [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/) - 　阮一峰 JavaScript 标准参考教程。
 * [零基础JavaScript全栈教程](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000) - 廖学峰的JavaScript教程。
 * [JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89) - 浅读JavaScript执行机制。
-* [浅谈 AST（抽象语法树）](https://github.com/CodeLittlePrince/blog/issues/19) - 平庸前端码农之蜕变 — AST
-* [四种模块加载方案](https://github.com/mqyqingfeng/Blog/issues/108) - AMD、CMD、CommonJS、ES6 模块
-* [Javascript 模块化管理](https://juejin.im/post/5ba9f5bff265da0af2136fd5) - Javascript 模块化管理的发展历程
+* [Event Loop的规范和实现](https://juejin.im/post/5a6155126fb9a01cb64edb45) - Event Loop规范、实现、应用。
+* [浅谈 AST（抽象语法树）](https://github.com/CodeLittlePrince/blog/issues/19) - 平庸前端码农之蜕变 — AST。
+* [四种模块加载方案](https://github.com/mqyqingfeng/Blog/issues/108) - AMD、CMD、CommonJS、ES6 模块。
+* [Javascript 模块化管理](https://juejin.im/post/5ba9f5bff265da0af2136fd5) - Javascript 模块化管理的发展历程。
 
 ## Front-End Library
 
@@ -110,4 +111,5 @@ A list of web full stack resources and summarize.
 ## Other
 
 * [从输入URL到页面加载的过程](https://segmentfault.com/a/1190000013662126#articleHeader56) - 梳理一个较为完整的前端向知识体系
+* [浏览器的单线程到JS单线程](https://segmentfault.com/a/1190000012925872?utm_source=weekly&utm_medium=email&utm_campaign=email_weekly) - 从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理
 * [前端工程思想](https://www.yuque.com/es2049/blog/al62bl) - 想写好前端，先练好内功
