@@ -34,6 +34,7 @@ A list of web full stack resources and summarize.
 * [JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89) - 浅读JavaScript执行机制。
 * [浅谈 AST（抽象语法树）](https://github.com/CodeLittlePrince/blog/issues/19) - 平庸前端码农之蜕变 — AST
 * [四种模块加载方案](https://github.com/mqyqingfeng/Blog/issues/108) - AMD、CMD、CommonJS、ES6 模块
+* [Javascript 模块化管理](https://juejin.im/post/5ba9f5bff265da0af2136fd5) - Javascript 模块化管理的发展历程
 
 ## Front-End Library
 
