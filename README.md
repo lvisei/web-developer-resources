@@ -8,6 +8,7 @@ A list of web full stack resources and summarize.
 - [summarize-web-resources](#summarize-web-resources)
 - [Categories](#categories)
 - [JavaScript](#javascript)
+- [TypeScript](#typescript)
 - [Front-End Library](#front-end-library)
   - [jQuery](#jquery)
     - [Deferred](#deferred)
@@ -16,14 +17,15 @@ A list of web full stack resources and summarize.
   - [Vue](#vue)
   - [React](#react)
 - [WeChat Mini-Program](#wechat-mini-program)
-- [Mobile App](#mobile-app)
-  - [适配](#适配)
-  - [Web&Native&Hybrid](#webnativehybrid)
+- [Web Mobile App](#web-mobile-app)
+  - [移动端适配](#移动端适配)
+  - [H5&Hybrid](#h5hybrid)
 - [Front-End 工程化&构建](#front-end-工程化构建)
   - [Babel](#babel)
   - [Webpack](#webpack)
 - [Front-End Resources](#front-end-resources)
 - [Node](#node)
+- [Flutter](#flutter)
 - [Other](#other)
 
 ## JavaScript
@@ -36,6 +38,10 @@ A list of web full stack resources and summarize.
 * [浅谈 AST（抽象语法树）](https://github.com/CodeLittlePrince/blog/issues/19) - 平庸前端码农之蜕变 — AST。
 * [四种模块加载方案](https://github.com/mqyqingfeng/Blog/issues/108) - AMD、CMD、CommonJS、ES6 模块。
 * [Javascript 模块化管理](https://juejin.im/post/5ba9f5bff265da0af2136fd5) - Javascript 模块化管理的发展历程。
+
+## TypeScript
+
+* [深入理解 TypeScript](https://github.com/jkchao/typescript-book-chinese)
 
 ## Front-End Library
 
@@ -65,6 +71,7 @@ A list of web full stack resources and summarize.
 
 ### React
 
+* [React.js 小书](https://github.com/huzidaha/react-naive-book) - 开源、免费、专业、简单的 React.js 在线教程
 * [实现简版 react](https://juejin.im/post/5c0c7304f265da613e22106c) - 200行代码实现简版 react
 
 ## WeChat Mini-Program 
@@ -72,15 +79,15 @@ A list of web full stack resources and summarize.
 * [小程序攻略](https://yuchengkai.cn/docs/zh/frontend/mp.html) - 由银科控股融汇研发部曹俊及其团队总结。
 
 
-## Mobile App
+## Web Mobile App
 
 * 待续
 
-### 适配
+### 移动端适配
 
 * [Retina屏下的图片优化](https://github.com/laizimo/zimo-article/issues/55#issuecomment-441607149) - 设备分辨率，屏幕密度(PPI)，Retina屏(DIPS) 等概念。
 
-### Web&Native&Hybrid
+### H5&Hybrid
 
 * [React Native vs. Cordova、PhoneGap、Ionic](https://zhuanlan.zhihu.com/p/45356420) - [译] React Native vs. Cordova、PhoneGap、Ionic，等等。
 
@@ -107,6 +114,10 @@ A list of web full stack resources and summarize.
 ## Node
 
 * 待续
+
+## Flutter
+
+* [Flutter实战](https://book.flutterchina.club/)
 
 ## Other
 
