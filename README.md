@@ -101,6 +101,7 @@ _引入 babel 来解决代码兼容性的问题_
 
 - [Babel](https://babel.docschina.org/) - Babel 中文站。
 - [babel-polyfill VS babel-runtime VS babel-preset-env](https://juejin.im/post/5aefe0a6f265da0b9e64fa54) - 当运行环境不支持新的 API,对比这几种的解决方案。
+- [Polyfill 方案的过去、现在和未来](https://github.com/sorrycc/blog/issues/80) - Polyfill 方案。
 
 ### Webpack
 
