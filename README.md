@@ -9,6 +9,9 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 - [summarize-web-resources](#summarize-web-resources)
 - [Categories](#categories)
 - [JavaScript](#javascript)
+  - [Basis](#basis)
+  - [Deeply](#deeply)
+  - [Modular](#modular)
 - [TypeScript](#typescript)
 - [Front-End Library](#front-end-library)
   - [jQuery](#jquery)
@@ -32,14 +35,21 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 
 ## JavaScript
 
+### Basis
 - [JavaScript 指南](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript) - MDN web docs 的完整的 JavaScript 参考文档
 - [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/) - 　阮一峰 JavaScript 标准参考教程。
 - [零基础 JavaScript 全栈教程](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000) - 廖学峰的 JavaScript 教程。
+
+### Deeply
 - [JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89) - 浅读 JavaScript 执行机制。
 - [Event Loop 的规范和实现](https://juejin.im/post/5a6155126fb9a01cb64edb45) - Event Loop 规范、实现、应用。
 - [浅谈 AST（抽象语法树）](https://github.com/CodeLittlePrince/blog/issues/19) - 平庸前端码农之蜕变 — AST。
+- [Javascript 闭包](https://github.com/ljianshu/Blog/issues/6) - 深入浅出Javascript闭包
+  
+### Modular
 - [四种模块加载方案](https://github.com/mqyqingfeng/Blog/issues/108) - AMD、CMD、CommonJS、ES6 模块。
-- [Javascript 模块化管理](https://juejin.im/post/5ba9f5bff265da0af2136fd5) - Javascript 模块化管理的发展历程。
+- [Javascript 模块化管理](https://github.com/erbing/blog/blob/master/%E5%89%8D%E7%AB%AF%E4%B9%8B%E8%B7%AF%20-%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/08:%20%E7%AE%80%E6%98%93%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86.MD) - Javascript 模块化管理的发展历程。
+- [前端模块化详解](https://github.com/ljianshu/Blog/issues/48) - 前端模块化详解。
 
 ## TypeScript
 
@@ -63,12 +73,15 @@ _jQuery 的 Deferred/Promise_
 
 ## Front-End Frame
 
+- [现代 js 框架存在的根本原因](https://github.com/dt-fe/weekly/blob/master/57.%E7%B2%BE%E8%AF%BB%E3%80%8A%E7%8E%B0%E4%BB%A3%20js%20%E6%A1%86%E6%9E%B6%E5%AD%98%E5%9C%A8%E7%9A%84%E6%A0%B9%E6%9C%AC%E5%8E%9F%E5%9B%A0%E3%80%8B.md) - 深入思考为何前端需要框架，以及 web components 是否可以代替前端框架。
+- [现代 JavaScript 概览](https://github.com/dt-fe/weekly/blob/master/24.%E7%B2%BE%E8%AF%BB%E3%80%8A%E7%8E%B0%E4%BB%A3%20JavaScript%20%E6%A6%82%E8%A7%88%E3%80%8B.md) - 现代 JavaScript 新概念。
+
 ### Vue
 
-- [Vue 实践技巧](https://segmentfault.com/a/1190000014085613) - vue 实用的小技巧
-- [vue 修饰符总结](https://segmentfault.com/a/1190000016786254) - 详细的 vue 修饰符总结
-- [Vue 父子组件通信总结](https://juejin.im/post/5bd18c72e51d455e3f6e4334) - Vue 父子组件通信的十种方式
-- [加快 Vue 项目的开发速度](https://github.com/QDMarkMan/CodeBlog/blob/master/Vue/%E5%8A%A0%E5%BF%ABVue%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BC%80%E5%8F%91%E9%80%9F%E5%BA%A6.md) - 巧用工具开发 vue 项目
+- [Vue 实践技巧](https://segmentfault.com/a/1190000014085613) - vue 实用的小技巧。
+- [vue 修饰符总结](https://segmentfault.com/a/1190000016786254) - 详细的 vue 修饰符总结。
+- [Vue 父子组件通信总结](https://juejin.im/post/5bd18c72e51d455e3f6e4334) - Vue 父子组件通信的十种方式。
+- [加快 Vue 项目的开发速度](https://github.com/QDMarkMan/CodeBlog/blob/master/Vue/%E5%8A%A0%E5%BF%ABVue%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BC%80%E5%8F%91%E9%80%9F%E5%BA%A6.md) - 巧用工具开发 vue 项目。
 
 ### React
 
@@ -122,7 +135,7 @@ _tree Shaking_
 
 ## Node
 
-- 待续
+- [Browser与Node的Event Loop的区别](https://github.com/ljianshu/Blog/issues/54) - 浏览器与Node的事件循环的区别。
 
 ## Flutter
 
