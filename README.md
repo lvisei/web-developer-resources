@@ -92,6 +92,7 @@ _jQuery 的 Deferred/Promise_
 ## WeChat Mini-Program
 
 - [小程序攻略](https://yuchengkai.cn/docs/zh/frontend/mp.html) - 由银科控股融汇研发部曹俊及其团队总结。
+- [小程序多端框架全面测评](https://juejin.im/post/5c90eb366fb9a070d4199cc9) - 多端框架对比。
 
 ## Web Mobile App
 
