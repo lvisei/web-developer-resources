@@ -29,6 +29,7 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
   - [Webpack](#webpack)
 - [Front-End Resources](#front-end-resources)
 - [Browser](#browser)
+- [WebAssembly](#webassembly)
 - [Node](#node)
 - [Flutter](#flutter)
 - [Other](#other)
@@ -138,6 +139,11 @@ _tree Shaking_
 - [九种跨域方式实现原理](https://github.com/ljianshu/Blog/issues/55) - 前后端数据交互经常会碰到请求跨域，什么是跨域，以及有哪几种跨域方式。
 - [常见六大 Web 安全攻防解析](https://github.com/ljianshu/Blog/issues/56) - 常见六大 Web 安全攻防解析。
 - [浏览器中的二进制以及相关转换](https://blog.xiange.tech/post/binary-in-frontend/) - 本篇文章总结了浏览器端的二进制以及有关数据之间的转化，如 ArrayBuffer，TypedArray，Blob，DataURL，ObjectURL，Text 之间的互相转换。
+
+## WebAssembly
+
+- [WebAssembly 现状与实战](https://www.ibm.com/developerworks/cn/web/wa-lo-webassembly-status-and-reality/index.html)
+  
 
 ## Node
 
