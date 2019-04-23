@@ -128,6 +128,10 @@ _tree Shaking_
 
 - [Tree Shaking in Webpack](https://github.com/easonyq/easonyq.github.io/blob/master/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/webpack/treeShaking.md) - Tree Shaking in Webpack 介绍
 
+_打包原理解析与实现_
+
+- [webpack工程化打包原理解析与实现](https://github.com/airuikun/blog/issues/4)
+
 ## Front-End Resources
 
 - [devhints](https://devhints.io/) - 优雅的 cheatsheet 大全
