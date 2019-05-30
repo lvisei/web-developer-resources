@@ -179,6 +179,7 @@ _打包原理解析与实现_
 ## Serverless
 
 - [探索 Serverless 中的前端开发模式](https://github.com/nodejh/nodejh.github.io/issues/49) - 从前端开发模式的演进、基于 Serverless 的前端开发案例以及 Serverless 开发最佳实践等方面，与大家探讨 Serverless 中的前端开发模式。
+- [Serverless 给前端带来了什么](https://github.com/dt-fe/weekly/blob/master/94.%E7%B2%BE%E8%AF%BB%E3%80%8AServerless%20%E7%BB%99%E5%89%8D%E7%AB%AF%E5%B8%A6%E6%9D%A5%E4%BA%86%E4%BB%80%E4%B9%88%E3%80%8B.md) - 前端框架总是带入后端思维，而 Serverless 则是把前端思维带入了后端运维。
 
 ## WebAssembly
 
