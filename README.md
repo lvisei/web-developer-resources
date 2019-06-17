@@ -8,8 +8,10 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 
 - [summarize-web-resources](#summarize-web-resources)
 - [Categories](#categories)
-- [JavaScript](#javascript)
+- [CSS](#css)
   - [Basis](#basis)
+- [JavaScript](#javascript)
+  - [Basis](#basis-1)
   - [Deeply](#deeply)
   - [Modular](#modular)
 - [TypeScript](#typescript)
@@ -41,6 +43,12 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 - [Node](#node)
 - [Flutter](#flutter)
 - [Other](#other)
+
+## CSS
+
+### Basis
+
+- [如何居中一个元素](https://github.com/ljianshu/Blog/issues/29) - 介绍水平居中，垂直居中，还有水平垂直居中各种办法。
 
 ## JavaScript
 
