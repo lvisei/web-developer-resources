@@ -18,6 +18,7 @@
 - 基于leaflet加载ArcGIS服务插件 [esri-leaflet](http://leaflet.marsgis.cn/forleaflet/plugins/esri-leaflet/api-reference/index.html)。
 - 国内常用地图服务资源加载插件Leaflet.ChineseTmsProviders [Provider for Chinese Tms Service](https://github.com/htoooth/Leaflet.ChineseTmsProviders)，方便快捷的调用地图服务。支持的地图服务类型：TianDiTu、GaoDe、Google、Geoq、OSM。
 
+
 #### 优化 marker 相关的插件
 - 提供了丰富多彩的图标 [Leaflet.awesome-markers](https://github.com/lvoogdt/Leaflet.awesome-markers), See the [demo map](http://jsfiddle.net/VPzu4/92/)。
 
@@ -28,6 +29,10 @@
 - 优化重叠在一起的markers [OverlappingMarkerSpiderfier-Leaflet](https://github.com/jawj/OverlappingMarkerSpiderfier-Leaflet), See the [demo map](http://jawj.github.io/OverlappingMarkerSpiderfier-Leaflet/demo.html)。
 
 - 优化在边框上显示不在当前视野中的marker [Leaflet.EdgeMarker](https://github.com/ubergesundheit/Leaflet.EdgeMarker), See the [demo map](http://ubergesundheit.github.io/Leaflet.EdgeMarker/)。
+
+#### 聚集类插件
+
+- 文本与图形聚集按图层优化插件 [Leaflet.LayerGroup.Collision](https://github.com/MazeMap/Leaflet.LayerGroup.Collision), See the [demo map](http://mazemap.github.io/Leaflet.LayerGroup.Collision/demo/demo.html)。
 
 #### 聚合插件
 
