@@ -24,20 +24,20 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
   - [React](#react)
 - [WeChat Mini-Program](#wechat-mini-program)
 - [Web Mobile App](#web-mobile-app)
-  - [移动端适配](#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D)
+  - [移动端适配](#%e7%a7%bb%e5%8a%a8%e7%ab%af%e9%80%82%e9%85%8d)
   - [H5&Hybrid](#h5hybrid)
-- [Front-End 工程化&构建](#front-end-%E5%B7%A5%E7%A8%8B%E5%8C%96%E6%9E%84%E5%BB%BA)
+- [Front-End 工程化&构建](#front-end-%e5%b7%a5%e7%a8%8b%e5%8c%96%e6%9e%84%e5%bb%ba)
   - [Babel](#babel)
   - [Webpack](#webpack)
 - [Front-End Resources](#front-end-resources)
 - [Browser](#browser)
   - [BOM](#bom)
-  - [加载](#%E5%8A%A0%E8%BD%BD)
-  - [渲染](#%E6%B8%B2%E6%9F%93)
-  - [线程](#%E7%BA%BF%E7%A8%8B)
-  - [网络](#%E7%BD%91%E7%BB%9C)
-  - [存储](#%E5%AD%98%E5%82%A8)
-  - [安全](#%E5%AE%89%E5%85%A8)
+  - [加载](#%e5%8a%a0%e8%bd%bd)
+  - [渲染](#%e6%b8%b2%e6%9f%93)
+  - [线程](#%e7%ba%bf%e7%a8%8b)
+  - [网络](#%e7%bd%91%e7%bb%9c)
+  - [存储](#%e5%ad%98%e5%82%a8)
+  - [安全](#%e5%ae%89%e5%85%a8)
 - [Serverless](#serverless)
 - [WebAssembly](#webassembly)
 - [Node](#node)
@@ -157,6 +157,7 @@ _打包原理解析与实现_
 ### BOM
 
 - [浏览器中的二进制以及相关转换](https://blog.xiange.tech/post/binary-in-frontend/) - 本篇文章总结了浏览器端的二进制以及有关数据之间的转化，如 ArrayBuffer，TypedArray，Blob，DataURL，ObjectURL，Text 之间的互相转换。
+- [超好用的Blob对象](https://github.com/akira-cn/FE_You_dont_know/issues/12) - Blob 是 Binary Large Object 的缩写，Blob 对象表示一个不可变、原始数据的类文件对象。
 
 
 ### 加载
@@ -198,6 +199,7 @@ _打包原理解析与实现_
 ## Node
 
 - [Browser 与 Node 的 Event Loop 的区别](https://github.com/ljianshu/Blog/issues/54) - 浏览器与 Node 的事件循环的区别。
+- [深入理解Node.js 中的进程与线程](https://juejin.im/post/5d43017be51d4561f40adcf9) - 线程与进程的概念及关于单线程的误区。
 
 ## Flutter
 
@@ -206,3 +208,4 @@ _打包原理解析与实现_
 ## Other
 
 - [前端工程思想](https://www.yuque.com/es2049/blog/al62bl) - 想写好前端，先练好内功。
+
