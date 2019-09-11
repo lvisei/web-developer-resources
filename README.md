@@ -126,9 +126,9 @@ _jQuery 的 Deferred/Promise_
 
 - [React Native vs. Cordova、PhoneGap、Ionic](https://zhuanlan.zhihu.com/p/45356420) - [译] React Native vs. Cordova、PhoneGap、Ionic，等等。
 
-## Front-End 工程化&构建
+## Front-End Engineering
 
-- 待续
+- [QQ音乐商业化Web团队前端工程化实践总结](https://cloud.tencent.com/developer/article/1500013)- ，结合移动端的基础库重构和UI组件库开发在前端工程化的一些探索和实践。
 
 ### Babel
 
