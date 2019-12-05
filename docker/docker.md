@@ -147,7 +147,7 @@ docker container run --rm -p 8000:3000 -it koa-demo /bin/bash
 
 ```bash
 #!/bin/sh
-echo docker container run mysql 3307
+echo docker container run mysql 
 docker container run \
   --rm \
   --name mymysql \
