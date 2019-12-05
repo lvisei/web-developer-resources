@@ -143,6 +143,24 @@ docker container rm [containerID]
 docker container run --rm -p 8000:3000 -it koa-demo /bin/bash
 ```
 
+`mysql` 容器启动脚本，方便维护
+
+```bash
+#!/bin/sh
+echo docker container run mysql 3307
+docker container run \
+  --rm \
+  --name mymysql \
+  --volume "$PWD/data":/var/lib/mysql \
+  -e MYSQL_ROOT_PASSWORD=3307 \
+  -p :33060 \
+  -p 3307:3306 \
+  -d \
+  mysql
+```
+
+
+
 #### 5.4 CMD 命令
 
 上面，容器启动以后，需要手动输入命令 node demos/01.js。我们可以把这个命令写在 Dockerfile 里面，这样容器启动以后，这个命令就已经执行了，不用再手动输入了。
