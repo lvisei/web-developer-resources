@@ -49,6 +49,7 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 ### Basis
 
 - [如何居中一个元素](https://github.com/ljianshu/Blog/issues/29) - 介绍水平居中，垂直居中，还有水平垂直居中各种办法。
+- [文本溢出截断省略方案](https://www.zoo.team/article/text-overflow) - 文本溢出截断省略方案合集。
 
 ## JavaScript
 
