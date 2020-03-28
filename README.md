@@ -183,7 +183,12 @@ _打包原理解析与实现_
 ### 网络
 
 - [九种跨域方式实现原理](https://github.com/ljianshu/Blog/issues/55) - 前后端数据交互经常会碰到请求跨域，什么是跨域，以及有哪几种跨域方式。
+
 - [HTTP/2 及 HTTP/3特性](https://github.com/ljianshu/Blog/issues/57) - 一文读懂HTTP/2 及 HTTP/3特性。
+
+### 异常
+
+- [前端异常捕获](http://jartto.wang/2018/11/20/js-exception-handling/) - 解读前端异常捕获，优雅处理前端异常。
 
 ### 存储
 
