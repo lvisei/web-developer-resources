@@ -197,6 +197,7 @@ _打包原理解析与实现_
 ### 安全
 
 - [常见六大 Web 安全攻防解析](https://github.com/ljianshu/Blog/issues/56) - 常见六大 Web 安全攻防解析。
+- [单点登录](https://www.zoo.team/article/sso) - 单点登录( Single Sign On ，简称 SSO）详解。
 
 ## Serverless
 
