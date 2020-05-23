@@ -33,7 +33,7 @@ export Ali_Secret="jlsdflanljkljlfdsaklkjflsa"
 acme.sh --issue --dns dns_ali -d example.com -d www.example.com
 ```
 
-有需要可直接生成一个通配符域名证书。
+有需求可直接生成一个通配符域名证书。
 
 ```shell
 acme.sh  --issue -d example.com  -d '*.example.com'  --dns dns_ali
