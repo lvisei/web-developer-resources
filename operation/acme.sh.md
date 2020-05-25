@@ -62,7 +62,7 @@ acme.sh --installcert -d '*.example.com' \
 
 安装证书并配置完成后访问 [SSL Server Test](https://www.ssllabs.com/ssltest/index.html)，输入域名测试证书。
 
-###  四、更新证书
+##  四、更新证书
 
 更新证书不需要做任何操作， **acme.sh** 会自动创建 cronjob，每天 0:00 点自动检测所有的证书，如果证书快过期了，则会自动更新证书。
 
