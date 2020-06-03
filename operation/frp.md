@@ -16,7 +16,7 @@
 
 ## 二、为什么选择 `frp`
 
-开源，维护频繁，Go语言开发占用内存小，代理效率高、配置简单，自定义插件化配置以及可开发自己业务需求的插件。
+开源，维护频繁，Go语言开发占用内存小，代理稳定、配置简单，自定义插件化配置以及可开发自己业务需求的插件。
 
 ![img](https://raw.githubusercontent.com/fatedier/frp/master/doc/pic/architecture.png)
 
