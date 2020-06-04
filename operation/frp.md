@@ -14,13 +14,17 @@
 
 **需求**：通过域名或IP可访问三台内网部署的 `http` 服务、通过域名或IP可通信三台内网的远程桌面或 `SSH`
 
-## 二、为什么选择 `frp`
+## 二、为什么选择  [frp](https://github.com/fatedier/frp)
 
-开源，维护频繁，Go语言开发占用内存小，代理稳定、配置简单，自定义插件化配置以及可开发自己业务需求的插件。
+- 开源，维护频繁。
+- 支持 TCP、UDP、HTTP、HTTPS、STCP 等协议。
+- `GoLang`开发占用内存小，代理稳定。
+- 配置简单方便，自定义插件化配置以及可开发自己业务需求的插件。
+- 提供安全地暴露内网服务、加密与压缩、底层通信可选 kcp 协议、端口复用、负载均衡、健康检查、URL 路由、范围端口映射、请求的 header处理等众多功能。
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfgnqvey96j30es0co3z9.jpg)
 
-代理服务器上面，可在浏览器里面访问的各代理状态的可视化仪表盘。
+初次之前还可通过浏览器查看 frp 的状态以及代理统计信息展示，代理服务器上面，可在浏览器里面访问的各代理状态的可视化仪表盘。
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfgnr8wpxrj31pw0u0tc0.jpg)
 
@@ -41,7 +45,9 @@
 
 ### 2. 下载`frp`
 
-进入 [frp](https://github.com/fatedier/frp/releases) 的 GitHub releases 地址，查看已经编译好的最新版，下载对应云服务器系统的版本。
+进入 [frp](https://github.com/fatedier/frp/releases) 的 GitHub releases 地址，查看最新版，上面已提供各常用操作系统架构编译过的的包，下载对应云服务器系统的版本。
+
+你也可以下载源码，安装`GoLang`环境进行自己编译。
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfgnpgfeh2j30m40eomz4.jpg)
 
@@ -101,6 +107,8 @@ log_max_days = 1
 如果服务器是 Windows系统推荐使用 [winsw](https://github.com/winsw/winsw) 工具将 `frps` 配置成系统服务。
 
 如果服务器是 Linux 系统，在下载`frp`解压目录的 systemd 目录下面已经有提供将 `frps ` 配置成系统服务的文件。
+
+- 具体配置过程待更新
 
 ## 四、客户端配置
 
@@ -177,6 +185,8 @@ subdomain = test
 ./frpc -c ./frpc.ini
 ```
 
+结下来就可以访问测试你穿透的远程连接、SSH、web服务等。
+
 ### 5. 将 `frpc` 配置成系统服务
 
 这里不再赘述，与配置将 `frps` 配置成系统服务类似。
@@ -187,7 +197,7 @@ subdomain = test
 
 ### 参考资料
 
-- [frp 使用文档](https://github.com/fatedier/frp/blob/master/README_zh.md)
+- [frp 使用文档](https://github.com/fatedier/frp/blob/master/README.md)
 
 
 

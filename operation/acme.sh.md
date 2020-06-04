@@ -69,7 +69,8 @@ acme.sh --installcert -d '*.example.com' \
 ### 参考资料
 
 - [An ACME Shell script: acme.sh](https://github.com/acmesh-official/acme.sh)
-
 -  [ acme.sh 使用说明](https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E)
 -  [使用 acme.sh 给 Nginx 安装 Let’ s Encrypt 提供的免费 SSL 证书](https://ruby-china.org/topics/31983)
+
+*原文首发地址 [https://github.com/liuvigongzuoshi/summarize-web-resources/blob/master/operation/acme.sh.md](https://github.com/liuvigongzuoshi/summarize-web-resources/blob/master/operation/acme.sh.md)*
 
