@@ -47,9 +47,9 @@
 
 ### 3. 配置`frps`
 
-下载完成后，解压打开文件夹，找到 frp.ini 文件进行配置服务端代理规则，frpc 开头的文件代理服务器上面不会用，在配置内网的服务器上面会用到。
+下载完成后，解压打开文件夹，找到 frps.ini 文件进行配置服务端代理规则，frpc 开头的文件代理服务器上面不会用，在配置内网的服务器上面会用到。
 
- 将 frp.ini 配置基本内容如下：
+ 将 frps.ini 配置基本内容如下：
 
 ```ini
 [common]
@@ -60,7 +60,6 @@ bind_port = 7000
 # 设置默认的UDP端口
 bind_udp_port = 7001
 
-# if you want to support virtual host, you must set the http port for listening (optional)
 # 监听7080与7443端口，进行 HTTP 与 HTTPS 代理，HTTP 与 HTTPS 端口可以成设置一样
 vhost_http_port = 7080
 vhost_https_port = 7443
@@ -99,10 +98,94 @@ log_max_days = 1
 
 ### 5. 将 `frps` 配置成系统服务
 
-如果服务器是 Windows系统推荐使用 [winsw](https://github.com/winsw/winsw) 工具将 `frps` 配置成系统服务
+如果服务器是 Windows系统推荐使用 [winsw](https://github.com/winsw/winsw) 工具将 `frps` 配置成系统服务。
 
-如果服务器是 
-
-
+如果服务器是 Linux 系统，在下载`frp`解压目录的 systemd 目录下面已经有提供将 `frps ` 配置成系统服务的文件。
 
 ## 四、客户端配置
+
+### 1. 下载`frp`
+
+进入 [frp](https://github.com/fatedier/frp/releases) 的 GitHub releases 地址，查看已经编译好的最新版，下载对应代理器系统的版本。
+
+### 2. 配置`frpc`
+
+下载完成后，解压打开文件夹，找到 frpc.ini 文件进行配置服务端代理规则，同理 frps 开头的文件在内网服务器上面不会用到。
+
+ 将 frpc.ini 配置基本内容如下：
+
+```ini
+[common]
+# 云服务器的IP地址及 frps 里面设置的通信端口
+server_addr = x.x.x.x
+server_port = 7000
+
+# 授权 token 与 frps 配置的一样
+token = 123456789
+
+# 设置日志文件记录路径
+log_file = ./logs/frps.log
+# 设置日志记录级别，分别有trace, debug, info, warn, error
+log_level = info
+# 设置日志记录最大天数
+log_max_days = 1
+
+# 设置可在浏览器里面配置热更新的服务
+admin_addr = 127.0.0.1
+admin_port = 7400
+admin_user = admin
+admin_pwd = admin
+
+# tcp 范围 7001-7010
+
+# RDP，即Remote Desktop 远程桌面，Windows的RDP默认端口是3389，协议为TCP
+[rdp]
+type = tcp
+local_ip = 127.0.0.1           
+local_port = 3389
+remote_port = 7001
+subdomain = rdp
+
+# SMB，即Windows文件共享所使用的协议，默认端口号445，协议TCP，本条规则可实现远程文件访问。
+#[smb]
+#type = tcp
+#local_ip = 127.0.0.1
+#local_port = 445
+#remote_port = 7002
+
+# 代理本机 SSH
+#[ssh]
+#type = tcp
+#local_ip = 127.0.0.1
+#local_port = 22
+#remote_port = 7003
+
+# 设置本地端口80 HTTP 服务的代理
+# 可通过 frps 里面配置的 subdomain_host 域名
+# 访问 test.example.com 加 HTTP 代理端口，即 http://test.example.com:7080
+[web_test]
+type = http
+local_port = 80
+subdomain = test
+```
+
+### 4. 启动 `frpc`
+
+启动`frpc`的服务与`frps` 类似。
+
+```bash
+./frpc -c ./frpc.ini
+```
+
+### 5. 将 `frpc` 配置成系统服务
+
+这里不再赘述，与配置将 `frps` 配置成系统服务类似。
+
+## 四、将穿透域名配置成泛型域名证书
+
+- 待更新
+
+### 参考资料
+
+- [frp 使用文档](https://github.com/fatedier/frp/blob/master/README_zh.md)
+
