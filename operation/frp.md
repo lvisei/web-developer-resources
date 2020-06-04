@@ -189,3 +189,6 @@ subdomain = test
 
 - [frp 使用文档](https://github.com/fatedier/frp/blob/master/README_zh.md)
 
+
+
+*原文首发地址 [https://github.com/liuvigongzuoshi/summarize-web-resources/blob/master/operation/frp.md](https://github.com/liuvigongzuoshi/summarize-web-resources/blob/master/operation/frp.md)*
