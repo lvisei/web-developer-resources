@@ -10,7 +10,25 @@
 </template>
 ```
 
-2、 数据劫持：`vue`中`data`的数据默认便会进行双向数据绑定，若是将大量的和渲染无关的数据直接放置在`data`中，将会浪费双向数据绑定时所消耗的性能，将这些和渲染无关的数据进行抽离并配合`Object.freeze`进行处理。
+2、动态注册hook：方便摧毁实例化的对象 。
+
+```javascript
+export default {
+  mounted() {
+    const picker = new Pickaday({
+      // ...
+    });
+
+    this.$once("hook:beforeDestroy", () => {
+      picker.destroy();
+    })
+  }
+};
+```
+
+
+
+3、 数据劫持：`vue`中`data`的数据默认便会进行双向数据绑定，若是将大量的和渲染无关的数据直接放置在`data`中，将会浪费双向数据绑定时所消耗的性能，将这些和渲染无关的数据进行抽离并配合`Object.freeze`进行处理。
 
 ```javascript
 const tableList = Object.freeze([
@@ -19,7 +37,7 @@ const tableList = Object.freeze([
 ])
 ```
 
-3、数据更新：一次性更新多个数据时，可使用如下方法一起赋值。
+4、数据更新：一次性更新多个数据时，可使用如下方法一起赋值。
 
 ```javascript
 const {name, age, gender} = resData

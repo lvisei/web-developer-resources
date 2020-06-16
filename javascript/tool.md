@@ -1,4 +1,6 @@
-# Tool
+# Tools
+
+
 
 ## throttle
 
@@ -38,6 +40,8 @@ function throttle(fn, threshhold) {
   }
 ```
 
+
+
 ## debounce
 
 ```javascript
@@ -61,6 +65,8 @@ function debounce(fn, interval) {
 
   }
 ```
+
+
 
 ## call、bind、apply
 
@@ -88,6 +94,8 @@ Function.prototype.call = function(cxt, ...args) {
   }
 ```
 
+
+
 ### apply
 
 ```javascript
@@ -109,6 +117,8 @@ Funtion.prototype.apply = function(ctx, args) {
 
   }
 ```
+
+
 
 ### bind
 
@@ -136,6 +146,8 @@ Funtion.prototype.bind = function(obj) {
   }
 ```
 
+
+
 ## 柯里化
 
 ```javascript
@@ -159,6 +171,27 @@ function currying(fn) {
 
   return closure;
 
+}
+```
+
+
+
+## 数据缓冲器分片处理
+
+```javascript
+function multistep(steps, args, callback){
+    var tasks = steps.concat();
+
+    setTimeout(function(){
+        var task = tasks.shift();
+        task.apply(null, args || []);   //调用Apply参数必须是数组
+
+        if(tasks.length > 0){
+            setTimeout(arguments.callee, 25);
+        }else{
+            callback();
+        }
+    }, 25);
 }
 ```
 
