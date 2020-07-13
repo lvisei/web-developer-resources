@@ -5,8 +5,11 @@
 ### Concurrency
 
 - [Concurrency is not Parallelism](https://talks.golang.org/2012/waza.slide#1) - Rob Pike 的并发不是并行演讲， 附[译文](https://www.cyningsun.com/12-09-2019/concurrency-is-not-parallelism.html)及[视频](https://www.youtube.com/watch?v=cN_DpYBzKso)。
-
 - [20 张动图为你演示 Go 并发](https://learnku.com/go/t/39490) - 并发可视化讲解。
+
+### Project Layout
+
+- [Standard Go Project Layout](https://github.com/golang-standards/project-layout) - 标准 Go 项目布局。
 
 ## Open source library
 
@@ -37,3 +40,4 @@
 ### Micro Services
 
 - -
+
