@@ -69,7 +69,7 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 
 ### Modular
 
-- [[JavaScript 模块化的历史进程](https://segmentfault.com/a/1190000023017398)] - 模块化的历史进程历史故事。
+- [JavaScript 模块化的历史进程](https://segmentfault.com/a/1190000023017398)] - 模块化的历史进程历史故事。
 - [四种模块加载方案](https://github.com/mqyqingfeng/Blog/issues/108) - AMD、CMD、CommonJS、ES6 模块。
 - [Javascript 模块化管理](https://github.com/erbing/blog/blob/master/%E5%89%8D%E7%AB%AF%E4%B9%8B%E8%B7%AF%20-%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/08:%20%E7%AE%80%E6%98%93%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86.MD) - Javascript 模块化管理的发展历程。
 - [前端模块化详解](https://github.com/ljianshu/Blog/issues/48) - 前端模块化详解。
