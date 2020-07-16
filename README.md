@@ -165,7 +165,8 @@ _打包原理解析与实现_
 
 ### BOM
 
-- [浏览器中的二进制以及相关转换](https://blog.xiange.tech/post/binary-in-frontend/) - 本篇文章总结了浏览器端的二进制以及有关数据之间的转化，如 ArrayBuffer，TypedArray，Blob，DataURL，ObjectURL，Text 之间的互相转换。
+- [你不知道的 Blob 总结](https://juejin.im/post/5ede5300e51d4578a6798220) - 总结 Blob 的使用及应用场景。
+- [浏览器中的二进制以及相关转换](https://github.com/shfshanyue/blog/issues/25) - 本篇文章总结了浏览器端的二进制以及有关数据之间的转化，如 ArrayBuffer，TypedArray，Blob，DataURL，ObjectURL，Text 之间的互相转换。
 - [超好用的Blob对象](https://github.com/akira-cn/FE_You_dont_know/issues/12) - Blob 是 Binary Large Object 的缩写，Blob 对象表示一个不可变、原始数据的类文件对象。
 
 
