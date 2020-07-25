@@ -106,11 +106,14 @@ _jQuery 的 Deferred/Promise_
 - [Vue 父子组件通信总结](https://juejin.im/post/5bd18c72e51d455e3f6e4334) - Vue 父子组件通信的十种方式。
 - [加快 Vue 项目的开发速度](https://github.com/QDMarkMan/CodeBlog/blob/master/Vue/%E5%8A%A0%E5%BF%ABVue%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BC%80%E5%8F%91%E9%80%9F%E5%BA%A6.md) - 巧用工具开发 vue 项目。
 - [Vue.js 和第三方 JavaScript 的逐渐集成](https://github.com/xitu/gold-miner/blob/master/TODO1/sliding-in-and-out-of-vue-js.md) - Vue.js 和第三方 JavaScript 的逐渐集成方案
+- [9 performance secrets revealed](https://slides.com/akryum/vueconfus-2019) - 九种Vue性能优化方法，[演讲视频](https://www.youtube.com/watch?v=5B66qer8cZo)与[译文](https://www.jianshu.com/p/f372d0e3de80)。
 
 ### React
 
-- [React.js 小书](https://github.com/huzidaha/react-naive-book) - 开源、免费、专业、简单的 React.js 在线教程
-- [实现简版 react](https://juejin.im/post/5c0c7304f265da613e22106c) - 200 行代码实现简版 react
+- [React.js 小书](https://github.com/huzidaha/react-naive-book) - 开源、免费、专业、简单的 React.js 在线教程。
+- [实现简版 react](https://juejin.im/post/5c0c7304f265da613e22106c) - 200 行代码实现简版 react。
+- [22 React Performance Optimization Techniques](https://medium.com/technofunnel/https-medium-com-mayank-gupta-6-88-21-performance-optimizations-techniques-for-react-d15fa52c2349) - 优化 React 性能的22个技巧。
+- [性能！！让你的 React 组件跑得再快一点](https://www.zoo.team/article/react-render) - 分析渲染(Render)时影响性能的点。
 
 ## WeChat Mini-Program
 
