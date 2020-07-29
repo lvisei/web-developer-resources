@@ -160,6 +160,10 @@ _打包原理解析与实现_
 
 - [webpack工程化打包原理解析与实现](https://github.com/airuikun/blog/issues/4)
 
+### 版本管理
+
+- [高效使用 commit](https://segmentfault.com/a/1190000023388007) - git commit 格式规范可以在浏览项目历史的过程中看到更易读的信息，并且能用 commit 的信息直接生成 change log 。
+
 ## Front-End Resources
 
 - [devhints](https://devhints.io/) - 优雅的 cheatsheet 大全
@@ -169,7 +173,7 @@ _打包原理解析与实现_
 ### BOM
 
 - [你不知道的 Blob 总结](https://juejin.im/post/5ede5300e51d4578a6798220) - 总结 Blob 的使用及应用场景。
-- [浏览器中的二进制以及相关转换](https://github.com/shfshanyue/blog/issues/25) - 本篇文章总结了浏览器端的二进制以及有关数据之间的转化，如 ArrayBuffer，TypedArray，Blob，DataURL，ObjectURL，Text 之间的互相转换。
+- [玩转前端二进制](https://juejin.im/post/5f01ddfee51d4534c36d8914) - 本篇文章总结了浏览器端的二进制以及有关数据之间的转化，如 ArrayBuffer，TypedArray，Blob，DataURL，ObjectURL，Text 之间的互相转换。
 - [超好用的Blob对象](https://github.com/akira-cn/FE_You_dont_know/issues/12) - Blob 是 Binary Large Object 的缩写，Blob 对象表示一个不可变、原始数据的类文件对象。
 
 
@@ -202,7 +206,10 @@ _打包原理解析与实现_
 ### 安全
 
 - [常见六大 Web 安全攻防解析](https://github.com/ljianshu/Blog/issues/56) - 常见六大 Web 安全攻防解析。
+
 - [单点登录](https://www.zoo.team/article/sso) - 单点登录( Single Sign On ，简称 SSO）详解。
+
+- [混合加密](https://segmentfault.com/a/1190000023328344) - 混合加密详解及[加密流程图](https://tva1.sinaimg.cn/large/007S8ZIlgy1gh7oukh7doj31l00pcag5.jpg)。
 
 ## Serverless
 
