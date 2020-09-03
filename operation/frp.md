@@ -106,9 +106,27 @@ log_max_days = 1
 
 如果服务器是 Windows系统推荐使用 [winsw](https://github.com/winsw/winsw) 工具将 `frps` 配置成系统服务。
 
-如果服务器是 Linux 系统，在下载`frp`解压目录的 systemd 目录下面已经有提供将 `frps ` 配置成系统服务的文件。
+- 下载  *WinSW.exe* or *WinSW.zip*，更改 WinSW.exe 名称为 frps-service.exe
 
-- 具体配置过程待更新
+- 编写 frps-service.xml 配置文件
+
+  ```xml
+  <service>
+   <id>frps</id>
+   <name>frps</name>
+   <description>frps</description>
+   <logmode>roll</logmode>
+   <depend></depend>
+   <executable>path/frps.exe</executable>
+   <arguments>-c frps.ini</arguments>
+  </service>
+  ```
+
+- 安装 `frps` 到系统服务中 `frps-service install`
+
+- 启动服务 `frps-service start`
+
+如果服务器是 Linux 系统，在下载`frp`解压目录的 systemd 目录下面已经有提供将 `frps ` 配置成系统服务的文件。
 
 ## 四、客户端配置
 

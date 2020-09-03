@@ -66,6 +66,7 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 - [浅谈 AST（抽象语法树）](https://github.com/CodeLittlePrince/blog/issues/19) - 平庸前端码农之蜕变 — AST。
 - [Javascript 闭包](https://github.com/ljianshu/Blog/issues/6) - 深入浅出 Javascript 闭包
 - [简明 JavaScript 函数式编程——入门篇](https://juejin.im/post/5d70e25de51d453c11684cc4) - JavaScript 函数式编程解读。
+- [JavaScript 错误处理](https://mp.weixin.qq.com/s/-cpUkuzpsPR6uUgWPkbH-A) - 一文解读各场景错误处理。
 
 ### Modular
 

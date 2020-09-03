@@ -39,5 +39,7 @@
 
 ### Micro Services
 
-- -
+- [Go kit](https://github.com/go-kit/kit) - A standard library for microservices.
+- [Go Micro](https://github.com/micro/go-micro) - A Go standard library for microservices.
+- [Gizmo Microservice Toolkit](https://github.com/nytimes/gizmo) - A Microservice Toolkit from The New York Times.
 
