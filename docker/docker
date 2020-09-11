@@ -1,0 +1,10 @@
+# Docker
+
+### 镜像制作与技巧
+
+- [两个奇技淫巧，将 Docker 镜像体积减小 99%](https://zhuanlan.zhihu.com/p/115845957) - 多阶段构建
+- [Docker 镜像制作教程：针对不同语言的精简策略](https://zhuanlan.zhihu.com/p/141697080) - 针对不同的语言来选择适当的精简策略
+
+## 领域
+ 
+- [前端领域的 Docker 与 Kubernetes](https://juejin.im/post/6844904005492031502)
