@@ -162,6 +162,8 @@ _打包原理解析与实现_
 
 ### 版本管理
 
+- [LearnGitBranching](https://learngitbranching.js.org/?demo=&locale=zh_CN)- 交互式的 git 可视化练习和学习。 
+
 - [高效使用 commit](https://segmentfault.com/a/1190000023388007) - git commit 格式规范可以在浏览项目历史的过程中看到更易读的信息，并且能用 commit 的信息直接生成 change log 。
 
 
