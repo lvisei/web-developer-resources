@@ -167,6 +167,8 @@ Array.prototype.reduce = function(func, initState) {
 
 ## 柯里化
 
+- 参数不固定
+
 ```javascript
 function currying(fn) {
 
@@ -181,16 +183,25 @@ function currying(fn) {
       return closure;
 
     }
-
     return fn(...argArr);
 
   }
-
   return closure;
 
 }
 ```
 
+- 参数固定长度
+
+```javascript
+function currying(fn) {
+  return function (...args) {
+    return args.length >= fn.length
+      ? fn.apply(this, args)
+      : currying(fn.bind(this, ...args));
+  }
+}
+```
 
 
 ## 数据缓冲器分片处理
