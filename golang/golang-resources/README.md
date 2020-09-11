@@ -11,6 +11,10 @@
 
 - [Standard Go Project Layout](https://github.com/golang-standards/project-layout) - 标准 Go 项目布局。
 
+### Compilation
+
+- [初识 Golang 汇编](https://mp.weixin.qq.com/s/MFN9eqT9bsotvpV-m1eqCQ) - 腾讯VTeam技术团队分享深入理解 Go汇编
+
 ## Open source library
 
 ### Web Framework

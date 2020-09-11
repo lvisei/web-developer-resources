@@ -1,4 +1,4 @@
-## summarize-web-resources
+## web-development-miscellaneous-resources
 
 A list of web full stack resources and summarize.
 
@@ -6,8 +6,6 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 
 ## Categories
 
-- [summarize-web-resources](#summarize-web-resources)
-- [Categories](#categories)
 - [CSS](#css)
   - [Basis](#basis)
 - [JavaScript](#javascript)
@@ -61,12 +59,13 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 
 ### Deeply
 
-- [JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89) - 浅读 JavaScript 执行机制。
+- [JavaScript 执行机制](https://juejin.im/post/6844903955286196237) - 浅读 JavaScript 执行机制。
 - [Event Loop 的规范和实现](https://juejin.im/post/5a6155126fb9a01cb64edb45) - Event Loop 规范、实现、应用。
 - [浅谈 AST（抽象语法树）](https://github.com/CodeLittlePrince/blog/issues/19) - 平庸前端码农之蜕变 — AST。
-- [Javascript 闭包](https://github.com/ljianshu/Blog/issues/6) - 深入浅出 Javascript 闭包
+- [Javascript 闭包](https://github.com/ljianshu/Blog/issues/6) - 深入浅出 Javascript 闭包。
 - [简明 JavaScript 函数式编程——入门篇](https://juejin.im/post/5d70e25de51d453c11684cc4) - JavaScript 函数式编程解读。
 - [JavaScript 错误处理](https://mp.weixin.qq.com/s/-cpUkuzpsPR6uUgWPkbH-A) - 一文解读各场景错误处理。
+- [尾递归优化](https://mp.weixin.qq.com/s/Gg51QQZrxQ8hb8k6H8C_7g) - 简述递归优化-尾递归优化。
 
 ### Modular
 
@@ -165,6 +164,11 @@ _打包原理解析与实现_
 
 - [高效使用 commit](https://segmentfault.com/a/1190000023388007) - git commit 格式规范可以在浏览项目历史的过程中看到更易读的信息，并且能用 commit 的信息直接生成 change log 。
 
+
+### 编码整洁
+
+- [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript#table-of-contents) - 代码整洁的 JavaScript，一个使用 JavaScript 来生产 可读的， 可重用的， 以及可重构的软件的指南。
+
 ## Front-End Resources
 
 - [devhints](https://devhints.io/) - 优雅的 cheatsheet 大全
@@ -207,10 +211,12 @@ _打包原理解析与实现_
 ### 安全
 
 - [常见六大 Web 安全攻防解析](https://github.com/ljianshu/Blog/issues/56) - 常见六大 Web 安全攻防解析。
-
 - [单点登录](https://www.zoo.team/article/sso) - 单点登录( Single Sign On ，简称 SSO）详解。
-
 - [混合加密](https://segmentfault.com/a/1190000023328344) - 混合加密详解及[加密流程图](https://tva1.sinaimg.cn/large/007S8ZIlgy1gh7oukh7doj31l00pcag5.jpg)。
+
+### 性能
+
+- [网站优化，这些工具你一定用得着](http://jartto.wang/2019/09/08/web-optimization-tools/) - 关于优化工具，两方面：「性能评估工具」和「优化工具」。
 
 ## Serverless
 
@@ -235,4 +241,5 @@ _打包原理解析与实现_
 ## Other
 
 - [前端工程思想](https://www.yuque.com/es2049/blog/al62bl) - 想写好前端，先练好内功。
+- [程序员如何把控自己的职业](https://coolshell.cn/articles/20977.html) - 程序员职业思考。
 
