@@ -47,3 +47,8 @@
 - [Go Micro](https://github.com/micro/go-micro) - A Go standard library for microservices.
 - [Gizmo Microservice Toolkit](https://github.com/nytimes/gizmo) - A Microservice Toolkit from The New York Times.
 
+
+### Coding Standards 
+
+- [Uber Go 语言编码规范](https://github.com/xxjwxc/uber_go_guide_cn) - 2018 年年末 Uber 将内部的 Go 风格规范 开源到 GitHub，经过一年的积累和更新，该规范已经初具规模，并受到广大 Gopher 的关注。
+
