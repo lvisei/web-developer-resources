@@ -199,8 +199,8 @@ _打包原理解析与实现_
 ### 网络
 
 - [九种跨域方式实现原理](https://github.com/ljianshu/Blog/issues/55) - 前后端数据交互经常会碰到请求跨域，什么是跨域，以及有哪几种跨域方式。
-
 - [HTTP/2 及 HTTP/3特性](https://github.com/ljianshu/Blog/issues/57) - 一文读懂HTTP/2 及 HTTP/3特性。
+- [15 张动图全面讲解 CORS](https://juejin.im/post/6856556746706518024) - 从同源策略到CORS（跨域资源共享）分析，再CORS 两种类型的请求以及跨越情况下的认证信息发送。
 
 ### 异常
 
