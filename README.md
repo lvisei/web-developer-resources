@@ -56,6 +56,7 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 - [JavaScript 指南](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript) - MDN web docs 的完整的 JavaScript 参考文档
 - [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/) - 　阮一峰 JavaScript 标准参考教程。
 - [零基础 JavaScript 全栈教程](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000) - 廖学峰的 JavaScript 教程。
+- [现代 JavaScript 教程](https://zh.javascript.info/) - 以最新的 JavaScript 标准为基准，从基础到高阶的 JavaScript 相关知识。
 
 ### Deeply
 
@@ -205,6 +206,7 @@ _打包原理解析与实现_
 ### 异常
 
 - [前端异常捕获](http://jartto.wang/2018/11/20/js-exception-handling/) - 解读前端异常捕获，优雅处理前端异常。
+- [前端错误监控](https://github.com/KarthusLorin/blog/issues/22) - 前端监错误监控，可以分为脚本错误监控、请求错误监控以及资源错误监控。
 
 ### 存储
 
