@@ -6,7 +6,15 @@ Shell是一个命令行解释器，它为用户提供了一个向Linux内核发�
 ### Shell分类
 - `Bourne Shell`：主文件名为sh
 - `C Shell`: BSD版的Unix
-- 两种语法类型有 Bourne 和 C ，彼此不兼容。Bourne家族主要包括 `sh, ksh, Bash( Linux 标准 Shell), psh ,zsh `; C 家族主要包括：`csh, tcsh`
+- 两种语法类型有 Bourne 和 C ，彼此不兼容。
+   - Bourne家族主要包括 `sh, ksh, Bash( Linux 标准 Shell), psh ,zsh `; 
+   - C 家族主要包括：`csh, tcsh`
 - 其他
    - `echo $SHELL` 查看Shell
    - Bash 与 sh 兼容，现在使用的Linux就是使用 Bash 作为用户的基本 Shell `vi /etc/shells`
+
+
+
+### 链接
+
+- [Shell 脚本编程30分钟入门](https://github.com/qinjx/30min_guides/blob/master/shell.md)
