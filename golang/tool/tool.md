@@ -1,8 +1,10 @@
-## 续 《60亿次for循环,原来这么多东西》Golang 版
+## 续 《60亿次for循环,原来这么多东西》Golang 版测试
 
 ### 写在前面
 
 看到这篇文章 [60亿次for循环,原来这么多东西](https://segmentfault.com/a/1190000023825766)之后，尝试使用 Golang 看一下效果。
+
+测试 go 版本 `go version go1.14.7 darwin/amd64`
 
 ### 尝试重现
 
@@ -43,7 +45,7 @@ func main() {
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gidfx7snj0j30nd0iqhc1.jpg)
 
-4、将 59 亿级继续加大，最后加大到 100 亿，耗时保持在 4.940s 左右，问题仍未重现
+4、将 59 亿级继续加大，最后加大到 **100 亿**，耗时保持在 4.940s 左右，问题仍未重现
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gidggwqvtvj30nt0eh7ou.jpg)
 
