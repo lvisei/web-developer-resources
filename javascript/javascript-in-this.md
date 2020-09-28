@@ -183,8 +183,8 @@ var banana = {
 	name: '香蕉'
 }
 
-fruit.call(banana, banana, apple)  // 香蕉 { '0': { name: '香蕉' }, '1': { name: '苹果' } }
-fruit.apply(apple, [banana, apple]) 苹果 { '0': { name: '香蕉' }, '1': { name: '苹果' } }
+fruit.call(banana, banana, apple)   // 香蕉 { '0': { name: '香蕉' }, '1': { name: '苹果' } }
+fruit.apply(apple, [banana, apple]) // 苹果 { '0': { name: '香蕉' }, '1': { name: '苹果' } }
 ```
 
 下面是bind绑定的示例，只是将一个值绑定到函数的this上，并将绑定好的函数返回，只有在fruit函数才会输出信息，例：

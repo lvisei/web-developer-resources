@@ -6,37 +6,21 @@
 
 ```javascript
 function throttle(fn, threshhold) {
-
-    var last, timerId;
-
+    let last, timerId;
     threshhold || (threshhold = 250);
 
-
-
     return function() {
-
       var now = Date.now();
-
       if(last && now - last < threshhold) {
-
         clearTimeout(timerId);
-
         timerId = setTimeout(() => {
-
           fn.apply(this, arguments);
-
         }, threshhold)
-
       } else {
-
         last = now;
-
         fn.apply(this, arguments);
-
       }
-
     }
-
   }
 ```
 
@@ -46,23 +30,14 @@ function throttle(fn, threshhold) {
 
 ```javascript
 function debounce(fn, interval) {
-
-    var timerId = null;
-
-
+    let timerId = null;
 
     return function() {
-
       clearTimeout(timerId);
-
       timerId = setTimeout(() => {
-
         fn.apply(this, arguments)
-
       }, interval)
-
     }
-
   }
 ```
 
@@ -74,23 +49,19 @@ function debounce(fn, interval) {
 
 ```javascript
 Function.prototype.call = function(cxt, ...args) {
-
+  	// 判断调用对象是否为函数
+    if (typeof this !== "function") {
+      throw new TypeError("Error");
+    }
+		// 判断 context 是否传入，如果未传入则设置为 window
     ctx || (ctx = window);
-
+		// 将调用函数设为对象的方法
     ctx.fn = this;
-
-
-
-    let args = [];
-
-    let r = eval(`ctx.fn(${args})`);
-
-    delete ctx.fn;
-
-
-
-    return r;
-
+  	// 调用函数
+  	let result = cxt.fn(...args);
+  	// 将属性删除
+  	delete cxt.fn;
+  	return result;
   }
 ```
 
@@ -100,21 +71,19 @@ Function.prototype.call = function(cxt, ...args) {
 
 ```javascript
 Funtion.prototype.apply = function(ctx, args) {
-
+	  // 判断调用对象是否为函数
+  	if (typeof this !== "function") {
+    	throw new TypeError("Error");
+  	}
+		// 判断 context 是否传入，如果未传入则设置为 window
     ctx || (ctx = window);
-
+	  // 将函数设为对象的方法
     ctx.fn = this;
-
-
-
-    let r = eval(`ctx.fn(${args})`)
-
-    delete ctx.fn;
-
-
-
-    return r;
-
+ 		// 调用方法
+		let result = cxt.fn(args);
+  	// 将属性删除
+  	delete cxt.fn;
+ 	 	return result;
   }
 ```
 
@@ -123,26 +92,16 @@ Funtion.prototype.apply = function(ctx, args) {
 ### bind
 
 ```javascript
-Funtion.prototype.bind = function(obj) {
-
-    if(type of this !== 'function') {
-
-      return;
-
+Funtion.prototype.bind = function(context, ...args) {
+		// 判断调用对象是否为函数
+    if(type of this !== "function") {
+			throw new TypeError("Error");
     }
-
-
-
-    var _self = this;
-
-    var args = [].slice.call(arguments, 1);
-
+    let fn = this;
+  
     return function() {
-
-      return _self.apply(obj, args.concat([].slice.call(arguments)))
-
+      return fn.apply(context, args.concat(...arguments))
     }
-
   }
 ```
 
@@ -208,11 +167,11 @@ function currying(fn) {
 
 ```javascript
 function multistep(steps, args, callback){
-    var tasks = steps.concat();
+    let tasks = steps.concat();
 
     setTimeout(function(){
-        var task = tasks.shift();
-        task.apply(null, args || []);   //调用Apply参数必须是数组
+        let task = tasks.shift();
+        task.apply(null, args || []);   //调用 Apply 参数必须是数组
 
         if(tasks.length > 0){
             setTimeout(arguments.callee, 25);
@@ -291,6 +250,7 @@ class CustomPromise {
   }
 }
 
+// example
 let promise = new CustomPromise((resolver, reject) => {
   setTimeout(() => {
     const rand = Math.ceil(Math.random(1 * 1 + 6) * 6)
