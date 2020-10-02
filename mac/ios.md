@@ -1,6 +1,6 @@
-# iOS 开发环境搭建
+# iOS 开发环境搭建注意点
 
-## Xcode
+## Xcode 安装
 
 在[苹果开发者网站](https://developer.apple.com/xcode/)下载Xcode安装文件或去苹果应用市场安装
 
@@ -22,11 +22,11 @@ xcode-select --install
 - `-s <path>, --switch <path>`: 将路径指向某个 Command Line Tools，`xcode-select --switch /Applications/Xcode.app`
 - `-r, --reset`: 将之前用-s 指定的路径重置
 
-## CocoaPods
+## CocoaPods 安装
 
 macOS 都安装了ruby，直接使用ruby 的包管理器 gem 命令即可安装 CocoaPods
 
-#### 更新 gem
+### 更新 gem
 
 查看ruby版本 `ruby --version`
 
@@ -36,13 +36,15 @@ macOS 都安装了ruby，直接使用ruby 的包管理器 gem 命令即可安装
 
 更新 gem `sudo gem update --system`
 
-#### 安装 [cocoapods](https://guides.cocoapods.org/using/getting-started.html#getting-started)
+### 安装 [cocoapods](https://guides.cocoapods.org/using/getting-started.html#getting-started)
 
 安装CocoaPods `sudo gem install cocoapods`
 
-#### 安装失败
+### 安装失败
 
-不能写入可执行文件到 `/usr/bin` 目录
+如果安装失败，以下是解决方案
+
+安装失败的主要可能原因是，不能写入可执行文件到 `/usr/bin` 目录
 
 解决方案一
 
@@ -73,21 +75,21 @@ gem install cocoapods --user-install
 
 使用 [RVM](https://github.com/rvm/rvm) Ruby 版本管理器，更多详细 [stackoverflow](https://stackoverflow.com/questions/18599889/error-while-executing-gem-gemfilepermissionerror/25716203)
 
-#### 检查安装包
+### 检查安装包
 
-查看包安装位置 `gem which cocoapods`
+- 查看包安装位置 `gem which cocoapods`
 
-查看 CocoaPods 版本 `pod --version`
+- 查看 CocoaPods 版本 `pod --version`
 
-查看 CocoaPods 环境变量 `pod env`
+- 查看 CocoaPods 环境变量 `pod env`
 
-#### 其它
+- 其它命令
 
-查看 gem 安装的包 `gem list`
+  - 查看 gem 安装的包 `gem list`
 
-清除缓存未使用的包 `gem cleanup`
+  - 清除缓存未使用的包 `gem cleanup`
 
-使用过程中的常见问题 [Troubleshooting](https://guides.cocoapods.org/using/troubleshooting)
+  - 使用过程中的常见问题 [Troubleshooting](https://guides.cocoapods.org/using/troubleshooting)
 
 
 
