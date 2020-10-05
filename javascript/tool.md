@@ -2,43 +2,52 @@
 
 
 
-## throttle
+## 节流 throttle
 
 ```javascript
-function throttle(fn, threshhold) {
-    let last, timerId;
-    threshhold || (threshhold = 250);
+function throttle(fn, threshhold = 250) {
+  let last, timerId;
 
-    return function() {
-      var now = Date.now();
-      if(last && now - last < threshhold) {
-        clearTimeout(timerId);
-        timerId = setTimeout(() => {
-          fn.apply(this, arguments);
-        }, threshhold)
-      } else {
-        last = now;
-        fn.apply(this, arguments);
-      }
+  return function(...args) {
+    let now = Date.now();
+    if (last && now - last < threshhold) {
+      clearTimeout(timerId);
+      timerId = setTimeout(() => {
+        fn.apply(this, args);
+      }, threshhold)
+    } else {
+      last = now;
+      fn.apply(this, args);
     }
   }
+}
+
+// 使用
+const task = () => { console.log('run task') }
+const throttleTask = throttle(task, 250)
+window.addEventListener('scroll', throttleTask)
 ```
 
 
 
-## debounce
+## 防抖 debounce
 
 ```javascript
-function debounce(fn, interval) {
-    let timerId = null;
+function debounce(fn, interval = 250) {
+  let timerId = null;
 
-    return function() {
-      clearTimeout(timerId);
-      timerId = setTimeout(() => {
-        fn.apply(this, arguments)
-      }, interval)
-    }
+  return function(...args) {
+    clearTimeout(timerId);
+    timerId = setTimeout(() => {
+      fn.apply(this, args)
+    }, interval)
   }
+}
+
+// 使用
+const task = () => { console.log('run task') }
+const debounceTask = debounce(task, 1000)
+window.addEventListener('scroll', debounceTask)
 ```
 
 
@@ -163,6 +172,7 @@ function currying(fn) {
 ```
 
 
+
 ## 数据缓冲器分片处理
 
 ```javascript
@@ -180,6 +190,36 @@ function multistep(steps, args, callback){
         }
     }, 25);
 }
+```
+
+
+
+## imageLazyLoad
+
+```javascript
+// <img src="default.png" data-src="https://xxxx/real.png">
+function isVisible(el) {
+  const position = el.getBoundingClientRect()
+  const windowHeight = document.documentElement.clientHeight
+  const topVisible = position.top > 0 && position.top < windowHeight;
+  const bottomVisible = position.bottom < windowHeight && position.bottom > 0;
+  return topVisible || bottomVisible;
+}
+
+function imageLazyLoad() {
+  const images = document.querySelectorAll('img')
+  for (let img of images) {
+    const realSrc = img.dataset.src
+    if (!realSrc) continue
+    if (isVisible(img)) {
+      img.src = realSrc
+      img.dataset.src = ''
+    }
+  }
+}
+
+// 使用
+window.addEventListener('scroll', throttle(imageLazyLoad, 1000))
 ```
 
 
@@ -205,12 +245,41 @@ if (!Array.prototype.flatten) {
         return flatten(this)
     }
 }
-console.log(arr.flatten());
+
+// 使用
+const source = [1, 2, [3, 4, [5, 6]], 7]
+console.log(arr.flatten(source));
 ```
 
 
 
-## promise
+## objectFlat
+
+```javascript
+function objectFlat(obj = {}) {
+  const res = {}
+  function flat(item, preKey = '') {
+    Object.entries(item).forEach(([key, val]) => {
+      const newKey = preKey ? `${preKey}.${key}` : key
+      if (val && typeof val === 'object') {
+        flat(val, newKey)
+      } else {
+        res[newKey] = val
+      }
+    })
+  }
+  flat(obj)
+  return res
+}
+
+// 使用
+const source = { a: { b: { c: 1, d: 2 }, e: 3 }, f: { g: 2 } }
+console.log(objectFlat(source));
+```
+
+
+
+## Promise
 
 ```javascript
 class CustomPromise {
@@ -250,7 +319,7 @@ class CustomPromise {
   }
 }
 
-// example
+// 使用
 let promise = new CustomPromise((resolver, reject) => {
   setTimeout(() => {
     const rand = Math.ceil(Math.random(1 * 1 + 6) * 6)
@@ -270,4 +339,64 @@ promise
     console.log(error)
   })
 ```
+
+
+
+## EventEmitter
+
+```javascript
+
+class EventEmitter {
+  constructor() {
+    this.events = {};
+  }
+
+  on(event, callback) {
+    const callbacks = this.events[event] || [];
+    callbacks.push(callback);
+    this.events[event] = callbacks;
+
+    return this;
+  }
+
+  off(event, callback) {
+    const callbacks = this.events[event];
+    this.events[event] = callbacks && callbacks.filter(fn => fn !== callback);
+
+    return this;
+  }
+
+  emit(event, ...args) {
+    const callbacks = this.events[event];
+    callbacks.forEach(fn => {
+      fn(...args);
+    });
+
+    return this;
+  }
+
+  once(event, callback) {
+    const wrapFun = function(...args) {
+      callback(...args);
+
+      this.off(event, wrapFun);
+    };
+    this.on(event, wrapFun);
+
+    return this;
+  }
+}
+
+// 使用
+const eventBus = new EventEmitter()
+const task1 = () => { console.log('task1'); }
+const task2 = () => { console.log('task2'); }
+eventBus.on('task', task1)
+eventBus.on('task', task2)
+setTimeout(() => {
+  eventBus.emit('task')
+}, 1000)
+```
+
+
 
