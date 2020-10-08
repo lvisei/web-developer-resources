@@ -73,6 +73,8 @@
   - `x` 结束点的 x 轴坐标，y` 结束点的 y 轴坐标。
   - 三次贝塞尔曲线[在线转换器](http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html)。
 
+
+
 ### 1.6 文本
 
 - `CanvasRenderingContext2D.fillText(text, x, y [, maxWidth])`：在指定位置绘制实心字符。
@@ -161,6 +163,8 @@
   - dy：画布内部的纵坐标，用于放置图像的右上角
   - dWidth：可选，图像在画布内部的宽度，会产生缩放效果。
   - dHeight：可选，图像在画布内部的高度，会产生缩放效果。
+
+
 
 ### 1.11 剪切
 
