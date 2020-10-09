@@ -6,7 +6,7 @@
 curl  https://get.acme.sh | sh
 ```
 
-重心载入 `.bashrc`
+重新载入 `.bashrc`
 
 ```shell
 source ~/.bashrc 
