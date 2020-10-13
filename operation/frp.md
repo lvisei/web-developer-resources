@@ -119,6 +119,8 @@ log_max_days = 1
    <depend></depend>
    <executable>path/frps.exe</executable>
    <arguments>-c frps.ini</arguments>
+   <delayedAutoStart/>
+   <onfailure action="restart" delay="20 sec"/>
   </service>
   ```
 
