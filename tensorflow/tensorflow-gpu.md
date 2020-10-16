@@ -16,7 +16,7 @@ Tensorflow GPU 训练加速需要支持 CUDA® 的 GPU 显卡，这里提到的 
 
 第一步查看自己的显卡型号，进入 NVIDIA 控制面板，点击系统信息。
 
-![20201014-201345](./asserts/20201014-201345.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrhxefs9j30qn0jp0wl.jpg)
 
 
 
@@ -24,7 +24,7 @@ Tensorflow GPU 训练加速需要支持 CUDA® 的 GPU 显卡，这里提到的 
 
 
 
-![20201014-201520](./asserts/20201014-201520.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrri31nkfj30qm0jon0r.jpg)
 
 
 
@@ -34,7 +34,7 @@ Tensorflow GPU 训练加速需要支持 CUDA® 的 GPU 显卡，这里提到的 
 
 
 
-![20201014-204817](./asserts/20201014-204817.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrriay0lwj310b0u0tdm.jpg)
 
 
 
@@ -42,7 +42,7 @@ Tensorflow GPU 训练加速需要支持 CUDA® 的 GPU 显卡，这里提到的 
 
 
 
-![20201014-211536](./asserts/20201014-211536.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrihx5k3j30qm0joq7h.jpg)
 
 
 
@@ -58,7 +58,7 @@ Tensorflow GPU 训练加速需要支持 CUDA® 的 GPU 显卡，这里提到的 
 
 
 
-![20201014-213623](./asserts/20201014-213623.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrinotuyj311v0gy44z.jpg)
 
 
 
@@ -66,7 +66,7 @@ Tensorflow GPU 训练加速需要支持 CUDA® 的 GPU 显卡，这里提到的 
 
 
 
-![20201014-213921](./asserts/20201014-213921.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrripes3jj30u90kt46k.jpg)
 
 
 
@@ -76,13 +76,13 @@ CUDA 工具包提供了用于创建高性能GPU加速应用程序的开发环境
 
 
 
-![20201014-231747](./asserts/20201014-231747.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrisoxznj31650qn102.jpg)
 
 选择临时文件目录，这里选择了默认设置。
 
 
 
-![20201014-232646](./asserts/20201014-232646.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrixcrpxj30g408zgo9.jpg)
 
 
 
@@ -90,7 +90,7 @@ CUDA 工具包提供了用于创建高性能GPU加速应用程序的开发环境
 
 
 
-![20201014-234650](./asserts/20201014-234650.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrriyvx9zj30gf0c7aeo.jpg)
 
 
 
@@ -100,7 +100,7 @@ CUDA 工具包提供了用于创建高性能GPU加速应用程序的开发环境
 
 
 
-![20201014-235856](./asserts/20201014-235856.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrj30ba1j30ux0h5wgd.jpg)
 
 
 
@@ -110,7 +110,7 @@ cuDNN 是一个 GPU 加速的深度神经网络库，下载 cuDNN SDK 需要注�
 
 
 
-![20201015-003912](./asserts/20201015-003912.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrj865coj311y0u0n1j.jpg)
 
 
 
@@ -118,7 +118,7 @@ cuDNN 是一个 GPU 加速的深度神经网络库，下载 cuDNN SDK 需要注�
 
 
 
-![20201015-012751](./asserts/20201015-012751.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrjecz26j319d0hp46p.jpg)
 
 
 
@@ -128,7 +128,7 @@ cuDNN 是一个 GPU 加速的深度神经网络库，下载 cuDNN SDK 需要注�
 
 
 
-![20201014-224155](./asserts/20201014-224155.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrjhir6aj314x0txakh.jpg)
 
 
 
@@ -143,13 +143,13 @@ cuDNN 是一个 GPU 加速的深度神经网络库，下载 cuDNN SDK 需要注�
 
 ### 3.2 安装 Anaconda
 
-安装过程也笔记简单，需要注意以下两个地方。
+安装过程也比较简单，需要注意以下两个地方。
 
 Anaconda 安装使用后占有磁盘空间比较大，如果 C 盘空间有限不推荐安装在 C盘。
 
 
 
-![895802-20200603164956820-683281587](./asserts/895802-20200603164956820-683281587.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrjm6msdj30h50dkmym.jpg)
 
 
 
@@ -159,7 +159,7 @@ Anaconda 安装使用后占有磁盘空间比较大，如果 C 盘空间有限�
 
 
 
-![895802-20200603165015278-991209107](./asserts/895802-20200603165015278-991209107.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrjpk8voj30hb0dedib.jpg)
 
 
 
@@ -175,15 +175,15 @@ Anaconda 官方的数据包镜像，下载比较缓慢，可以考虑用清华�
 
 打开安装好的 Anaconda Navigator， 创建用于测试 tensorflow-gpu 虚拟环境。
 
-![20201015-022511](./asserts/20201015-022511.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrjtbgyej30cr06t3yz.jpg)
 
 需要注意的是，如果你用 pip 安装官方发布的 TensorFlow ，可以直接安装 tensorflow 包即可，即 `pip install --upgrade tensorflow`，因为官方对于 TensorFlow 1.x，CPU 和 GPU 软件包是分开的，而 2.x 将其打包在一起的，另外 2.x  GPU  软件包也有发布的，也可以 `pip install --upgrade tensorflow-gpu` 安装 GPU 包。
 
 在使用 conda 安装时， Anaconda Cloud 官方把 TensorFlow 2.x CPU 和 GPU 软件包是拆分了的，应该是为了减小包安装体积。
 
-使用 conda 安装 tensorflow-gpu，在输入拦输入 tensorflow 选择 tensorflow-gpu 点击 Applly 即可。
+使用 conda 安装 tensorflow-gpu，在输入栏输入 tensorflow 选择 tensorflow-gpu 点击 Apply 即可。
 
-![20201015-022937](./asserts/20201015-022937.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrjvqyhxj31iw0u0tgt.jpg)
 
 
 
@@ -205,7 +205,7 @@ print(device_lib.list_local_devices())
 
 在 JupytarLab 运行结果为
 
-![20201015-024516](./asserts/20201015-024516.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrk0udy8j311f0jqtdh.jpg)
 
 
 
@@ -234,13 +234,13 @@ print(model.predict([7.0]))
 
 输入 6 条数据，预测 7 间卧室的房子多少钱，这里把单位缩小，方便神经元网络对数据的处理，输入数据 1 代表一个带卧室的房子，输出 5，表示 50 万。
 
-![20201016-210445](./asserts/20201016-210445.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrk5272nj317o0b2why.jpg)
 
 
 
 训练 1000 次，预测运行结果部分截图如下。
 
-![20201016-211824](./asserts/20201016-211824.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gjrrk8n6gmj30y60cjn04.jpg)
 
 
 
@@ -250,4 +250,8 @@ print(model.predict([7.0]))
 
 - [TensorFlow 安装 GPU 支持](https://tensorflow.google.cn/install/gpu?hl=zh_cn)
 - [安装 Tensorflow 2.1.0 版本](https://www.pythonf.cn/read/84187)
+
+
+
+*原文首发地址 [https://github.com/liuvigongzuoshi/blog](https://github.com/liuvigongzuoshi/blog#tensorflow-%E7%9B%B8%E5%85%B3)*
 
