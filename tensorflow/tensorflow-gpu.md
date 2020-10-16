@@ -234,13 +234,13 @@ print(model.predict([7.0]))
 
 输入 6 条数据，预测 7 间卧室的房子多少钱，这里把单位缩小，方便神经元网络对数据的处理，输入数据 1 代表一个带卧室的房子，输出 5，表示 50 万。
 
-![20201016-210445](/Users/john/Workspace/web-developer-resources/tensorflow/asserts/20201016-210445.png)
+![20201016-210445](./asserts/20201016-210445.png)
 
 
 
 训练 1000 次，预测运行结果部分截图如下。
 
-![20201016-211824](/Users/john/Workspace/web-developer-resources/tensorflow/asserts/20201016-211824.png)
+![20201016-211824](./asserts/20201016-211824.png)
 
 
 
