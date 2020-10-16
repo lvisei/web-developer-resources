@@ -24,7 +24,7 @@ bash ~/miniconda.sh -b -p $HOME/miniconda
 rm https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 ```
 
-设置默认的 `base` 不是 `conda` 启动时候的默认环境
+设置默认的 `base` 不是 `conda` 启动时候的默认环境，避免环境变量冲突
 
 ```bash
 conda config --set auto_activate_base false
