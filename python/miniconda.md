@@ -1,4 +1,4 @@
-# Miniconda 搭建
+# Miniconda 搭建使用
 
 ## 安装
 
@@ -39,37 +39,6 @@ conda config --set auto_activate_base false
 ```bash
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --set show_channel_urls yes
-```
-
-## 删除 Miniconda
-
-```bash
-rm -rf $HOME/miniconda
-```
-
-编辑 `~/.bash_profile` 删除环境变量
-
-```bash
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/john/DevelopmentSDK/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/john/DevelopmentSDK/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/john/DevelopmentSDK/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/john/DevelopmentSDK/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-```
-
-删除文件目录
-
-```bash
-rm -rf ~/.condarc ~/.conda ~/.continuum
 ```
 
 
@@ -147,3 +116,37 @@ conda remove XXX
 ```bash
 conda install -n myenv XXX
 ```
+
+
+
+## 删除 Miniconda
+
+```bash
+rm -rf $HOME/miniconda
+```
+
+编辑 `~/.bash_profile` 删除环境变量
+
+```bash
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/john/DevelopmentSDK/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/john/DevelopmentSDK/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/john/DevelopmentSDK/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/john/DevelopmentSDK/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+```
+
+删除文件目录
+
+```bash
+rm -rf ~/.condarc ~/.conda ~/.continuum
+```
+
