@@ -1,4 +1,4 @@
-# Flutter 开发者使用 CocoaPods 注意点
+# CocoaPods 使用疑惑点
 
 ## 一、要不要提交你的 `Podfile.lock` 文件到仓库？
 
