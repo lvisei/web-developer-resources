@@ -221,11 +221,13 @@ subdomain = test
 
 这里主要介绍第二种方式进行 HTTPS 配置
 
-### 1. 生成泛域名证书
+- 生成泛域名证书
 
-### 2. 配置 Nginx
+- 配置 Nginx
 
-### 3. 证书更新
+- 证书更新
+
+
 
 
 ### 参考资料
@@ -234,4 +236,4 @@ subdomain = test
 
 
 
-*原文首发地址 [https://github.com/liuvigongzuoshi/summarize-web-resources/blob/master/operation/frp.md](https://github.com/liuvigongzuoshi/summarize-web-resources/blob/master/operation/frp.md)*
+*原文首发地址 [https://github.com/liuvigongzuoshi/blog](https://github.com/liuvigongzuoshi/blog#%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4%E7%9B%B8%E5%85%B3)*
