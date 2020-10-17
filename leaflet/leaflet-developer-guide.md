@@ -1,4 +1,4 @@
-## Leaflet-Develop-Guide 🍃
+## Leaflet-Developer-Guide 🍃
 
 ### 文档
 
@@ -47,4 +47,7 @@
 - Vue 2 components for Leaflet maps [Vue2Leaflet](https://github.com/KoRiGaN/Vue2Leaflet/)，使用[文档](https://korigan.github.io/Vue2Leaflet/#/)，See the [doc](https://korigan.github.io/Vue2Leaflet/#/)。
 - React components for Leaflet maps [react-leaflet](https://github.com/PaulLeCam/react-leaflet)，使用[文档](https://react-leaflet.js.org/en/)，See the [doc](https://github.com/PaulLeCam/react-leaflet/tree/master/example)。
 
-> 持续更新中  原文地址： https://juejin.im/post/5c6fad866fb9a049f819e738
+
+
+
+> *原文首发地址 [https://github.com/liuvigongzuoshi/blog](https://github.com/liuvigongzuoshi/blog#leaflet-%E7%9B%B8%E5%85%B3)*
