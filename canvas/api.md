@@ -180,16 +180,26 @@
 ### 2.1 图像变换
 
 - `CanvasRenderingContext2D.rotate(deg)`：图像旋转
+
 - `CanvasRenderingContext2D.scale(sx, sy)`：图像缩放
+  - scale(1, -1)，垂直翻转
+  - scale(-1, 1)，水平翻转
+  
 - `CanvasRenderingContext2D.translate(x, y)`：图像平移
+
 - `CanvasRenderingContext2D.transform(a, b, c, d, e, f)`：通过一个变换矩阵完成图像变换
-  - a: 水平缩放，默认值1，单位倍数
-  - b: 水平倾斜，默认值0，单位弧度
-  - c: 垂直倾斜，默认值0，单位弧度
-  - d: 垂直缩放，默认值1，单位倍数
-  - e: 水平位移，默认值0，单位像素
-  - f: 垂直位移，默认值0，单位像素
+
+  | 参数 | 含义     | 默认值 | 单位 |
+  | :--- | :------- | ------ | ---- |
+  | a    | 水平缩放 | 1      | 倍数 |
+  | b    | 水平倾斜 | 0      | 弧度 |
+  | c    | 垂直倾斜 | 0      | 弧度 |
+  | d    | 垂直缩放 | 1      | 倍数 |
+  | e    | 水平移动 | 0      | 像素 |
+  | f    | 垂直移动 | 0      | 像素 |
+
 - `CanvasRenderingContext2D.setTransform()`：取消前面的图像变换。
+
 - `CanvasRenderingContext2D.currentTransform`：当前的变换矩阵。
 
 ### 2.2 像素控制
@@ -218,6 +228,11 @@
 ### 3.3 `CanvasRenderingContext2D.canvas`
 
 `CanvasRenderingContext2D.canvas`属性指向当前`CanvasRenderingContext2D`对象所在的`<canvas>`元素。该属性只读。
+
+### 3.4 `CanvasRenderingContext2D.clearRect(x, y, width, height)`
+
+ `CanvasRenderingContext2D`.clearRect()` 是 Canvas 2D API 设置指定矩形区域内 x, y 为起点，范围 width、 height 所有像素变成透明，并擦除之前绘制的所有内容的方法。
+
 
 
 

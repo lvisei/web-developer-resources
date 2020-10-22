@@ -94,6 +94,7 @@ _jQuery 的 Deferred/Promise_
 ## Canvas
 
 - [Canvas 教程](https://airingursb.gitbooks.io/canvas/content/) - 连载详细的 Canvas 教程
+- [canvas 图像旋转与翻转](https://aotu.io/notes/2017/05/25/canvas-img-rotate-and-flip/) - canvas 图像旋转与翻转几种方式。
 
 ## Front-End Frame
 
@@ -222,6 +223,7 @@ _打包原理解析与实现_
 ### 性能
 
 - [网站优化，这些工具你一定用得着](http://jartto.wang/2019/09/08/web-optimization-tools/) - 关于优化工具，两方面：「性能评估工具」和「优化工具」。
+- [网页性能管理详解](http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html) - 详细介绍性能问题的出现原因，以及解决方法。
 
 ## Serverless
 
