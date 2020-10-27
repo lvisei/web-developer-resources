@@ -2,6 +2,11 @@
 
 ## 写在前面
 
+**CI/CD**
+
+- CI，Continuous Integration，[持续集成](https://en.wikipedia.org/wiki/Continuous_integration)
+- CD，Continuous Delivery，[持续交付](https://en.wikipedia.org/wiki/Continuous_delivery)
+
 本文简要说明使用 Jenkins 需要关注的主要功能与注意的事项，详细的配置过程看文档吧，[官方文档](https://www.jenkins.io/zh/doc/book/getting-started/)写的比较详细，故不再赘述。
 
 ## 安装 Jenkins
