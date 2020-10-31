@@ -128,7 +128,10 @@ _jQuery 的 Deferred/Promise_
 
 ### 移动端适配
 
-- [Retina 屏下的图片优化](https://github.com/laizimo/zimo-article/issues/55#issuecomment-441607149) - 设备分辨率，屏幕密度(PPI)，Retina 屏(DIPS) 等概念。
+-  [关于移动端适配，你必须要知道的](https://juejin.im/post/6844903845617729549) - 像素、分辨率、`PPI`、`DPI`、`DP`、`DIP`、`DPR`、视口等概念及适配处理。
+-  [Web移动端适配你应该了解得再多一些](https://cassieran.github.io/you-should-know-more-if-you-being-a-webapp-developer/) - Retina 高分辨率显示屏在移动端适配的问题。
+- [Retina 屏下的图片优化](https://github.com/laizimo/zimo-article/issues/55) - 设备分辨率，屏幕密度(PPI)，Retina 屏(DIPS) 等概念。
+
 
 ### H5&Hybrid
 
@@ -243,7 +246,13 @@ _打包原理解析与实现_
 
 ## Flutter
 
+### 教程
+
 - [Flutter 实战](https://book.flutterchina.club/)
+
+### Flutter Web
+
+- [Flutter Web 是怎么工作的](https://ithelp.ithome.com.tw/articles/10243983) - 从架构分析 Flutter Web 工作原理。
 
 ## Other
 
