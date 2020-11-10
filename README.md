@@ -124,8 +124,6 @@ _jQuery 的 Deferred/Promise_
 
 ## Web Mobile App
 
-- 待续
-
 ### 移动端适配
 
 -  [关于移动端适配，你必须要知道的](https://juejin.im/post/6844903845617729549) - 像素、分辨率、`PPI`、`DPI`、`DP`、`DIP`、`DPR`、视口等概念及适配处理。
@@ -250,6 +248,10 @@ _打包原理解析与实现_
 ### 教程
 
 - [Flutter 实战](https://book.flutterchina.club/)
+
+### WebView
+
+- [基于Flutte r的 Hybrid Webview 容器实践](https://github.com/wayshon/hybrid_webview_flutter) - 以 iOS 为例实现 Flutter 的 Webview 插件。
 
 ### Flutter Web
 
