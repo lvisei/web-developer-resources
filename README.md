@@ -135,6 +135,7 @@ _jQuery 的 Deferred/Promise_
 ### H5&Hybrid
 
 - [React Native vs. Cordova、PhoneGap、Ionic](https://zhuanlan.zhihu.com/p/45356420) - [译] React Native vs. Cordova、PhoneGap、Ionic，等等。
+- [React Native 新架构](https://zhuanlan.zhihu.com/p/281238593) - FB 团队正在重构的 ReactNative 新架构，主要当前架构，Bridge带来的问题，新架构，JSI，Fabric，TurboModules，CodenGen及LeanCore等概念。
 
 ## Front-End Engineering
 
