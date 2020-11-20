@@ -13,7 +13,11 @@
 
 ### Compilation
 
-- [初识 Golang 汇编](https://mp.weixin.qq.com/s/MFN9eqT9bsotvpV-m1eqCQ) - 腾讯VTeam技术团队分享深入理解 Go汇编
+- [初识 Golang 汇编](https://mp.weixin.qq.com/s/MFN9eqT9bsotvpV-m1eqCQ) - 腾讯VTeam技术团队分享深入理解 Go汇编。
+
+### GC garbage collection
+
+- [垃圾回收与Go的选择](https://mp.weixin.qq.com/s/bT97HqLHyrE1RkKoGAC11w) - 垃圾回收的5种经典策略及 Go 选择。
 
 ## Open source library
 
