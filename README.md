@@ -228,6 +228,10 @@ _打包原理解析与实现_
 - [网站优化，这些工具你一定用得着](http://jartto.wang/2019/09/08/web-optimization-tools/) - 关于优化工具，两方面：「性能评估工具」和「优化工具」。
 - [网页性能管理详解](http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html) - 详细介绍性能问题的出现原因，以及解决方法。
 
+## PWA
+
+- [现代化 Web 开发实践之 PWA](https://juejin.cn/post/6896426453303476238) - Progressive Web App 实战过程的一些问题。
+
 ## Serverless
 
 - [探索 Serverless 中的前端开发模式](https://github.com/nodejh/nodejh.github.io/issues/49) - 从前端开发模式的演进、基于 Serverless 的前端开发案例以及 Serverless 开发最佳实践等方面，与大家探讨 Serverless 中的前端开发模式。
