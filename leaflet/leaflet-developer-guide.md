@@ -41,6 +41,7 @@
 #### 地理空间分析
 
 - 一个可运行在浏览器和 Node.js中的高级地理空间分析库 [Turf.js](http://turfjs.org/)。
+- 普通克里金插值的 JavaScript 库 [kriging.js](https://github.com/oeo4b/kriging.js)。
 
 ### 框架化
 

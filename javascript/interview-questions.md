@@ -43,3 +43,9 @@ http/2：重新定义底层 http 语义映射，允许同一个连接上使用�
 - 增加缓存：HTTP 协议缓存请求，离线缓存 manifest，离线数据缓存 localStorage、PWA。
 
 - 渲染优化：首屏内容最小化，JS/CSS优化，加载顺序，服务端渲染，pipeline。
+
+### 5、浏览器怎么进行垃圾回收，变量何时释放，哪些情况会导致内存泄露，`weakMap` `weakSet` 和 `Map` `Set` 有什么区别？
+
+- [从 4 个面试题了解「浏览器的垃圾回收」](https://juejin.cn/post/6861967094318284814#heading-0)
+
+
