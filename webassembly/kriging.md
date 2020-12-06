@@ -1,4 +1,4 @@
-# kriging WebAssembly
+# JS 运行 CPU 密集型代码耗时长怎么破？ 尝试使用 Go+WebAssembly 运行时长缩短xx%
 
 ## 写在前面
 
@@ -14,7 +14,7 @@
 
 完成生成插值数据后，接下来将数据进行可视化的方式渲染出来，下图是插值数据渲染出来的大致结果。
 
-![图片来于《自克里格插值法–在这一方面的预测很强》](https://tva1.sinaimg.cn/large/0081Kckwgy1gldhrf7p2xj30ga0bpaam.jpg)
+![图片来于《kriging 插值法–在这一方面的预测很强》](https://tva1.sinaimg.cn/large/0081Kckwgy1gldhrf7p2xj30ga0bpaam.jpg)
 
 
 
@@ -22,7 +22,7 @@
 
 这里主要介绍算法简介，不涉及算法的实现。
 
-> ​		**克里金法（Kriging）**在统计学中，最初在地统计学中，克里金法或高斯过程回归是一种插值方法，其插值由先验协方差控制的高斯过程建模。在先验的适当假设下，克里金法给出中间值的最佳线性无偏预测。该方法被广泛应用于的域空间分析和计算机实验。
+> ​		**克里金法（Kriging）**在统计学中，最初在地统计学中，克里金法或高斯过程回归是一种插值方法，其插值由先验协方差控制的高斯过程建模。在先验的适当假设下，克里金法给出中间值的最佳线性无偏预测。该方法被广泛应用于空间分析和计算机实验。
 >
 > ------  [维基百科](https://en.wikipedia.org/wiki/Kriging)
 
@@ -56,7 +56,7 @@ kriging 算法分类
 
 ### kriging 算法实现的开源库
 
-数据统计分析这块还是用 R 语言与 Python 的人比较多，Github 搜索 kriging 关键字，关联相关仓库的主要语音是 R 与 Python 的比较多，其次依次降低的是 C++、JavaScript、Java。
+科学计算和数据分析这块还是用 R 语言与 Python 的人比较多，Github 搜索 kriging 关键字，关联相关仓库的主要语音是 R 与 Python 的比较多，其次依次降低的是 C++、JavaScript、Java。
 
 就 Python 开源实现的 kriging 差值算法库有
 
@@ -95,7 +95,7 @@ JavaScript 有一个实现了普通克里金的 [kriging.js](https://github.com/
 
 > JavaScript 是单线程，GUI渲染线程与JS引擎线程是互斥的，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致用户操作界面得不到响应。
 
-经过测试数据 2000 条进行 JavaScript kriging 算法运生成插值数据，大致会花一分三十秒左右，这也太慢了吧？
+经过测试数据 2000 条进行 JavaScript kriging 算法运行成插值数据，大致会花一分三十秒左右，这也太慢了吧？
 
 这里 kriging 算法需要进行大量的数学函数和矩阵运算，故属于 CPU 密集型操作，对于 IO 密集型优势比较强的 Node 优势比较弱，如果采用 C/C++、Rust、Go 这类比较基础的语言应该运行速度上有所提升。
 
@@ -111,13 +111,13 @@ JavaScript 有一个实现了普通克里金的 [kriging.js](https://github.com/
 
 那么既然这一路测试下来做了这么多，还有没有其它思路呢？可不可以将 Go 语言重写一下 [kriging.js](https://github.com/oeo4b/kriging.js) 放到浏览器下运行负责出插值数据呢？
 
-可以利用 [WebAssembly](https://developer.mozilla.org/zh-CN/docs/WebAssembly) 技术嘛，将 Go 代码编译成低级的类汇编语言的形式在浏览器里面运行，着或许能提升不少性能。
+可以利用 [WebAssembly](https://developer.mozilla.org/zh-CN/docs/WebAssembly) 技术嘛，将 Go 代码编译成低级的类汇编语言的形式在浏览器里面运行，这或许能提升不少性能。
 
 > WebAssembly是一种新的编码方式，可以在现代的网络浏览器中运行 － 它是一种低级的类汇编语言，具有紧凑的二进制格式，可以接近原生的性能运行，并为诸如C / C ++等语言提供一个编译目标，以便它们可以在Web上运行。它也被设计为可以与JavaScript共存，允许两者一起工作。
 >
 > ------ [MDN](https://developer.mozilla.org/zh-CN/docs/WebAssembly)
 
-下面内容主要分为，编写 Go kriging 算法代码、利用 WebAssembly 编译 Go kriging 代码浏览器环境运行、测试对比效率
+下面按照编写 Go kriging 算法代码、利用 WebAssembly 编译 Go kriging 代码浏览器环境运行、测试对比效率分别简述。
 
 
 
@@ -125,12 +125,43 @@ JavaScript 有一个实现了普通克里金的 [kriging.js](https://github.com/
 
 ### 编写 kriging 代码
 
+代码较多这里只贴出三个模型函数代码
 
+```go
+// krigingVariogramGaussian gaussian variogram models
+func krigingVariogramGaussian(h, nugget, range_, sill, A float64) float64 {
+	return nugget + ((sill-nugget)/range_)*
+		(1.0-math.Exp(-(1.0/A)*math.Pow(h/range_, 2)))
+}
+
+// krigingVariogramExponential exponential variogram models
+func krigingVariogramExponential(h, nugget, range_, sill, A float64) float64 {
+	return nugget + ((sill-nugget)/range_)*
+		(1.0-math.Exp(-(1.0/A)*(h/range_)))
+}
+
+// krigingVariogramSpherical spherical variogram models
+func krigingVariogramSpherical(h, nugget, range_, sill, A float64) float64 {
+	if h > range_ {
+		return nugget + (sill-nugget)/range_
+	} else {
+		return nugget + ((sill-nugget)/range_)*
+			(1.5*(h/range_)-0.5*math.Pow(h/range_, 3))
+	}
+}
+```
+
+更多代码查看 [github.com/liuvigongzuoshi/go-kriging ordinary](https://github.com/liuvigongzuoshi/go-kriging/blob/d2e356ce633c55d6cc0aa046da4e99c4cf35e8de/internal/ordinary/ordinary.go#L5) pakage。
 
 ### 测试 Golang 代码
 
 ```go
 ordinaryKriging := ordinary.NewOrdinary(data["values"], data["lons"], data["lats"])
+// 训练模型
+ordinaryKriging.Train(ordinary.Exponential, 0, 100)
+// 生成插值后的网格数据
+gridMatrices := ordinaryKriging.Grid(polygon, 0.01)
+// ...
 ```
 
 #### 调试分析耗时代码
@@ -186,33 +217,163 @@ krigingMatrixSolve 这个方法进行了大量的矩阵运算耗时比较长，�
 
 ![profile002](https://tva1.sinaimg.cn/large/0081Kckwgy1gldg6j5ejlj30u01a87f8.jpg)
 
-#### 解决问题
+#### 尝试解决问题
 
--
-
-
+咋个看分析都是 math.Exp、math.pow、math.modf 这几个包比较耗时，就 math.pow 参数都是是浮点数据类型，源码需要做一些特殊处理，是有些麻烦。一排 Google 查询相关内容无果后，然后在网上问了几位大佬
 
 
 
-## Golang WebAssembly
-
- [Go WASM Wiki](https://github.com/golang/go/wiki/WebAssembly) 
-
-  Compiling Go to WebAssembly
-
-- [Compiling Go to WebAssembly](https://www.sitepen.com/blog/compiling-go-to-webassembly/)
-
-## 测试效率 
-
-CPU 2.6 GHz 六核Intel Core i7
-
-数据 2292条数据
 
 
+## Go WebAssembly
 
-Python Web Server 48-49s (插值加生成渲染图)
+### 编写 Go 代码 给 Js 调用方法
 
-JavaScript 1.7-1.8m
+主函数方法如下，利用一个通道，让程序一直运行
+
+```go
+func main() {
+	fmt.Println("Instantiate, kriging WebAssembly!")
+	done := make(chan int, 0)
+	js.Global().Set("RunOrdinaryKriging", js.FuncOf(RunOrdinaryKrigingFunc))
+	js.Global().Set("RunOrdinaryKrigingTrain", js.FuncOf(RunOrdinaryKrigingTrainFunc))
+	<-done
+}
+```
+
+实现训练模型方法调用
+
+```go
+func RunOrdinaryKrigingTrainFunc(this js.Value, args []js.Value) interface{} {
+	done := make(chan *ordinary.Variogram, 1)
+	values := make([]float64, args[0].Length())
+	for i := 0; i < len(values); i++ {
+		values[i] = args[0].Index(i).Float()
+	}
+	lons := make([]float64, args[1].Length())
+	for i := 0; i < len(lons); i++ {
+		lons[i] = args[1].Index(i).Float()
+	}
+	lats := make([]float64, args[2].Length())
+	for i := 0; i < len(lats); i++ {
+		lats[i] = args[2].Index(i).Float()
+	}
+	model := args[3].String()
+	sigma2 := args[4].Float()
+	alpha := args[5].Float()
+
+	go func() {
+		variogram := RunOrdinaryKrigingTrain(values, lons, lats, model, sigma2, alpha)
+		done <- variogram
+	}()
+	
+	variogram := <-done
+	variogramBuffer, err := json.Marshal(variogram)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return string(variogramBuffer)
+}
+
+func RunOrdinaryKrigingTrain(values, lons, lats []float64, model string, sigma2 float64, alpha float64) *ordinary.Variogram {
+	ordinaryKriging := ordinary.NewOrdinary(values, lons, lats)
+	variogram := ordinaryKriging.Train(ordinary.ModelType(model), sigma2, alpha)
+	return variogram
+}
+```
+
+更多代码查看 go-kriging examples [wasm](https://github.com/liuvigongzuoshi/go-kriging/blob/d2e356ce63/examples/wasm/main.go) 。
+
+### 将 Go 代码编译成 wasm 文件
+
+```bash
+ GOOS=js GOARCH=wasm go build -o kriging.wasm
+```
+
+### JavaScript 调用 WebAssembly 主要代码
+
+从 `$(go env GOROOT)/misc/wasm` 目录下拷贝引入 `wasm_exec.js` 文件
+
+```html
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script src="wasm_exec.js"></script>
+		<script>
+			const go = new Go();
+			WebAssembly.instantiateStreaming(fetch("kriging.wasm"), go.importObject).then((result) => {
+				go.run(result.instance);
+			});
+		</script>
+	</head>
+	<body></body>
+</html>
+```
+
+修改  WebAssembly 初始化方法，并添加调用方法，更多代码查看 example [kriging-wasm](https://github.com/liuvigongzuoshi/kriging-wasm/blob/main/examples/kriging-wasm/index.js#L127-L137)。
+
+```js
+const run = async function (fileUrl) {
+  try {
+    const file = await fetch(fileUrl);
+    const buffer = await file.arrayBuffer();
+    const go = new Go();
+    const { instance } = await WebAssembly.instantiate(buffer, go.importObject);
+    go.run(instance);
+
+    console.time("训练模型耗时");
+    const variogram = RunOrdinaryKrigingTrain(
+      t,
+      x,
+      y,
+      params.krigingModel,
+      params.krigingSigma2,
+      params.krigingAlpha
+    );
+    console.timeEnd("训练模型耗时");
+    console.log("variogramResult: ", JSON.parse(variogram));
+
+    console.time("训练模型加插值总耗时");
+    const gridrResult = RunOrdinaryKriging(
+      t,
+      x,
+      y,
+      params.krigingModel,
+      params.krigingSigma2,
+      params.krigingAlpha,
+      JSON.stringify(YN)
+    );
+    console.timeEnd("训练模型加插值总耗时");
+    console.log("gridrResult: ", JSON.parse(gridrResult));
+  } catch (err) {
+    console.error(err);
+  }
+};
+setTimeout(() => run("./kriging.wasm"));
+```
+
+> 更多关于了解Go WASM 查看 [Go WASM Wiki](https://github.com/golang/go/wiki/WebAssembly) 。
+
+## 测试对比效率 
+
+测试设备 MBP CPU 2.6 GHz 六核Intel Core i7，测试数据 2000+ 条数据，Golang version 1.15.5，Chrome 87，Kriging 算法函数模型为 exponential (指数半变异函数模型)。
+
+<!--Python Web Server 48-49s (插值加生成渲染图)-->
+
+<!--JavaScript 1.7-1.8m-->
+
+|              | JS 代码 Chrome 下 | Golang 代码 | Golang 代码编译的 wams Chrome 下 |
+| ------------ | ----------------- | ----------- | -------------------------------- |
+| 训练模型     | 60s 左右          | 32s 左右    |                                  |
+| 生成插值数据 | 30s 左右          |             |                                  |
+| 总耗时       | 90s 左右          | 100s 左右   |                                  |
+
+## 总结
+
+Golang 代码编译的 wams 在浏览器下不是最好，但要比 JS 代码性能好些
+
+Golang Kriging 算法包和使用 example 后面会在 Github 贴出来，不过还没有完善好测试与 CLI文档之类的，后面会完善添加上。
 
 ## 参考链接
 
@@ -223,4 +384,8 @@ JavaScript 1.7-1.8m
 - [Kriging](https://en.wikipedia.org/wiki/Kriging) - wikipedia 克里金法
 - [Multivariate_interpolation](https://en.wikipedia.org/wiki/Multivariate_interpolation) - wikipedia 多元插值
 - [kriging.js](https://github.com/oeo4b/kriging.js) - Javascript library for geospatial prediction and mapping via ordinary kriging
+- [WebAssembly Threads ready to try in Chrome 70](https://developers.google.com/web/updates/2018/10/wasm-threads)
+- [c++ - 在浏览器中，多线程WebAssembly的速度比单线程慢，为什么？](https://github.com/bsergeev/MtMergeSort)
+- [WebAssembly Interface Types: Interoperate with All the Things!](https://hacks.mozilla.org/2019/08/webassembly-interface-types/)
+- [Go, WebAssembly, HTTP requests and Promises](https://withblue.ink/2020/10/03/go-webassembly-http-requests-and-promises.html)
 
