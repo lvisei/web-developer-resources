@@ -70,7 +70,7 @@ kriging 算法分类
 
 ![普通克里金（Ordinary Kriging, OK）的模型函数（半变异函）区别](https://tva1.sinaimg.cn/large/0081Kckwgy1glen8ms8d4j30td0j00xy.jpg)
 
-这里我们暂时选择 Kriging 算法函数模型为 exponential (指数半变异函数模型)，后面的代码主要以这个函数模型进行数据测试。
+这里我们暂时选择 Kriging 算法函数模型为 exponential (指数半变异函数模型)。
 
 ### kriging 算法实现的开源库
 
@@ -135,15 +135,18 @@ JavaScript 有一个实现了普通克里金的 [kriging.js](https://github.com/
 >
 > ------ [MDN](https://developer.mozilla.org/zh-CN/docs/WebAssembly)
 
-下面按照以下内容分步进行尝试
-
-- 编写 Go kriging 算法代码
-- 利用 WebAssembly 编译 Go kriging 代码浏览器环境运行
-- 测试对比效率分别简述。
 
 
+下面按照以下内容分步进行展开：
 
-## Golang kriging 代码
+- 编写 Go kriging 算法代码与性能测试和分析
+- 利用 WebAssembly 编译 Go 代码与浏览器环境性能测试和分析
+- 测试对比测试分别简述
+- 总结
+
+
+
+## Go kriging 代码
 
 ### 编写 kriging 代码
 
@@ -196,7 +199,7 @@ func (variogram *Variogram) Predict(x, y float64) float64 {
 
 代码较多这里只贴出三个模型函数与预测数据代码，更多代码查看 [github.com/liuvigongzuoshi/go-kriging ordinary](https://github.com/liuvigongzuoshi/go-kriging/blob/d2e356ce633c55d6cc0aa046da4e99c4cf35e8de/internal/ordinary/ordinary.go#L5) pakage。
 
-### 测试 Golang 代码
+### 测试 Go 代码
 
 ```go
 ordinaryKriging := ordinary.NewOrdinary(data["values"], data["lons"], data["lats"])
@@ -207,7 +210,7 @@ gridMatrices := ordinaryKriging.Grid(polygon, 0.01)
 // ...
 ```
 
-#### 调试分析耗时代码
+#### 调试分析代码耗时
 
 使用 pprof 性能监控与分析  Go 程序，这里主要调试 CPU 耗时分析，这里 Memory 分析不再展开，`main` 函数加上了下面几行，并执行一下程序，生成 cpu_profile 文件。
 
@@ -233,7 +236,9 @@ Entering interactive mode (type "help" for commands, "o" for options)
 (pprof) 
 ```
 
-程序执行时间 1.72mins，输入 `top`  命令列出 CPU 占比前十个最高的一些运行结点
+程序执行时间 1.72mins，这也太夸张了，比 `JS` 都跑的慢？😐
+
+输入 `top`  命令列出 CPU 占比前十个最高的一些运行结点
 
  ```bash
 (pprof) top
@@ -258,13 +263,100 @@ krigingMatrixSolve 这个方法进行了大量的矩阵运算耗时比较长在�
 
 ![CPU profile](https://tva1.sinaimg.cn/large/0081Kckwgy1gldg6j5ejlj30u01a87f8.jpg)
 
-#### 尝试解决问题
-
-咋个看分析都是 math.Exp、math.pow 这几个包比较耗时，就 math.pow 参数都是是浮点数据类型，源码需要做一些特殊处理，是有些麻烦。一路Google 查询相关内容无果后，然后在网上问了几位大佬
 
 
+`Predict` 函数用到幂运算 `math.pow` 与 `math.Exp` 方法耗时就高达 `15s`，excuse me ？😳
 
+#### 尝试发现问题
 
+咋个看分析都是 math.Exp、math.pow 这两个包比较耗时，幂运算函数 `func Pow(x, y float64) float64` 参数是浮点数据类型，查看源码发现在计算`x`的`y`次方计算过程中，需要做一些特殊处理，比较复杂，首先需要对 `x、y` 的值做特殊判断是否等于 0与+-1及负数的特殊计算处理、后面浮点数的 `x**y` 运算更是复杂。
+
+一路 Google  查询相关 Go 语言内容无果，看到一篇 [Performance of Various Python Exponentiation Methods](https://chrissardegna.com/blog/posts/python-expontentiation-performance/#timing-tests) Python 里面幂运算测试性能的文章，里面提到作者最近在写一个算法来解决一个编码难题，这个问题涉及到在笛卡尔平面上找到一个与所有其他点的距离最小的点，在Python中，根据勾股定理距离可用函数可以用表达式`math.sqrt(dx ** 2 + dy ** 2)`。当时可以有几种不同的写法：`dx**2`，`math.pow(dx，2)`和`dx*dx`，有意思的是它们的性能都不相同，以下是测试结果：
+
+| 表达式           | 计时（10万次迭代） |
+| :--------------- | :----------------- |
+| `x * x`          | 3.87 ms            |
+| `x ** 2`         | 80.97 ms           |
+| `math.pow(x, 2)` | 83.60 ms           |
+
+当幂次超过 15 以及超过 1000 越来越大的时候，math.pow() 与 `x * x` 运行速度也就越来越接近了，文章最后总结 JavaScript 也有这种情况，excuse me ？难到 Go 也有这种情况？🤔
+
+#### 验证问题
+
+修改 `Predict` 函数，调整 `math.pow(x, 2) ` 为 `x*x`
+
+```go
+// Predict model prediction
+func (variogram *Variogram) Predict(x, y float64) float64 {
+	k := make([]float64, variogram.N)
+	for i := 0; i < variogram.N; i++ {
+-		k[i] = variogram.model(
+-			math.Pow(
+-				math.Pow(x-variogram.x[i], 2)+math.Pow(y-variogram.y[i], 2),
+-				0.5,
+-			),
+-			variogram.Nugget, variogram.Range,
+-			variogram.Sill, variogram.A,
+-		)
++   x_ := x - variogram.x[i]
++		y_ := y - variogram.y[i]
++		h := math.Sqrt(x*x) + y_*y))
++		k[i] = variogram.model(
++			h,
++			variogram.Nugget, variogram.Range,
++			variogram.Sill, variogram.A,
+		)
+	}
+
+	return krigingMatrixMultiply(k, variogram.M, 1, variogram.N, 1)[0]
+}
+```
+
+同理修改三个模型函数，对于 `math.Exp(x)` 的耗时处理我们先做一个简单的判断，根据 `e^0` 等于 1 ，同理 `x` 等于 `0`或 `1` 直接返回我们写好的常量。
+
+```go
+// krigingVariogramGaussian gaussian variogram models
+func krigingVariogramGaussian(h, nugget, range_, sill, A float64) float64 {
++	x := -(1.0 / A) * ((h / range_) * (h / range_))
+ 	return nugget + ((sill-nugget)/range_)*
+-		(1.0-math.Exp(-(1.0/A)*math.Pow(h/range_, 2)))
++		(1.0-exp(x))
+ }
+ 
+// krigingVariogramExponential exponential variogram models
+func krigingVariogramExponential(h, nugget, range_, sill, A float64) float64 {
++	x := -(1.0 / A) * (h / range_)
+ 	return nugget + ((sill-nugget)/range_)*
+-		(1.0-math.Exp(-(1.0/A)*(h/range_)))
++		(1.0-exp(x))
+ }
+
+// krigingVariogramSpherical spherical variogram models
+func krigingVariogramSpherical(h, nugget, range_, sill, A float64) float64 {
+	if h > range_ {
+		return nugget + (sill-nugget)/range_
+	} else {
++		x := h / range_
+ 		return nugget + ((sill-nugget)/range_)*
+-			(1.5*(h/range_)-0.5*math.Pow(h/range_, 3))
++			(1.5*(x)-0.5*(x*x*x))
+ 	}
+}
+```
+
+写改完代码中类似问题后再跑一次，这次程序耗时如下图所示
+
+![修改后 CPU profile](https://tva1.sinaimg.cn/large/0081Kckwgy1glfqxsozl9j30tz255gtj.jpg)
+
+不错，😏 Interesting！程序运行耗时直接缩短 `48.6%` ，`Predict` 函数从 59.0s 缩短到 17.11s ,math.Exp(x) 从 15.81s 缩短到 9.45s。
+
+剩下来比较耗时的函数就是 `krigingMatrixSolve` 与 `math.Exp(x)`，`krigingMatrixSolve` 函数主要是进行通过高斯-约旦消元法进行线性方程组的解， 目前尚未找到其它替换的算法，`math.Exp(x)` 这里除了上述的特值判断外暂未找到其它优化方法。
+
+代码的功能相对比较简单，所以比较容易的定位到了问题的所在，如果还要想进行调优，可以考虑进行并发改造，来发挥 Go 协程的特点，在尝试并发改造后发现改造的结果并不理想，因为使用 channel 进行同步导致阻塞，抵消了多协程带来的性能提升。
+
+另外一个思路就是尽量避免 `math.Exp(x)` 指数运算，即将指数型运算转换为其他时间复杂度较低的运算，
+
+~~多协程是利用 Go 本身的特性和 CPU 的多核运算能力。而这一种方法则纯粹是从数学角度上进行优化，并不具有普适性。改造后再进行测试显示结果如下：~~
 
 ## Go WebAssembly
 
@@ -383,7 +475,7 @@ const run = async function (fileUrl) {
       params.krigingModel,
       params.krigingSigma2,
       params.krigingAlpha,
-      JSON.stringify(YN)
+      JSON.stringify(geometry)
     );
     console.timeEnd("训练模型加插值总耗时");
     console.log("gridrResult: ", JSON.parse(gridrResult));
@@ -398,7 +490,7 @@ setTimeout(() => run("./kriging.wasm"));
 
 ## 测试对比效率 
 
-测试设备 MBP CPU 2.6 GHz 六核Intel Core i7，测试数据 2000+ 条数据，Golang version 1.15.5，Chrome 87，Kriging 算法函数模型为 exponential (指数半变异函数模型)。
+测试设备 MBP CPU 2.6 GHz 六核Intel Core i7，测试数据 2000+ 条数据，Golang version 1.15.5，Chrome 87，Kriging 算法函数模型为 spherical (球面半变异函数模型)。
 
 <!--Python Web Server 48-49s (插值加生成渲染图)-->
 
@@ -406,9 +498,9 @@ setTimeout(() => run("./kriging.wasm"));
 
 |                      | JS 代码 Chrome 下 | Golang 代码 | Golang 代码编译的 wams Chrome 下 |
 | -------------------- | ----------------- | ----------- | -------------------------------- |
-| 训练模型             | 59-60s            | 30-32s      | 186s                             |
-| 生成插值网格单元数据 | 22-23s            | 21-22s      |                                  |
-| 总耗时               | 82-83s            | 52-53s      | 311s                             |
+| 训练模型             | 60-62s            | 31-32s      | 178s                             |
+| 生成插值网格单元数据 | 59-60s            | 9-10s       |                                  |
+| 总耗时               | 120-122s          | 41-42s      | 235s                             |
 
 ## 总结
 
@@ -416,17 +508,29 @@ Golang 代码编译的 wams 在浏览器下不是最好，但要比 JS 代码性
 
 Golang Kriging 算法包和使用 example 后面会在 Github 贴出来，不过还没有完善好测试与 CLI文档之类的，后面会完善添加上。
 
-## 参考链接
+## 32参考链接
 
 - [ordinary-kriging](https://ordinary-kriging.surge.sh/) - 普通克里金法在线工具
+
 - [克里金法 (3D Analyst)](https://pro.arcgis.com/zh-cn/pro-app/tool-reference/3d-analyst/kriging.htm) - ArcGIS
+
 - [克里金法的工作原理](https://pro.arcgis.com/zh-cn/pro-app/tool-reference/3d-analyst/how-kriging-works.htm) - ArcGIS
+
 - [克里金法](https://baike.baidu.com/item/%E5%85%8B%E9%87%8C%E9%87%91%E6%B3%95/5129539) - 百科词条
+
 - [Kriging](https://en.wikipedia.org/wiki/Kriging) - wikipedia 克里金法
+
 - [Multivariate_interpolation](https://en.wikipedia.org/wiki/Multivariate_interpolation) - wikipedia 多元插值
+
 - [kriging.js](https://github.com/oeo4b/kriging.js) - Javascript library for geospatial prediction and mapping via ordinary kriging
+
 - [WebAssembly Threads ready to try in Chrome 70](https://developers.google.com/web/updates/2018/10/wasm-threads)
+
 - [c++ - 在浏览器中，多线程WebAssembly的速度比单线程慢，为什么？](https://github.com/bsergeev/MtMergeSort)
+
 - [WebAssembly Interface Types: Interoperate with All the Things!](https://hacks.mozilla.org/2019/08/webassembly-interface-types/)
+
 - [Go, WebAssembly, HTTP requests and Promises](https://withblue.ink/2020/10/03/go-webassembly-http-requests-and-promises.html)
+
+- [golang -- 性能测试和分析](https://www.cnblogs.com/cnblogs-wangzhipeng/p/10153513.html)
 
