@@ -4,25 +4,29 @@
 
 ### 业务需求
 
-最近遇到一业务需求，为了简述需求假设业务场景根据各地天气气温数据生成气温分布图，需要在 Web 前端进行数据动态**插值**操作，大致过程是将已有数据根据算法生成新的插值数据，然后将生成的插值数据在 Web 端利用Canvas 渲染出来。
+最近遇到一业务需求，为了简述需求假设业务场景根据各地天气气温数据生成气温分布图，需要在 Web 前端进行数据动态**插值**操作，大致过程是将已有数据根据一种算法生成新的插值数据，然后将生成的插值数据在 Web 端利用Canvas 渲染出来。
 
 > ​		**插值**在数值分析的数学领域，插值是一种估计类型，一种在一组离散的已知数据点范围内构造新数据点的方法。在工程学和科学中，通常有许多通过采样或实验获得的数据点，它们代表有限数量的自变量值的函数值。通常需要进行插值，即为自变量的中间值估算该函数的值。
 >
->  ------  [维基百科](https://en.wikipedia.org/wiki/Interpolation)
+> ------  [维基百科](https://en.wikipedia.org/wiki/Interpolation)
 
-根据业务场景，这里插值使用了**克里金法（Kriging）**算法进行插值。
+根据业务场景，这里插值使用了**克里金法**（Kriging）算法进行插值。
 
-完成生成插值数据后，接下来将数据进行可视化的方式渲染出来，下图是插值数据渲染出来的大致结果。
-
-![图片来于《kriging 插值法–在这一方面的预测很强》](https://tva1.sinaimg.cn/large/0081Kckwgy1gldhrf7p2xj30ga0bpaam.jpg)
+完成生成插值数据后，接下来将数据进行可视化的方式渲染出来，下图是插值数据渲染出来的大致结果
 
 
+
+![原始数据与生成的插值数据渲染图 - 图片来于[《kriging 插值法–在这一方面的预测很强》](https://www.giserdqy.com/algorithm/36734/)](https://tva1.sinaimg.cn/large/0081Kckwgy1glfdd1npr4j30p0093tis.jpg)
+
+这里**克里金法**（Kriging）算法除了可以二维数据插值也可以三维数据进行插值
+
+![[图片来源于百度百科克里金法词条](https://baike.baidu.com/item/%E5%85%8B%E9%87%8C%E9%87%91%E6%B3%95/5129539)](https://tva1.sinaimg.cn/large/0081Kckwgy1glfe373nt4j30rj0kw0vx.jpg)
 
 ### 什么是 kriging ?
 
-这里主要介绍算法简介，不涉及算法的实现。
+这里主要介绍算法，不涉及算法实现过程及数学推论。
 
-> ​		**克里金法（Kriging）**在统计学中，最初在地统计学中，克里金法或高斯过程回归是一种插值方法，其插值由先验协方差控制的高斯过程建模。在先验的适当假设下，克里金法给出中间值的最佳线性无偏预测。该方法被广泛应用于空间分析和计算机实验。
+> ​		**克里金法**（Kriging）在统计学中，最初在地统计学中，克里金法或高斯过程回归是一种插值方法，其插值由先验协方差控制的高斯过程建模。在先验的适当假设下，克里金法给出中间值的最佳线性无偏预测。该方法被广泛应用于空间分析和计算机实验。
 >
 > ------  [维基百科](https://en.wikipedia.org/wiki/Kriging)
 
@@ -46,13 +50,27 @@ kriging 算法分类
   - 神经网络克里金（neural Kriging）
   - 贝叶斯克里金（Bayesian Kriging）
 
-这里算法选取普通克里金，下面是普通克里金（Ordinary Kriging, OK）的模型函数（半变异函）分类
+这里算法选取普通克里金（Ordinary Kriging, OK）,下图是来源于维基百科的普通克里金算法理论基础
+
+![Ordinary Kriging - 图片来源于[维基百科](https://en.wikipedia.org/wiki/Kriging)](https://tva1.sinaimg.cn/large/0081Kckwgy1glfdsq0a7oj31c20poteg.jpg)
+
+关于普通克里金算法实现过程及数学公式可查看维基百科 [Ordinary Kriging](https://en.wikipedia.org/wiki/Kriging)。
+
+下面是普通克里金的模型函数（半变异函）分类：
 
 - Spherical - 球面半变异函数模型。
 - Circular - 圆半变异函数模型。
 - Exponential - 指数半变异函数模型。
 - Gaussian - 高斯（或正态分布）半变异函数模型。
 - Linear - 采用基台的线性半变异函数模型。
+
+
+
+![数学模型的常用形状和方程 - 图片来于[《克里金法的工作原理》](https://pro.arcgis.com/zh-cn/pro-app/tool-reference/3d-analyst/how-kriging-works.htm)](https://tva1.sinaimg.cn/large/0081Kckwgy1glfctwf90sj30da0jtq5g.jpg)
+
+![普通克里金（Ordinary Kriging, OK）的模型函数（半变异函）区别](https://tva1.sinaimg.cn/large/0081Kckwgy1glen8ms8d4j30td0j00xy.jpg)
+
+这里我们暂时选择 Kriging 算法函数模型为 exponential (指数半变异函数模型)，后面的代码主要以这个函数模型进行数据测试。
 
 ### kriging 算法实现的开源库
 
@@ -117,7 +135,11 @@ JavaScript 有一个实现了普通克里金的 [kriging.js](https://github.com/
 >
 > ------ [MDN](https://developer.mozilla.org/zh-CN/docs/WebAssembly)
 
-下面按照编写 Go kriging 算法代码、利用 WebAssembly 编译 Go kriging 代码浏览器环境运行、测试对比效率分别简述。
+下面按照以下内容分步进行尝试
+
+- 编写 Go kriging 算法代码
+- 利用 WebAssembly 编译 Go kriging 代码浏览器环境运行
+- 测试对比效率分别简述。
 
 
 
@@ -125,7 +147,7 @@ JavaScript 有一个实现了普通克里金的 [kriging.js](https://github.com/
 
 ### 编写 kriging 代码
 
-代码较多这里只贴出三个模型函数代码
+普通克里金的模型函数（半变异函）三个模型函数代码
 
 ```go
 // krigingVariogramGaussian gaussian variogram models
@@ -151,7 +173,28 @@ func krigingVariogramSpherical(h, nugget, range_, sill, A float64) float64 {
 }
 ```
 
-更多代码查看 [github.com/liuvigongzuoshi/go-kriging ordinary](https://github.com/liuvigongzuoshi/go-kriging/blob/d2e356ce633c55d6cc0aa046da4e99c4cf35e8de/internal/ordinary/ordinary.go#L5) pakage。
+根据训练模型预测数据生成插值数据代码
+
+```go
+// Predict model prediction
+func (variogram *Variogram) Predict(x, y float64) float64 {
+	k := make([]float64, variogram.N)
+	for i := 0; i < variogram.N; i++ {
+		k[i] = variogram.model(
+			math.Pow(
+				math.Pow(x-variogram.x[i], 2)+math.Pow(y-variogram.y[i], 2),
+				0.5,
+			),
+			variogram.Nugget, variogram.Range,
+			variogram.Sill, variogram.A,
+		)
+	}
+
+	return krigingMatrixMultiply(k, variogram.M, 1, variogram.N, 1)[0]
+}
+```
+
+代码较多这里只贴出三个模型函数与预测数据代码，更多代码查看 [github.com/liuvigongzuoshi/go-kriging ordinary](https://github.com/liuvigongzuoshi/go-kriging/blob/d2e356ce633c55d6cc0aa046da4e99c4cf35e8de/internal/ordinary/ordinary.go#L5) pakage。
 
 ### 测试 Golang 代码
 
@@ -166,9 +209,7 @@ gridMatrices := ordinaryKriging.Grid(polygon, 0.01)
 
 #### 调试分析耗时代码
 
-使用 pprof 性能监控与分析  Go 程序，这里主要调试 CPU 分析，Memory 分析不再展开
-
-`main` 函数加上了下面几行，并执行一下程序，生成 cpu_profile 文件。
+使用 pprof 性能监控与分析  Go 程序，这里主要调试 CPU 耗时分析，这里 Memory 分析不再展开，`main` 函数加上了下面几行，并执行一下程序，生成 cpu_profile 文件。
 
 ```go
 import "runtime/pprof"
@@ -213,13 +254,13 @@ Showing top 10 nodes out of 39
 (pprof) 
  ```
 
-krigingMatrixSolve 这个方法进行了大量的矩阵运算耗时比较长，出人意料的是 math.Exp、math.pow、math.modf 等标准库的数学方法耗时也较长，为了确认并查看程序执行全部过程，输入 `png` 查看输出报告
+krigingMatrixSolve 这个方法进行了大量的矩阵运算耗时比较长在情理之中，出人意料的是 math.Exp、math.pow 等标准库的数学方法耗时也较长，为了确认并查看程序执行全部过程，输入 `png` 查看输出报告
 
-![profile002](https://tva1.sinaimg.cn/large/0081Kckwgy1gldg6j5ejlj30u01a87f8.jpg)
+![CPU profile](https://tva1.sinaimg.cn/large/0081Kckwgy1gldg6j5ejlj30u01a87f8.jpg)
 
 #### 尝试解决问题
 
-咋个看分析都是 math.Exp、math.pow、math.modf 这几个包比较耗时，就 math.pow 参数都是是浮点数据类型，源码需要做一些特殊处理，是有些麻烦。一排 Google 查询相关内容无果后，然后在网上问了几位大佬
+咋个看分析都是 math.Exp、math.pow 这几个包比较耗时，就 math.pow 参数都是是浮点数据类型，源码需要做一些特殊处理，是有些麻烦。一路Google 查询相关内容无果后，然后在网上问了几位大佬
 
 
 
@@ -363,11 +404,11 @@ setTimeout(() => run("./kriging.wasm"));
 
 <!--JavaScript 1.7-1.8m-->
 
-|              | JS 代码 Chrome 下 | Golang 代码 | Golang 代码编译的 wams Chrome 下 |
-| ------------ | ----------------- | ----------- | -------------------------------- |
-| 训练模型     | 60s 左右          | 32s 左右    |                                  |
-| 生成插值数据 | 30s 左右          |             |                                  |
-| 总耗时       | 90s 左右          | 100s 左右   |                                  |
+|                      | JS 代码 Chrome 下 | Golang 代码 | Golang 代码编译的 wams Chrome 下 |
+| -------------------- | ----------------- | ----------- | -------------------------------- |
+| 训练模型             | 59-60s            | 30-32s      | 186s                             |
+| 生成插值网格单元数据 | 22-23s            | 21-22s      |                                  |
+| 总耗时               | 82-83s            | 52-53s      | 311s                             |
 
 ## 总结
 
