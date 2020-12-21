@@ -584,11 +584,13 @@ setTimeout(() => run("./kriging.wasm"));
 
 首先 Chrome 下 Golang 使用协程版编译的 Wams总体性能倒是跟 JS 版差不多，这就有点迷糊了，从训练模型的耗时来看是要比 JS 代码性能好些，但是生成插值就慢了很多，经过多次测试 Golang 代码编译的 Wams 在浏览器下运行，发现有内存泄露现象，尝试使用 TinyGo 编译生成 Wams 经过测试效果也不是很理想。
 
-这里 Golang 使用协程版编译的 Wams，如果浏览器支持 WebAssembly 多线程，那么就会启用多线程，Chrome 70 以后已经支持 WebAssembly 多线程了。
+这里 Golang 使用协程版编译的 Wams，如果浏览器支持 WebAssembly 多线程，那么就会启用多线程，Chrome 70 以后已经全面支持 WebAssembly 多线程了。
 
-在 Firefox 下测试 Wams，如果是协程版编译的 Wams 直接就报错了，未使用协程版的耗时比 JS 版的都高，单看训练模型耗时就非常高，排查了一下，发现训练模型函数返回的数据量很大，大概有 200M+，猜测应该是从里面拷数据到 JS 内存的过程中太耗时了，但是经过测试在不返回模型数据的情况下依旧还是这么耗时，编译的同一套代码在 Firefox 与 Chrome 情况各不一样🤔
+在 Firefox 下测试 Wams，如果是协程版编译的 Wams 直接就报错了，为什么报错呢？经过查阅相关资料后，得知 WebAssembly 多线程需要使用 SharedArrayBuffer 内存共享，截至2019年9月，一些浏览器由于 Spectre 和 Meltdown 漏洞已禁用 SharedArrayBuffer，目前只有 Chrome 浏览器通过站点隔离和跨源读取屏蔽技术控制了相关风险启用了  SharedArrayBuffer，所以这里 Firefox 下测试协程版编译的 Wams 可忽略。
 
-需要提一下的是上面 JS 版测试未进行 Go 代码那样优化，使用的是 [kriging.js](https://github.com/oeo4b/kriging.js) 这个包直接进行的测试，如果优化的话保守估计应该可提升 10-20s 左右吧，在 JS 里面将算法改成并发版不太容易，只能在 Web Workers 里面再创建 Web Workers 线程，没有经过测试还不确定具体效果怎么样。
+从上面可以看出 Firefox 下未使用协程版的耗时比 JS 版的高，单看训练模型耗时就非常高，排查了一下，发现训练模型函数返回的数据量很大，大概有 200M+，猜测应该是从里面拷数据到 JS 内存的过程中太耗时了，但是经过测试在不返回模型数据的情况下依旧还是挺耗时，编译的同一套代码在 Firefox 与 Chrome 情况各不一样？🤔。
+
+需要提一下的是上面 JS 版测试未进行 Go 代码那样优化，使用的是 [kriging.js](https://github.com/oeo4b/kriging.js) 这个包直接进行的测试，如果优化的话保守估计应该可提升 10-20s 左右吧，在 JS 里面将算法改成并发版不太容易，只能在 Web Workers 里面再创建 Web Workers 线程，没有经过测试还不确定具体效果如何。
 
 ## 5 总结
 
