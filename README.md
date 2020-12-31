@@ -266,4 +266,5 @@ _打包原理解析与实现_
 
 - [前端工程思想](https://www.yuque.com/es2049/blog/al62bl) - 想写好前端，先练好内功。
 - [程序员如何把控自己的职业](https://coolshell.cn/articles/20977.html) - 程序员职业思考。
+- [计算机教育中缺失的一课](https://missing-semester-cn.github.io/) - 麻省理工学院计算机课程,介绍基本的软件开发工具，提高使用工具的能力。
 
