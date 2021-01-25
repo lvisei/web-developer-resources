@@ -9,3 +9,9 @@ https://baike.baidu.com/item/%E7%BC%96%E7%A0%81/80092
 - 通过工具库cpdetector来判断：cpdector 是一款开源的文档编码检测工具，可以检测 xml，html文档编码类型。是基于统计学原理来推测文件编码的，但是也不保证推测结果的准确性。
 - 通过ICU4J库来判断：ICU的推测逻辑基于IBM过去几十年收集的字符集数据，理论上也是基于统计学的。这种方式统计的结果准确性也较高推荐使用。
 
+
+
+
+
+- [Unicode 和 UTF-8 是什么关系？本文为你解惑](https://polarisxu.studygolang.com/posts/basic/char-set-encoding/)
+
