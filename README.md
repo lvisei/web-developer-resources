@@ -22,24 +22,33 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
   - [React](#react)
 - [WeChat Mini-Program](#wechat-mini-program)
 - [Web Mobile App](#web-mobile-app)
-  - [移动端适配](#%e7%a7%bb%e5%8a%a8%e7%ab%af%e9%80%82%e9%85%8d)
+  - [移动端适配](#移动端适配)
   - [H5&Hybrid](#h5hybrid)
-- [Front-End 工程化&构建](#front-end-%e5%b7%a5%e7%a8%8b%e5%8c%96%e6%9e%84%e5%bb%ba)
+- [Front-End Engineering](#front-end-engineering)
   - [Babel](#babel)
   - [Webpack](#webpack)
+  - [版本管理](#版本管理)
+  - [编码整洁](#编码整洁)
 - [Front-End Resources](#front-end-resources)
 - [Browser](#browser)
   - [BOM](#bom)
-  - [加载](#%e5%8a%a0%e8%bd%bd)
-  - [渲染](#%e6%b8%b2%e6%9f%93)
-  - [线程](#%e7%ba%bf%e7%a8%8b)
-  - [网络](#%e7%bd%91%e7%bb%9c)
-  - [存储](#%e5%ad%98%e5%82%a8)
-  - [安全](#%e5%ae%89%e5%85%a8)
+  - [加载](#加载)
+  - [渲染](#渲染)
+  - [线程](#线程)
+  - [网络](#网络)
+  - [异常](#异常)
+  - [存储](#存储)
+  - [安全](#安全)
+  - [性能](#性能)
+- [Video](#video)
+- [PWA](#pwa)
 - [Serverless](#serverless)
 - [WebAssembly](#webassembly)
 - [Node](#node)
 - [Flutter](#flutter)
+  - [教程](#教程)
+  - [WebView](#webview)
+  - [Flutter Web](#flutter-web)
 - [Other](#other)
 
 ## CSS
@@ -130,6 +139,7 @@ _jQuery 的 Deferred/Promise_
 -  [Web移动端适配你应该了解得再多一些](https://cassieran.github.io/you-should-know-more-if-you-being-a-webapp-developer/) - Retina 高分辨率显示屏在移动端适配的问题。
 - [Retina 屏下的图片优化](https://github.com/laizimo/zimo-article/issues/55) - 设备分辨率，屏幕密度(PPI)，Retina 屏(DIPS) 等概念。
 - [移动端真机调试指南](https://aotu.io/notes/2017/02/24/Mobile-debug/index.html) - 各移动端真机调试情况。
+- [40条移动端H5坑位指南](https://juejin.cn/post/6921886428158754829) - 从 HTML、CSS、JS 方向总结40条移动端H5常见的问题。
 
 
 ### H5&Hybrid
@@ -227,6 +237,10 @@ _打包原理解析与实现_
 
 - [网站优化，这些工具你一定用得着](http://jartto.wang/2019/09/08/web-optimization-tools/) - 关于优化工具，两方面：「性能评估工具」和「优化工具」。
 - [网页性能管理详解](http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html) - 详细介绍性能问题的出现原因，以及解决方法。
+
+## Video
+
+- [如何开发一款H5小程序直播](https://juejin.cn/post/6909479346646286343) - 从开发环境到H5端播放器再到微信小程序直播路线讲解，设计内容直播过程中的采集、编码、推流，视频的格式及直播协议等。
 
 ## PWA
 
