@@ -4,7 +4,7 @@
 
 **开源的数据可视化的库与工具**
 
-![开源的数据可视化库](https://tva1.sinaimg.cn/large/008eGmZEgy1gnm4cmm3m2j319v0jd779.jpg)
+![开源的数据可视化库](https://tva1.sinaimg.cn/large/008eGmZEgy1gnn1geja7zj319y0l5ado.jpg)
 
 
 
