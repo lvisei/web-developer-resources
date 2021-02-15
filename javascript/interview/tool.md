@@ -1,8 +1,8 @@
-# Tools
+# JS 面试常见手写工具
 
 
 
-## 节流 throttle
+## 1. 节流 throttle
 
 ```javascript
 function throttle(fn, threshhold = 250) {
@@ -52,88 +52,7 @@ window.addEventListener('scroll', debounceTask)
 
 
 
-## call、bind、apply
-
-### call
-
-```javascript
-Function.prototype.call = function(cxt, ...args) {
-  	// 判断调用对象是否为函数
-    if (typeof this !== "function") {
-      throw new TypeError("Error");
-    }
-		// 判断 context 是否传入，如果未传入则设置为 window
-    ctx || (ctx = window);
-		// 将调用函数设为对象的方法
-    ctx.fn = this;
-  	// 调用函数
-  	let result = cxt.fn(...args);
-  	// 将属性删除
-  	delete cxt.fn;
-  	return result;
-  }
-```
-
-
-
-### apply
-
-```javascript
-Funtion.prototype.apply = function(ctx, args) {
-	  // 判断调用对象是否为函数
-  	if (typeof this !== "function") {
-    	throw new TypeError("Error");
-  	}
-		// 判断 context 是否传入，如果未传入则设置为 window
-    ctx || (ctx = window);
-	  // 将函数设为对象的方法
-    ctx.fn = this;
- 		// 调用方法
-		let result = cxt.fn(args);
-  	// 将属性删除
-  	delete cxt.fn;
- 	 	return result;
-  }
-```
-
-
-
-### bind
-
-```javascript
-Funtion.prototype.bind = function(context, ...args) {
-		// 判断调用对象是否为函数
-    if(type of this !== "function") {
-			throw new TypeError("Error");
-    }
-    let fn = this;
-  
-    return function() {
-      return fn.apply(context, args.concat(...arguments))
-    }
-  }
-```
-
-
-
-## reduce
-
-```javascript
-Array.prototype.reduce = function(func, initState) {
-  const arr = this
-  const callback = func
-  let init = initState
-
-  arr.forEach(function(value, index){
-      init=callback(init, value)
-  })
-  return init
-}
-```
-
-
-
-## 柯里化
+## 2. 柯里化
 
 - 参数不固定
 
@@ -173,7 +92,7 @@ function currying(fn) {
 
 
 
-## 数据缓冲器分片处理
+## 3. 数据缓冲器分片处理
 
 ```javascript
 function multistep(steps, args, callback){
@@ -194,7 +113,7 @@ function multistep(steps, args, callback){
 
 
 
-## imageLazyLoad
+## 4. imageLazyLoad
 
 ```javascript
 // <img src="default.png" data-src="https://xxxx/real.png">
@@ -224,7 +143,7 @@ window.addEventListener('scroll', throttle(imageLazyLoad, 1000))
 
 
 
-## flatten
+## 5. flatten
 
 ```javascript
 /**
@@ -253,7 +172,7 @@ console.log(arr.flatten(source));
 
 
 
-## objectFlat
+## 6. objectFlat
 
 ```javascript
 function objectFlat(obj = {}) {
