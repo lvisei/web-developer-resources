@@ -57,6 +57,7 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 
 - [如何居中一个元素](https://github.com/ljianshu/Blog/issues/29) - 介绍水平居中，垂直居中，还有水平垂直居中各种办法。
 - [文本溢出截断省略方案](https://www.zoo.team/article/text-overflow) - 文本溢出截断省略方案合集。
+- [CSS过渡动画特效](https://juejin.cn/post/6921498669816479758) - CSS过渡动画特效，附带常见动效分享。
 
 ## JavaScript
 
@@ -71,6 +72,7 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 
 - [JavaScript 执行机制](https://juejin.im/post/6844903955286196237) - 浅读 JavaScript 执行机制。
 - [Event Loop 的规范和实现](https://juejin.im/post/5a6155126fb9a01cb64edb45) - Event Loop 规范、实现、应用。
+- [JavaScript 事件循环：从起源到浏览器再到 Node.js](https://zhuanlan.zhihu.com/p/126705839) - 从浏览器角度出发探讨 JavaScript 的事件循环。
 - [浅谈 AST（抽象语法树）](https://github.com/CodeLittlePrince/blog/issues/19) - 平庸前端码农之蜕变 — AST。
 - [Javascript 闭包](https://github.com/ljianshu/Blog/issues/6) - 深入浅出 Javascript 闭包。
 - [简明 JavaScript 函数式编程——入门篇](https://juejin.im/post/5d70e25de51d453c11684cc4) - JavaScript 函数式编程解读。
@@ -83,6 +85,7 @@ _在软件开发中，技术变化如此之快，你花费了大量时间学习�
 - [四种模块加载方案](https://github.com/mqyqingfeng/Blog/issues/108) - AMD、CMD、CommonJS、ES6 模块。
 - [Javascript 模块化管理](https://github.com/erbing/blog/blob/master/%E5%89%8D%E7%AB%AF%E4%B9%8B%E8%B7%AF%20-%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/08:%20%E7%AE%80%E6%98%93%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86.MD) - Javascript 模块化管理的发展历程。
 - [前端模块化详解](https://github.com/ljianshu/Blog/issues/48) - 前端模块化详解。
+- [node_modules 困境](https://juejin.cn/post/6914508615969669127) - 目前 node_modules 在使用场景的一些问题以及对比其他语言的包管理工具。
 
 ## TypeScript
 
@@ -146,6 +149,7 @@ _jQuery 的 Deferred/Promise_
 
 - [React Native vs. Cordova、PhoneGap、Ionic](https://zhuanlan.zhihu.com/p/45356420) - [译] React Native vs. Cordova、PhoneGap、Ionic，等等。
 - [React Native 新架构](https://zhuanlan.zhihu.com/p/281238593) - FB 团队正在重构的 ReactNative 新架构，主要当前架构，Bridge带来的问题，新架构，JSI，Fabric，TurboModules，CodenGen及LeanCore等概念。
+- [浅谈移动端开发技术](https://mp.weixin.qq.com/s/zFALwiPajFB__a6CBvjCew) - 移动端开发目前常见的一些技术。
 
 ## Front-End Engineering
 
@@ -193,6 +197,10 @@ _打包原理解析与实现_
 
 ## Browser
 
+### 内存
+
+- [前端内存泄漏及万善的解决方案](https://juejin.cn/post/6914092198170460168) - 前端常见的内存泄漏场景。
+
 ### BOM
 
 - [你不知道的 Blob 总结](https://juejin.im/post/5ede5300e51d4578a6798220) - 总结 Blob 的使用及应用场景。
@@ -237,6 +245,7 @@ _打包原理解析与实现_
 
 - [网站优化，这些工具你一定用得着](http://jartto.wang/2019/09/08/web-optimization-tools/) - 关于优化工具，两方面：「性能评估工具」和「优化工具」。
 - [网页性能管理详解](http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html) - 详细介绍性能问题的出现原因，以及解决方法。
+- [新一代 Web 性能体验和质量指标](https://juejin.cn/post/6844904168591736846) - 解读新一代 Web 性能体验和质量指标。
 
 ## Video
 
@@ -251,6 +260,12 @@ _打包原理解析与实现_
 - [探索 Serverless 中的前端开发模式](https://github.com/nodejh/nodejh.github.io/issues/49) - 从前端开发模式的演进、基于 Serverless 的前端开发案例以及 Serverless 开发最佳实践等方面，与大家探讨 Serverless 中的前端开发模式。
 - [Serverless 给前端带来了什么](https://github.com/dt-fe/weekly/blob/master/94.%E7%B2%BE%E8%AF%BB%E3%80%8AServerless%20%E7%BB%99%E5%89%8D%E7%AB%AF%E5%B8%A6%E6%9D%A5%E4%BA%86%E4%BB%80%E4%B9%88%E3%80%8B.md) - 前端框架总是带入后端思维，而 Serverless 则是把前端思维带入了后端运维。
 - [Serverless 将使前后端从分离再度走向融合](https://www.infoq.cn/article/bodZTULS2LQ-G4UIahjf) - 云计算经过了从物理机到虚拟机、从虚拟机到云计算、从云计算到容器这几个阶段，而容器之后的下一个阶段，则是 Serverless。
+
+
+
+##Micro Front-End
+
+- [基于 Vue 技术栈的微前端方案实践](https://github.com/mcuking/blog/issues/81) - 通过预加载路由与懒加载路由两种方式来实现基于 Vue 技术栈的微前端系统。
 
 ## WebAssembly
 
