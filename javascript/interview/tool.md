@@ -54,24 +54,19 @@ window.addEventListener('scroll', debounceTask)
 
 ## 2. 柯里化
 
+柯里化是指这样一个函数，它接收函数 A，并且能返回一个新的函数，这个新的函数能够处理函数 A 的剩余参数
+
 - 参数不固定
 
 ```javascript
 function currying(fn) {
-
   const argArr = [];
-
   let closure = function(...args) {
-
     if(args.length > 0) {
-
       argArr = [...argArr, ...args];
-
       return closure;
-
     }
     return fn(...argArr);
-
   }
   return closure;
 
@@ -194,69 +189,6 @@ function objectFlat(obj = {}) {
 // 使用
 const source = { a: { b: { c: 1, d: 2 }, e: 3 }, f: { g: 2 } }
 console.log(objectFlat(source));
-```
-
-
-
-## Promise
-
-```javascript
-class CustomPromise {
-  state = "PENDING"
-  value = undefined
-  thenCallbacks = []
-  errorCallbacks = []
-
-  constructor(action) {
-    action(this.resolver.bind(this), this.reject.bind(this))
-  }
-
-  resolver(value) {
-    this.state = "RESOLVED"
-    this.value = value
-    this.thenCallbacks.forEach((callback) => {
-      callback(this.value)
-    })
-  }
-
-  reject(value) {
-    this.state = "REJECTED"
-    this.value = value
-    this.errorCallbacks.forEach((callback) => {
-      callback(this.value)
-    })
-  }
-
-  then(callback) {
-    this.thenCallbacks.push(callback)
-    return this 
-  }
-
-  catch (callback) {
-    this.errorCallbacks.push(callback)
-    return this 
-  }
-}
-
-// 使用
-let promise = new CustomPromise((resolver, reject) => {
-  setTimeout(() => {
-    const rand = Math.ceil(Math.random(1 * 1 + 6) * 6)
-    if (rand > 2) {
-      resolver("Success")
-    } else {
-      reject("Error")
-    }
-  }, 1000)
-})
-
-promise
-  .then(function(response){
-    console.log(response)
-  })
-  .catch(function(error){
-    console.log(error)
-  })
 ```
 
 

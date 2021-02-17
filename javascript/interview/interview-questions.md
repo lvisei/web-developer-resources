@@ -25,14 +25,12 @@ http/2：重新定义底层 http 语义映射，允许同一个连接上使用�
 ### 3、性能优化从哪些方面入手
 
 - 分屏加载，当页面需要渲染的数据较多时，先渲染首屏，下滑时再加载第二屏的数据；
-
 - 图片大小优化，在不影响视觉效果的前提下，把图片尺寸降到最小；
-
 - 图片懒加载，on appear时再加载图片；
-
 - Code splitting，或者拆包，应用下的某些组件不需要立刻import，可以采用动态import的方式，打包时也可以将它们打到不同的bundle里，给index bundle瘦身；
-
 - Chrome Devtools - Trace & Timeline等一系列强大的分析工具可以去研究一下，它们可以深入到内核分析应用的性能问题所在；
+
+- [前端性能优化 24 条建议（2020）](https://juejin.cn/post/6892994632968306702)
 
 ### 4、如何加快首屏渲染，有哪些方案?
 
@@ -47,5 +45,9 @@ http/2：重新定义底层 http 语义映射，允许同一个连接上使用�
 ### 5、浏览器怎么进行垃圾回收，变量何时释放，哪些情况会导致内存泄露，`weakMap` `weakSet` 和 `Map` `Set` 有什么区别？
 
 - [从 4 个面试题了解「浏览器的垃圾回收」](https://juejin.cn/post/6861967094318284814#heading-0)
+- [前端内存泄漏及万善的解决方案](https://juejin.cn/post/6914092198170460168)
 
+### 6. 为什么 Vue 中不要用 index 作为 key？
+
+- [面试官：为什么 Vue 中不要用 index 作为 key？（diff 算法详解）](https://mp.weixin.qq.com/s/DRIYDutR2BcKzMs5CkycQg)
 

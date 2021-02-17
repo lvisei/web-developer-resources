@@ -55,15 +55,11 @@ console.log(obj2);   //  {a:{b:1}}
 
 
 ```js
-function _new(/* 构造函数 */ constructor, /* 构造函数参数 */ params) {
-  // 将 arguments 对象转为数组
-  var args = [].slice.call(arguments);
-  // 取出构造函数
-  var constructor = args.shift();
+function _new(/* 构造函数 */ constructor, /* 构造函数参数 */ ...args) {
   // 创建一个空对象，继承构造函数的 prototype 属性
-  var context = Object.create(constructor.prototype);
+  let context = Object.create(constructor.prototype);
   // 执行构造函数
-  var result = constructor.apply(context, args);
+  let result = constructor.apply(context, args);
   // 如果返回结果是对象，就直接返回，否则返回 context 对象
   return (typeof result === 'object' && result != null) ? result : context;
 }
@@ -74,9 +70,41 @@ var actor = _new(Person, '张三', 28);
 
 
 
-## 3. 手写 Create 方法？
+## 3. 手写 create、instanceof 方法？
 
- 
+#### instanceof 
+
+ ```js
+function myInstanceof(left, right) {
+  // 这里先用typeof来判断基础数据类型，如果是，直接返回false
+  if(typeof left !== 'object' || left === null) return false;
+  // getProtypeOf是Object对象自带的API，能够拿到参数的原型对象
+  let proto = Object.getPrototypeOf(left);
+  while(true) {                  //循环往下寻找，直到找到相同的原型对象
+    if(proto === null) return false;
+    if(proto === right.prototype) return true;//找到相同原型对象，返回true
+    proto = Object.getPrototypeof(proto);
+  }
+}
+
+console.log(myInstanceof(new Number(123), Number));    // true
+console.log(myInstanceof(123, Number));                // false
+ ```
+
+#### create
+
+```js
+function myCreate(proto) {
+  function F() {}
+  F.prototype = proto
+  
+  return new F()
+}
+```
+
+
+
+
 
 ## 4. 面向对象实现继承的方式？
 
@@ -87,19 +115,19 @@ var actor = _new(Person, '张三', 28);
 #### call
 
 ```javascript
-Function.prototype.call = function(cxt, ...args) {
+Function.prototype.call = function(context, ...args) {
   	// 判断调用对象是否为函数
     if (typeof this !== "function") {
       throw new TypeError("Error");
     }
 		// 判断 context 是否传入，如果未传入则设置为 window
-    ctx || (ctx = window);
+    context = context || window;
 		// 将调用函数设为对象的方法
-    ctx.fn = this;
+    context.fn = this;
   	// 调用函数
-  	let result = cxt.fn(...args);
+  	let result = context.fn(...args);
   	// 将属性删除
-  	delete cxt.fn;
+  	delete context.fn;
   	return result;
   }
 ```
@@ -107,19 +135,19 @@ Function.prototype.call = function(cxt, ...args) {
 #### apply
 
 ```javascript
-Funtion.prototype.apply = function(ctx, args) {
+Funtion.prototype.apply = function(context, args) {
 	  // 判断调用对象是否为函数
   	if (typeof this !== "function") {
     	throw new TypeError("Error");
   	}
 		// 判断 context 是否传入，如果未传入则设置为 window
-    ctx || (ctx = window);
+    context || (context = window);
 	  // 将函数设为对象的方法
-    ctx.fn = this;
+    context.fn = this;
  		// 调用方法
-		let result = cxt.fn(args);
+		let result = context.fn(args);
   	// 将属性删除
-  	delete cxt.fn;
+  	delete context.fn;
  	 	return result;
   }
 ```
@@ -134,8 +162,8 @@ Funtion.prototype.bind = function(context, ...args) {
     }
     let fn = this;
   
-    return function() {
-      return fn.apply(context, args.concat(...arguments))
+    return function(..._args) {
+      return fn.apply(context, args.concat(_args))
     }
   }
 ```
@@ -157,3 +185,166 @@ Array.prototype.reduce = function(func, initState) {
 }
 ```
 
+
+
+## 7. 手写 Promise ？
+
+<details>
+<summary>Promise</summary>
+
+```js
+class MyPromise {
+  state = "PENDING"
+  value = undefined
+
+  resolvedCallbacks = []
+  rejectedCallbacks = []
+
+  constructor(fn) {
+    fn(this.resolve.bind(this), this.reject.bind(this))
+  }
+
+  resolve(value) {
+    if (this.state === 'PENDING') {
+      this.state = "RESOLVED"
+  	  this.value = value
+	    this.resolvedCallbacks.forEach(cb => cb(this.value))
+    }
+  }
+
+  reject(value) {
+    if (this.state === 'PENDING') {
+      this.state = "REJECTED"
+   		this.value = value
+		  this.rejectedCallbacks.forEach(cb => cb(this.value))
+    }
+  }
+
+  then(onFulfilled, onRejected) {
+    if (this.state === 'PENDING') {
+      this.resolvedCallbacks.push(onFulfilled)
+      this.rejectedCallbacks.push(onRejected)
+    }
+    
+    if (this.state === 'RESOLVED') {
+      onFulfilled(this.value);
+    }
+    
+    if (this.state === 'REJECTED') {
+      onRejected(this.value);
+    }
+    return this
+  }
+
+  catch (callback) {
+    if (this.state === 'PENDING') {
+      this.rejectedCallbacks.push(callback)
+    }
+    
+    if (this.state === 'REJECTED') {
+      callback(this.value);
+    }
+    return this
+  }
+}
+
+// 使用
+let promise = new MyPromise((resolve, reject) => {
+  setTimeout(() => {
+    const rand = Math.ceil(Math.random(1 * 1 + 6) * 6)
+    if (rand > 2) {
+      resolve("Success")
+    } else {
+      reject("Error")
+    }
+  }, 1000)
+})
+
+promise
+  .then(function(response){
+    console.log(response)
+  })
+  .catch(function(error){
+    console.log(error)
+  })
+```
+
+</details>
+
+
+
+<details>
+  <summary>Promise.all()</summary>
+
+```js
+function isPromise(obj) {
+  return !!obj && (typeof obj === 'function' || typeof obj === 'object') && typeof obj.then == 'function';
+}
+
+function MyPromiseAll(arr) {
+  let res = []
+  return new Promise((resolve, reject) => {
+    for (let i = 0; i < arr.length; i++) {
+      if (isPromise(arr[i])) {
+        arr[i].then(data => {
+          res[i] = data;
+          if (res.length === arr.length) {
+            resolve(res)
+          }
+        }).catch(error => {
+          reject(error)
+        })
+      } else {
+        res[i] = arr[i];
+      }
+    }
+  })
+}
+```
+</details>
+
+<details>
+  <summary>Promise.race()</summary>
+
+```js
+function MyPromiseRace(arr) {
+  return new Promise((resolve, reject) => {
+    for (let i = 0; i < arr.length; i++) {
+      return arr[i].then(resolve, reject)
+    }
+  })
+}
+```
+</details>
+## 8. EventEmitter 订阅监听模式 ?
+
+```js
+class EventEmitter {
+  constructor() {
+    this.events = {};
+  }
+  on (eventName, callback) {
+    if(!this.events[eventName]) {
+      this.events[eventName] = [callback];
+    } else {
+      this.events[eventName].push(callback);
+    }
+  }
+
+  emit(eventName, ...args) {
+    this.events[eventName].forEach(fn => fn.apply(this, args));
+  }
+
+  once(eventName, callback) {
+    const fn = () => {
+      callback();
+      this.remove(eventName, fn);
+    }
+    this.on(eventName, fn)
+  }
+
+  remove(eventName, callback) {
+    this.events[eventName] = this.events[eventName].filter(fn => fn != callback);
+  }
+}
+```
