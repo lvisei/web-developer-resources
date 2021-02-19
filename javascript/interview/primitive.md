@@ -310,7 +310,7 @@ function MyPromiseAll(arr) {
 function MyPromiseRace(arr) {
   return new Promise((resolve, reject) => {
     for (let i = 0; i < arr.length; i++) {
-      return arr[i].then(resolve, reject)
+    	arr[i].then(resolve, reject)
     }
   })
 }
