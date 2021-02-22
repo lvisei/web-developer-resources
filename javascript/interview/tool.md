@@ -193,7 +193,7 @@ console.log(objectFlat(source));
 
 
 
-## EventEmitter
+## 7. EventEmitter
 
 ```javascript
 
@@ -250,4 +250,153 @@ setTimeout(() => {
 ```
 
 
+
+## 8. 观察者与发布订阅模式
+
+### 观察者模式
+
+```js
+let observer_ids=0;
+let observed_ids=0;
+//观察者类
+class Observer {
+   constructor() {
+      this.id = observer_ids++;
+   }
+   //观测到变化后的处理
+   update(ob){
+      console.log("观察者" + this.id + `-检测到被观察者${ob.id}变化`);
+   }
+}
+//被观察者列
+class Observed {
+   constructor() {
+      this.observers = [];
+      this.id=observed_ids++;
+   }
+   //添加观察者
+   addObserver(observer) {
+      this.observers.push(observer);
+   }
+   //删除观察者
+   removeObserver(observer) {
+      this.observers = this.observers.filter(o => {
+         return o.id != observer.id;
+      });
+   }
+   //通知所有的观察者
+   notify(ob) {
+      this.observers.forEach(observer => {
+         observer.update(ob);
+      });
+   }
+}
+
+let mObserved=new Observed();
+let mObserver1=new Observer();
+let mObserver2=new Observer();
+mObserved.addObserver(mObserver1);
+mObserved.addObserver(mObserver2);
+mObserved.notify();
+```
+
+
+
+### 发布订阅模式
+
+
+
+```js
+//发布者
+class Pub{
+   constructor(dispatcher){
+       this.dispatcher=dispatcher;
+       this.id=observed_ids++;
+   }
+   /**
+    * @description: 发布方法
+    * @param {type} 通知类型
+    */
+   publish(type){
+      this.dispatcher.publish(type,this)
+   }
+}
+//订阅者
+class Subscriber{
+    constructor(dispatcher){
+      this.dispatcher=dispatcher;
+      this.id=observer_ids++;
+    }
+    subscribe(type){
+       this.dispatcher.subscribe(type,this);
+    }
+    doUpdate(type,arg){
+        console.log("接受到消息"+arg)
+    }
+}
+//调度中心
+class Dispatcher{
+   constructor(){
+      this.dispatcher={};
+   }
+   //订阅
+   subscribe(type,subscriber){
+      if(!this.dispatcher[type]){
+         this.dispatcher[type]=[];
+      }  
+      this.dispatcher[type].push(subscriber);
+   }
+   //退订
+   unsubscribe(type, subscriber) {
+      let subscribers = this.dispatcher[type];
+      if (!subscribers || !subscribers.length) return;
+      this.dispatcher[type] = subscribers.filter(item =>{ 
+         return item.id !== subscriber.id
+      });
+  }
+  //发布
+  publish(type, args) {
+      let subscribers = this.dispatcher[type];
+      if (!subscribers || !subscribers.length) return;
+      subscribers.forEach(subscriber=>{
+         subscriber.doUpdate(type,args);
+      });        
+   }
+}
+class Reader extends Subscriber{
+   constructor(name,dispatcher){
+      super(dispatcher);
+      this.name=name;
+   }
+    doUpdate(type,st){
+      //   super.update(st);
+        console.log(this.name+`阅读了--${type}--公众号的文章`);
+    }
+}
+class WeiX extends Pub{
+    constructor(name,dispatcher){
+       super(dispatcher);
+       this.name=name;
+    }
+    publishArticle(type){
+       this.publish(type)
+    }
+}
+
+let dispatcher=new Dispatcher();
+//公众号
+let wei1=new WeiX("前端",dispatcher);
+let wei2=new WeiX("数据库",dispatcher);
+//读者们
+let reader1=new Reader("小玲",dispatcher);
+let reader2=new Reader("小明",dispatcher);
+let reader3=new Reader("小李",dispatcher);
+//读者订阅公众号
+reader1.subscribe("前端");
+reader2.subscribe("数据库");
+reader3.subscribe("数据库");
+//公众号发布文章
+wei1.publishArticle("前端");
+wei1.publishArticle("数据库");
+```
 
