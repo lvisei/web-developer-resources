@@ -60,7 +60,7 @@ window.addEventListener('scroll', debounceTask)
 
 ```javascript
 function currying(fn) {
-  const argArr = [];
+  let argArr = [];
   let closure = function(...args) {
     if(args.length > 0) {
       argArr = [...argArr, ...args];
@@ -98,6 +98,7 @@ function multistep(steps, args, callback){
         task.apply(null, args || []);   //调用 Apply 参数必须是数组
 
         if(tasks.length > 0){
+            // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments/callee
             setTimeout(arguments.callee, 25);
         }else{
             callback();
@@ -196,7 +197,6 @@ console.log(objectFlat(source));
 ## 7. EventEmitter
 
 ```javascript
-
 class EventEmitter {
   constructor() {
     this.events = {};
@@ -400,3 +400,65 @@ wei1.publishArticle("前端");
 wei1.publishArticle("数据库");
 ```
 
+## 9. Promise 并发限制
+
+```js
+class Scheduler {
+  constructor(limit) {
+    this.list = [];
+    this.limit = limit;
+  }
+  //promise版    
+  add(promiseCreator) {
+    return new Promise((resolve, reject) => {
+      if (this.limit > 0) {
+        this.limit--;
+        resolve(promiseCreator());
+      } else {
+        this.list.push([resolve, promiseCreator]);
+      }
+    }).then(() => {
+      if (this.list.length) {
+        let item = this.list.shift();
+        item[0](item[1]());
+      } else {
+        this.limit++;
+      }
+      return Promise.resolve();
+    })
+  }
+
+  //await版
+  async add(promiseCreator) {
+    if (this.limit <= 0) {
+      await new Promise((resolve) => {
+        this.list.push(resolve);
+      })
+    }
+    this.limit--;
+    await promiseCreator();
+    this.limit++;
+
+    if (this.list.length) this.list.shift()();
+  }
+}
+
+const timeout = (time) => new Promise(resolve => {
+  setTimeout(resolve, time)
+})
+const scheduler = new Scheduler();
+const addTask = (time, order) => {
+  scheduler.add(() => timeout(time)).then(() => console.log(time, 'time, order', order))
+}
+
+addTask(1000, '1');
+addTask(500, '2');
+addTask(300, '3');
+addTask(400, '4');
+// output: 2 3 1 4
+// 一开始，1、2两个任务进入队列
+// 500ms时，2完成，输出2，任务3进队
+// 800ms时，3完成，输出3，任务4进队
+// 1000ms时，1完成，输出1
+// 1200ms时，4完成，输出4
+```
