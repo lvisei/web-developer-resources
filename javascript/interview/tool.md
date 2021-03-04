@@ -408,7 +408,7 @@ class Scheduler {
     this.queue = [];
     this.limit = limit;
   }
-  //promise版    
+  // promise版    
   add(promiseCreator) {
     return new Promise((resolve, reject) => {
       if (this.limit > 0) {
@@ -427,9 +427,29 @@ class Scheduler {
       return Promise.resolve();
     })
   }
+  
+  // promise callback 版   
+  add2(promiseCreator) {
+    const callback = (result) => {
+      if (this.list.length) {
+         let item = this.list.shift();
+         item[0](item[1]());
+      } else {
+        this.limit++;
+      }
+      return result
+    if(this.limit > 0) {
+      this.limit --
+      return promiseCreator.then(callback)
+    } else {
+      return new Promise((resolve, reject) => {
+        this.list.push([resolve, promiseCreator]);
+      }).then(callback)
+    }
+  }
 
-  //await版
-  async add(promiseCreator) {
+  // await版
+  async add3(promiseCreator) {
     if (this.limit <= 0) {
       await new Promise((resolve) => {
         this.queue.push(resolve);
