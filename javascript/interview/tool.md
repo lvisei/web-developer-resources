@@ -405,7 +405,7 @@ wei1.publishArticle("数据库");
 ```js
 class Scheduler {
   constructor(limit) {
-    this.list = [];
+    this.queue = [];
     this.limit = limit;
   }
   //promise版    
@@ -432,14 +432,14 @@ class Scheduler {
   async add(promiseCreator) {
     if (this.limit <= 0) {
       await new Promise((resolve) => {
-        this.list.push(resolve);
+        this.queue.push(resolve);
       })
     }
     this.limit--;
     await promiseCreator();
     this.limit++;
 
-    if (this.list.length) this.list.shift()();
+    if (this.queue.length) this.queue.shift()();
   }
 }
 
