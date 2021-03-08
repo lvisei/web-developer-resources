@@ -6,18 +6,18 @@
 
 ```javascript
 function throttle(fn, threshhold = 250) {
-  let last, timerId;
+  let timerId, last
 
   return function(...args) {
-    let now = Date.now();
-    if (last && now - last < threshhold) {
-      clearTimeout(timerId);
+    const now = Date.now()
+    if (last && last - now < threshhold) {
+    	clearTimeout(timerId)
       timerId = setTimeout(() => {
-        fn.apply(this, args);
+        fu.apply(this, args)
       }, threshhold)
     } else {
-      last = now;
-      fn.apply(this, args);
+      last = now
+      fu.apply(this, args)
     }
   }
 }
