@@ -25,19 +25,20 @@ const shallowClone = (target) => {
 #### 深拷贝
 
 ```js
-let obj1 = { a:{ b:1} }
-function deepClone(obj) { 
-  let cloneObj = {}
-  for(let key in obj) {                 //遍历
-    if(typeof obj[key] ==='object') { 
-      cloneObj[key] = deepClone(obj[key])  //是对象就再次调用该函数递归
-    } else {
-      cloneObj[key] = obj[key]  //基本类型的话直接复制值
-    }
+function deepClone(target, map = new WeakMap()) {
+  if (!target || typeof target !== 'object') return target;
+  if (map.get(target)) return map.get(target);
+  const result = Array.isArray(target) ? [] : {};
+  map.set(target, result);
+  let keys = Object.keys(target);
+  for (let i = 0, len = keys.length; i < len; i++) {
+    let key = keys[i];
+    result[key] = deepClone(target[key], map);
   }
-  return cloneObj
+  return result;
 }
 
+let obj1 = { a:{ b:1} }
 let obj2 = deepClone(obj1);
 obj1.a.b = 2;
 console.log(obj2);   //  {a:{b:1}}

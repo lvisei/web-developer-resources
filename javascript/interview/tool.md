@@ -142,11 +142,18 @@ window.addEventListener('scroll', throttle(imageLazyLoad, 1000))
 ## 5. flatten
 
 ```javascript
-/**
-* [1,2,[3,4]] -> [1,2,3,4]
-*/
-
-let arr = [1,2,[3,4, [5,6, [7, [8, 9, 10]]]]]
+function flattenArr(arr, depth = 1) {
+  let res = [];
+  for (let idx = 0; idx < arr.length; idx++) {
+    let i = arr[idx];
+    if (Array.isArray(i) && (depth > 0 || depth === Infinity)) {
+      res.push(...flattenArr(i, --depth));
+    } else {
+      res.push(i);
+    } 
+  }
+  return res;
+}
 
 function flatten(arr) {
     return arr.reduce(function(acc, next){
@@ -162,6 +169,7 @@ if (!Array.prototype.flatten) {
 }
 
 // 使用
+let arr = [1,2,[3,4, [5,6, [7, [8, 9, 10]]]]]
 const source = [1, 2, [3, 4, [5, 6]], 7]
 console.log(arr.flatten(source));
 ```
@@ -172,19 +180,19 @@ console.log(arr.flatten(source));
 
 ```javascript
 function objectFlat(obj = {}) {
-  const res = {}
+  const result = {}
   function flat(item, preKey = '') {
     Object.entries(item).forEach(([key, val]) => {
       const newKey = preKey ? `${preKey}.${key}` : key
       if (val && typeof val === 'object') {
         flat(val, newKey)
       } else {
-        res[newKey] = val
+        result[newKey] = val
       }
     })
   }
   flat(obj)
-  return res
+  return result
 }
 
 // 使用
