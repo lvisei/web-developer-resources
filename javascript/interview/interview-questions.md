@@ -51,3 +51,28 @@ http/2：重新定义底层 http 语义映射，允许同一个连接上使用�
 
 - [面试官：为什么 Vue 中不要用 index 作为 key？（diff 算法详解）](https://mp.weixin.qq.com/s/DRIYDutR2BcKzMs5CkycQg)
 
+### 7. 兼容多种模块规范
+
+```js
+;(function (name, definition) {
+  // 检测上下文环境是否为AMD或CMD
+  var hasDefine = typeof define === 'function',
+    // 检查上下文环境是否为Node
+    hasExports = typeof module !== 'undefined' && module.exports;
+
+  if (hasDefine) {
+    // AMD环境或CMD环境
+    define(definition);
+  } else if (hasExports) {
+    // 定义为普通Node模块
+    module.exports = definition();
+  } else {
+    // 将模块的执行结果挂在window变量中，在浏览器中this指向window对象
+    this[name] = definition();
+  }
+})('hello', function () {
+  var hello = function () {};
+  return hello;
+});
+```
+
