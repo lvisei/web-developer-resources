@@ -76,3 +76,37 @@ http/2：重新定义底层 http 语义映射，允许同一个连接上使用�
 });
 ```
 
+### 8. defineproperty 与 Proxy 实现监听数据
+
+```js
+// defineproperty 
+const data = { name: '', role: ['A', 'B'] }
+
+Object.keys(data).forEach(function(key) {
+  Object.defineProperty(data, key, {
+    enumerable: true,
+    configurable: true,
+    get: function() {
+      return data[key]
+    },
+    set: function(newVal) {
+      data[key] = newVal
+    },
+  })
+})
+
+// Proxy
+const newObj = new Proxy(obj, {
+  get: function(target, key, receiver) {
+    return Reflect.get(target, key, receiver);
+  },
+  set: function(target, key, value, receiver) {
+    console.log(target, key, value, receiver);
+    return Reflect.set(target, key, value, receiver);
+  },
+});
+
+data.name = 'xxxx'
+data.role[0] = 'X'
+```
+
