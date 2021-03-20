@@ -13,11 +13,11 @@ function throttle(fn, threshhold = 250) {
     if (last && last - now < threshhold) {
     	clearTimeout(timerId)
       timerId = setTimeout(() => {
-        fu.apply(this, args)
+        fn.apply(this, args)
       }, threshhold)
     } else {
       last = now
-      fu.apply(this, args)
+      fn.apply(this, args)
     }
   }
 }
