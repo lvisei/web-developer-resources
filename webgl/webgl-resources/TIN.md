@@ -48,8 +48,8 @@
 >
 > encoding png: Either 'mapbox' or 'terrarium', the two main RGB encodings for elevation values
 
+- [MARTINI](https://github.com/mapbox/martini) - MARTINI stands for **Mapbox's Awesome Right-Triangulated Irregular Networks, Improved**.
 - [kylebarron/pymartini: A Cython port of Martini for fast RTIN terrain mesh generation ](https://github.com/kylebarron/pymartini) - python martini
-
 - [engelsjk/gmartini: A Go port of Martini for RTIN terrain mesh generation ](https://github.com/engelsjk/gmartini) - Go martini
 - https://github.com/flywave/go-martini - Go martini
 - [martini aframe - CodeSandbox ](https://codesandbox.io/s/martini-aframe-8b2i8?file=/src/martini-rtin.js:1413-1414) - JS martini code
@@ -65,15 +65,17 @@
 ## Quantized Mesh
 
 - [quantized-mesh](https://github.com/CesiumGS/quantized-mesh) - Specification for streaming massive terrain datasets for 3D visualization.
-
 - [loicgasser/quantized-mesh-tile: Quantized-Mesh encoder/decoder and topology builder ](https://github.com/loicgasser/quantized-mesh-tile) - Python encoder/decoder and topology builder for terrain tiles.
-
 - [quantized-mesh-viewer](https://github.com/heremaps/quantized-mesh-viewer) - Render custom quantized mesh tiles in Cesium.js and debug individual tiles using THREE.js renderer.
-
 - [quantized-mesh-decoder](https://github.com/heremaps/quantized-mesh-decoder) - JavaScript decoder for the Quantized Mesh format
-
 - [quantized-mesh-encoder](https://github.com/kylebarron/quantized-mesh-encoder) - A fast Python Quantized Mesh encoder
 - [Fast-Quadric-Mesh-Simplification](https://github.com/sp4cerat/Fast-Quadric-Mesh-Simplification) - C++ Mesh triangle reduction using quadrics
+
+
+
+### quantized-mesh - Serverless 3D Terrain with pymartini
+
+- [quantized-mesh-encoder](https://kylebarron.dev/quantized-mesh-encoder/) - 
 
 
 
