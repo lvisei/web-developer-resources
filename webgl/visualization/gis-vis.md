@@ -1,8 +1,90 @@
-## 地理数据可视化之初探 kepler.gl
+# 地理数据可视化之初探 kepler.gl
 
-### 写在前面
+## 写在前面
 
-**开源的数据可视化的库与工具**
+### 开源的数据可视化的库与工具分类
+
+#### 图表库
+
+##### 基础图表
+
+- ECharts
+
+- Chart.js
+
+- AntV-G2/F2
+
+- Vega
+
+- Rough.js
+
+- ...more
+
+##### 关系图和流程图
+
+- mermaid
+
+- sigma.js
+
+- AntV-G6/X6
+
+- dagre
+
+#### 地理库
+
+##### 2D
+
+- Leaflet
+
+- OpenLayers
+
+- Mapv 
+
+- AntV-L7
+
+##### 3D
+
+- Mapbox GL JS
+
+- Cesium
+
+- Deck.gl
+
+- maptalks.js
+
+#### 数据驱动框架
+
+##### D3
+
+- d3-geo
+
+#### 渲染库
+
+##### 2D
+
+- Snap.svg
+
+- Fabric.js
+
+- PixiJS
+
+- ...more
+
+##### 2/3D
+
+- p5.js
+
+- Sprite.js
+
+##### 3D
+
+- Three.js
+
+- Babylon.js
+
+### 开源的数据可视化的库与工具关系一张图
+
+
 
 ![开源的数据可视化库](https://tva1.sinaimg.cn/large/008eGmZEgy1gnn1geja7zj319y0l5ado.jpg)
 
