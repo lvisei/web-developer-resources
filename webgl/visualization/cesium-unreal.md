@@ -29,11 +29,11 @@ Cesium for Unreal 有什么意义呢？
 
 如果你在使用 `Unreal` 开发游戏，现在需要用到真实世界某个大雪山（地形数据）作为游戏场景，那么现在可以使用 [Cesium for Unreal](https://www.unrealengine.com/marketplace/zh-CN/product/87b0d05800a545d49bf858ef3458c4f7) 这个插件， 就可以将 3D 真实世界的地理空间数据加载到 `Unreal` 中使用了，也就是说游戏中虚拟世界它可以来源于我们物理设备采集的真实世界的空间数据，以后你在游戏里感觉到的真实世界与虚拟世界之间的界限也就越了越模糊了。
 
-如果多年以后我们的 VR 游戏和智能穿戴设备发展到较高水平时，将我们真实世界带到数据的虚拟世界中，在家足不出户就可以玩游戏一样旅游看名山大川，在里面社交和去想去的地方重新生活，是不是就跟斯皮尔伯格的《头号玩家》一样，人们对混乱和崩溃边缘的现实世界的失望，最后大家会不会望寄托于《绿洲》的虚拟世界呢？
+如果以后我们的 VR 游戏和智能穿戴设备发展到较高水平时，将我们真实世界带到数据的虚拟世界中，在家足不出户就可以玩游戏一样旅游看名山大川，在里面社交和去想去的地方旅游，是不是就跟斯皮尔伯格的《头号玩家》一样，人们对混乱和崩溃边缘的现实世界的失望，最后大家会不会望寄托于《绿洲》的虚拟世界呢？
 
 ## 在 Unreal Engine 里面使用 Cesium for Unreal 插件
 
-下面是在 Unreal Engine 里面使用 Cesium 的地理空间数据的效果图
+下面是在 Unreal Engine 里面使用 Cesium 的地理空间数据的效果
 
 |                                                              |                                                              |                                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -43,18 +43,21 @@ Cesium for Unreal 有什么意义呢？
 
 官方的两个宣传视频
 
-
-
-在 Unreal Engine 里面操作截图
-
-|                                                              |                                                              |                                                              |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![7BBC42C2F0E4EC15761D76D319AF984B](https://tva1.sinaimg.cn/large/008eGmZEgy1gp87ux5fp7j31f20u0dlq.jpg) | ![20210401-0](https://tva1.sinaimg.cn/large/008eGmZEgy1gp87v6xw0tj319f0lz41l.jpg) | ![20210401-1](https://tva1.sinaimg.cn/large/008eGmZEgy1gp87vazj18j31hc0metcn.jpg) |
-| ![img](https://images.prismic.io/cesium/78453878-e7e8-4a44-9f64-1503575c0ab3_unreal-announcement-1.jpg?auto=compress%2Cformat&w=944) | ![img](https://images.prismic.io/cesium/27307e53-46f2-4e54-bbe1-6e02bc75626e_unreal-announcement-2.png?auto=compress%2Cformat&w=944) |                                                              |
+<iframe src="//player.bilibili.com/player.html?aid=672499827&bvid=BV1LU4y1h7sb&cid=319875565&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
 
-官方给的两篇教程，很简单按到步骤来弄就算了，不过对电脑的配置要求很高，不然你的电脑恐怕是流程走不完。
+<iframe src="//player.bilibili.com/player.html?aid=757469821&bvid=BV1W64y1S7i1&cid=319873803&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+在 Unreal Engine 里面操作
+
+|                                                              |                                                              |                                                              |                                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![7BBC42C2F0E4EC15761D76D319AF984B](https://tva1.sinaimg.cn/large/008eGmZEgy1gp87ux5fp7j31f20u0dlq.jpg) | ![img](https://cesium.com/docs/images/tutorials/cesium-for-unreal-photogrammetry/melbourne-upright.jpg) | ![img](https://images.prismic.io/cesium/27307e53-46f2-4e54-bbe1-6e02bc75626e_unreal-announcement-2.png?auto=compress%2Cformat&w=944) | ![img](https://cesium.com/docs/images/tutorials/cesium-for-unreal-placing/cone-in-italy.jpg) |
+
+
+
+官方给的两篇教程，很简单按到步骤来弄就算了，不过对电脑的配置要求很高，不然流程走不下去。
 
 - [Cesium for Unreal Quickstart](https://cesium.com/docs/tutorials/cesium-unreal-quickstart/)
 - [Cesium for Unreal Getting Started Tutorials](https://cesium.com/docs/tutorials/cesium-unreal-020-photogrammetry/)
@@ -69,27 +72,24 @@ Cesium for Unreal 有什么意义呢？
 
 都知道目前 `Cesium` 是基于 `WebGl` 建设的，也就是 `JS` 写的 3D 渲染引擎，能在支持 `WebGl` 的浏览器环境中运行，而 `Unreal` 是基于 `C++` 开发的桌面游戏开发引擎，那如何让 `Cesium` 生态里面的数据源能在 `Unreal` 里面使用的呢？
 
-下图 Cesium for Unreal 的架构图，
+下图是 Cesium for Unreal 的架构图
 
 
 
 ![unreal-architecture](https://tva1.sinaimg.cn/large/008eGmZEgy1gp87xfmj21j31g50u010o.jpg)
 
+`Cesium` 是专门为 `Web` 构建的开源 3D 引擎，[Cesium for Unreal](https://github.com/CesiumGS/cesium-unreal) 是 `Cesium` 的补充，它是基于 `C++` 编写的新开源 [Cesium Native](https://github.com/CesiumGS/cesium-native) 库，在此基础之上为引擎提供 3D Tiles 流与轻量级 glTF 加载支持，最后以高精度的方式渲染出来。
+
+官方也正在并行推进这两个引擎，并交叉利用各自的能力，后面也有可能利用 `WebAssembly` 技术来完善和扩展 `Cesium` 在 `Web` 里的功能。
 
 
 ### 支持的数据格式
 
+`Cesium for Unreal` 能支持加载 [cesium ion](https://cesium.com/ion/) 上的所有数据类型，比如 Terrain、Imagery、3D Tiles（Photogrammetry、3D Models、3D Buildings、Point Clouds），但数据的坐标系目前只能是 `WGS84` 的。
 
+当你加载 3D Buildings 时，如果加上去有偏移也支持可以在面板中调整。
 
-支持哪些数据源
-
-
-
-是否把坐标和投影带入
-
-
-
-
+![Origin](https://cesium.com/docs/images/tutorials/cesium-unreal-quickstart/cesium-georeference.png)
 
 ## 写在后面
 
