@@ -21,6 +21,10 @@
 
 ## Open source library
 
+### CLI
+
+- [Create Go App CLI](https://github.com/create-go-app/cli) - 帮助创建一个应用框架，包含后端（Go）、前端（JavaScript、TypeScript）和自动化部署，更专注业务逻辑开发。
+
 ### Web Framework
 
 - [Gin Web Framework](https://github.com/gin-gonic/gin) - 一个用 Go 编写的 HTTP web 框架。 
