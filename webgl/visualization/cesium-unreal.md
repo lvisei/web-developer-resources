@@ -27,9 +27,9 @@
 
 Cesium for Unreal 有什么意义呢？
 
-如果你在使用 `Unreal` 开发游戏，现在需要用到真实世界某个大雪山（地形数据）作为游戏场景，那么现在可以使用 [Cesium for Unreal](https://www.unrealengine.com/marketplace/zh-CN/product/87b0d05800a545d49bf858ef3458c4f7) 这个插件， 就可以将 3D 真实世界的地理空间数据加载到 `Unreal` 中使用了，也就是说游戏中虚拟世界它可以来源于我们物理设备采集的真实世界的空间数据，以后你在游戏里感觉到的真实世界与虚拟世界之间的界限也就越了越模糊了。
+如果你在使用 `Unreal` 开发游戏，现在需要用到真实世界某个大雪山（地形数据）作为游戏场景，那么现在可以使用 [Cesium for Unreal](https://www.unrealengine.com/marketplace/zh-CN/product/87b0d05800a545d49bf858ef3458c4f7) 这个插件， 就可以将 3D 真实世界的地理空间数据加载到 `Unreal` 中使用了，也就是说游戏中虚拟世界它可以来源于我们物理设备采集的真实世界的空间数据，总之以后你在游戏里感觉到的真实世界与虚拟世界之间的界限也就越了越模糊了。
 
-如果以后我们的 VR 游戏和智能穿戴设备发展到较高水平时，将我们真实世界带到数据的虚拟世界中，在家足不出户就可以玩游戏一样旅游看名山大川，在里面社交和去想去的地方旅游，是不是就跟斯皮尔伯格的《头号玩家》一样，人们对混乱和崩溃边缘的现实世界的失望，最后大家会不会望寄托于《绿洲》的虚拟世界呢？
+如果以后我们的 VR 游戏和智能穿戴设备发展到较高水平时，将我们真实世界带到数据的虚拟世界中，在家足不出户就可以玩游戏一样旅游看名山大川，在里面社交，去想去的地方旅游，是不是就跟斯皮尔伯格的《头号玩家》一样，人们对混乱和崩溃边缘的现实世界的失望，最后大家会不会望寄托于《绿洲》的虚拟世界呢？
 
 ## 在 Unreal Engine 里面使用 Cesium for Unreal 插件
 
@@ -57,7 +57,7 @@ Cesium for Unreal 有什么意义呢？
 
 
 
-官方给的两篇教程，很简单按到步骤来弄就算了，不过对电脑的配置要求很高，不然流程走不下去。
+官方给的两篇教程，很简单按到步骤来弄就是了，不过对电脑的配置要求很高，不然流程走不下去。
 
 - [Cesium for Unreal Quickstart](https://cesium.com/docs/tutorials/cesium-unreal-quickstart/)
 - [Cesium for Unreal Getting Started Tutorials](https://cesium.com/docs/tutorials/cesium-unreal-020-photogrammetry/)
@@ -70,17 +70,15 @@ Cesium for Unreal 有什么意义呢？
 
 ### 关于插件技的术路线
 
-都知道目前 `Cesium` 是基于 `WebGl` 建设的，也就是 `JS` 写的 3D 渲染引擎，能在支持 `WebGl` 的浏览器环境中运行，而 `Unreal` 是基于 `C++` 开发的桌面游戏开发引擎，那如何让 `Cesium` 生态里面的数据源能在 `Unreal` 里面使用的呢？
-
-下图是 Cesium for Unreal 的架构图
+都知道目前 `Cesium` 是基于 `WebGl` 建设的，也就是 `JS` 写的 3D 渲染引擎，能在支持 `WebGl` 的浏览器环境中运行，而 `Unreal` 是基于 `C++` 开发的游戏开发引擎，那如何让 `Cesium` 生态里面的数据源能在 `Unreal` 里面使用的呢？下图是 Cesium for Unreal 的架构图。
 
 
 
 ![unreal-architecture](https://tva1.sinaimg.cn/large/008eGmZEgy1gp87xfmj21j31g50u010o.jpg)
 
-`Cesium` 是专门为 `Web` 构建的开源 3D 引擎，[Cesium for Unreal](https://github.com/CesiumGS/cesium-unreal) 是 `Cesium` 的补充，它是基于 `C++` 编写的新开源 [Cesium Native](https://github.com/CesiumGS/cesium-native) 库，在此基础之上为引擎提供 3D Tiles 流与轻量级 glTF 加载支持，最后以高精度的方式渲染出来。
+`Cesium` 是专门为 `Web` 构建的开源 3D 引擎，而 [Cesium for Unreal](https://github.com/CesiumGS/cesium-unreal) 是 `Cesium` 的补充，它是基于 `C++` 编写的新开源 [Cesium Native](https://github.com/CesiumGS/cesium-native) 库，在此基础之上为引擎提供 3D Tiles 流与轻量级 glTF 加载支持，最后以高精度的方式渲染出来。
 
-官方也正在并行推进这两个引擎，并交叉利用各自的能力，后面也有可能利用 `WebAssembly` 技术来完善和扩展 `Cesium` 在 `Web` 里的功能。
+官方也正在并行推进这两个引擎，交叉利用各自的能力，后面也有可能利用 `WebAssembly` 技术来完善和扩展 `Cesium` 在 `Web` 里的功能。
 
 
 ### 支持的数据格式
@@ -93,7 +91,7 @@ Cesium for Unreal 有什么意义呢？
 
 ## 写在后面
 
-最后分享一段 Cesium 作者 Patrick 在 [Cesium for Unreal Now Available](https://cesium.com/blog/2021/03/30/cesium-for-unreal-now-available/) 中提到关于未来的期望。
+最后分享一段 Cesium 作者 Patrick 在 [Cesium for Unreal Now Available](https://cesium.com/blog/2021/03/30/cesium-for-unreal-now-available/) 中提到关于未来的展望。
 
 > We live in an exciting time of ubiquitous sensors capturing the real world; drones and autonomous vehicles carrying sensors; photogrammetry and AI algorithms creating semantic 3D models; data explosion in resolution and collection frequency; plentiful cloud compute and storage; AR and VR devices coming of age; 5G bandwidth on the rise; GPUs that rival past supercomputers; and cell phones that rival yesteryear’s laptops. My prediction is that the dividing line between the physical and digital worlds will continue to blur, as will the line between 3D geospatial and game assets and ecosystems. This ecosystem of ecosystems will be enabled by open standards and platforms of platforms. 3D Tiles may very well become the spatial temporal index for all of it. I won’t be a graphics programmer in geospatial; I will just be a programmer.
 >
@@ -101,7 +99,7 @@ Cesium for Unreal 有什么意义呢？
 >
 >   --- You and The Future
 
-## 链接
+## 参考资料
 
 - [First Look at RealityCapture Photogrammetry in Cesium for Unreal](https://cesium.com/blog/2021/03/11/reality-capture-models-arriving-in-cesium-for-unreal/)
 - [Cesium for Unreal coming March 30](https://cesium.com/blog/2021/02/16/cesium-for-unreal-news/)
@@ -109,3 +107,6 @@ Cesium for Unreal 有什么意义呢？
 - [Project Anywhere](https://www.unrealengine.com/zh-CN/industry/project-anywhere)
 - [Cesium for Unreal Now Available](https://cesium.com/blog/2021/03/30/cesium-for-unreal-now-available/)
 
+
+
+文中链接较多建议[原文地址](https://github.com/liuvigongzuoshi/blog/blob/master/README.md#%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9B%B8%E5%85%B3)查阅。
