@@ -6,81 +6,81 @@
 
 #### 图表库
 
-##### 基础图表
+- 基础图表
 
-- ECharts
+  - ECharts
 
-- Chart.js
+  - Chart.js
 
-- AntV-G2/F2
+  - AntV-G2/F2
 
-- Vega
+  - Vega
 
-- Rough.js
+  - Rough.js
 
-- ...more
+  - ...more
 
-##### 关系图和流程图
+- 关系图和流程图
 
-- mermaid
+  - mermaid
 
-- sigma.js
+  - sigma.js
 
-- AntV-G6/X6
+  - AntV-G6/X6
 
-- dagre
+  - dagre
 
 #### 地理库
 
-##### 2D
+- 2D
 
-- Leaflet
+  - Leaflet
 
-- OpenLayers
+  - OpenLayers
 
-- Mapv 
+  - Mapv 
 
-- AntV-L7
+  - AntV-L7
 
-##### 3D
+- 3D
 
-- Mapbox GL JS
+  - Mapbox GL JS
 
-- Cesium
+  - Cesium
 
-- Deck.gl
+  - Deck.gl
 
-- maptalks.js
+  - maptalks.js
 
 #### 数据驱动框架
 
-##### D3
+- D3
 
-- d3-geo
+  - d3-geo
 
 #### 渲染库
 
-##### 2D
+- 2D
 
-- Snap.svg
+  - Snap.svg
 
-- Fabric.js
+  - Fabric.js
 
-- PixiJS
+  - PixiJS
 
-- ...more
+  - ...more
 
-##### 2/3D
+- 2/3D
 
-- p5.js
+  - p5.js
 
-- Sprite.js
+  - Sprite.js
 
-##### 3D
+- 3D
 
-- Three.js
+  - Three.js
 
-- Babylon.js
+  - Babylon.js
 
 ### 开源的数据可视化的库与工具关系一张图
 
