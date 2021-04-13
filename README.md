@@ -220,7 +220,8 @@ _打包原理解析与实现_
 
 ### 渲染
 
-- [深入浅出浏览器渲染原理](https://github.com/ljianshu/Blog/issues/51) -  以Webkit 为例，对现代浏览器的渲染过程进行一个深度的剖析。
+- [深入浅出浏览器渲染原理](https://github.com/ljianshu/Blog/issues/51) -  以 Webkit 为例，对现代浏览器的渲染过程进行一个深度的剖析。
+- [浏览器渲染笔记](https://mp.weixin.qq.com/s/oznok1p-O1BN2OLQ1bTD9g) - 着重介绍绘制 paint (分层-渲染层**Paint Layer**、分层-合成层**Composite Layer**）、层绘制 paint、栅格化流程。浏览器渲染[小实战](https://mp.weixin.qq.com/s/5QcrXNkpiKDfoSVKYaSk6w)思考。
 
 ### 线程
 
@@ -267,7 +268,7 @@ _打包原理解析与实现_
 - [Serverless 给前端带来了什么](https://github.com/dt-fe/weekly/blob/master/94.%E7%B2%BE%E8%AF%BB%E3%80%8AServerless%20%E7%BB%99%E5%89%8D%E7%AB%AF%E5%B8%A6%E6%9D%A5%E4%BA%86%E4%BB%80%E4%B9%88%E3%80%8B.md) - 前端框架总是带入后端思维，而 Serverless 则是把前端思维带入了后端运维。
 - [Serverless 将使前后端从分离再度走向融合](https://www.infoq.cn/article/bodZTULS2LQ-G4UIahjf) - 云计算经过了从物理机到虚拟机、从虚拟机到云计算、从云计算到容器这几个阶段，而容器之后的下一个阶段，则是 Serverless。
 
-##Micro Front-End
+## Micro Front-End
 
 - [基于 Vue 技术栈的微前端方案实践](https://github.com/mcuking/blog/issues/81) - 通过预加载路由与懒加载路由两种方式来实现基于 Vue 技术栈的微前端系统。
 
