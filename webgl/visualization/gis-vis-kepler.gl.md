@@ -2,7 +2,7 @@
 
 ## 1. 写在前面
 
-最近在看 Ubur 的 `Deck.gl`，间接性接触到它们开源的一个地理数据分析可视化 `kepler.gl`，之前也有到，没有怎么玩过，恰好最近有点时间，来玩一玩这个地理数据可视化工具。
+最近在看 Ubur 的 `Deck.gl`，间接性接触到它们开源的一个地理数据分析可视化工具 `kepler.gl`，之前也有看到，没有怎么玩过，恰好最近有点时间，来玩一玩这个地理数据可视化工具。
 
 下面就以探索的方式展开简单玩玩 `kepler.gl`。
 
@@ -101,7 +101,7 @@
 - [loaders.gl](https://loaders.gl/) - a suite of framework-independent loaders for file formats focused on visualization of big data, including point clouds, 3D geometries, images, geospatial formats as well as tabular data.
 - [nebula.gl](https://nebula.gl/) - High-Performance, 3D-enabled GeoJSON editing deck.gl and React
 
-![image-20210417190557767](https://tva1.sinaimg.cn/large/008eGmZEgy1gpmy6i2zgsj30v20p0473.jpg)
+![Catalog](https://tva1.sinaimg.cn/large/008eGmZEgy1gpmy6i2zgsj30v20p0473.jpg)
 
 了解大致关系情况后，就搭建 kepler.gl，来玩一玩看看。
 
@@ -210,7 +210,7 @@ ReactDOM.render(
 
 之前一般选择 Vercel 与 travis-ci 来持续集成部署，现在 `Github Actions` 也比较好用了，这里就使用 `Github Actions` 来做持续集成。
 
-![image-20210417203944138](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn0w1moawj311h0p8adf.jpg)
+![Github Actions](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn0w1moawj311h0p8adf.jpg)
 
 新建工作流，配置 Actions [deploy-gh-page.yml](https://github.com/liuvigongzuoshi/kepler.gl-taste/blob/main/.github/workflows/deploy-gh-page.yml)
 
@@ -250,7 +250,7 @@ jobs:
 
 部署完成之后，访问部署后的[地址](https://liuvigongzuoshi.github.io/kepler.gl-taste/)，下就开始来玩玩 kepler.gl
 
-![image-20210417222949400](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn42o0zkgj31lu0u07wh.jpg)
+![demo](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn42o0zkgj31lu0u07wh.jpg)
 
 ## 3. 使用 kepler.gl
 
@@ -258,19 +258,19 @@ jobs:
 
 这里就以带地理信息的天气数据来玩玩 `kepler.gl` 看看效果，数据就使用[国家气象科学数据中心](https://data.cma.cn/)收集的地面站点数据。不过使用数据之前需要注册帐号，审核通过之后就可以使用了。
 
-![image-20210417182525865](https://tva1.sinaimg.cn/large/008eGmZEgy1gpmx0f8fnej31n10nqe5u.jpg)
+![国家气象科学数据中心](https://tva1.sinaimg.cn/large/008eGmZEgy1gpmx0f8fnej31n10nqe5u.jpg)
 
 这里就以四川地面气象站逐小时观测资料为演示数据，选取要观测要素，数据检索完成后，申请数据下载。
 
-![008eGmZEgy1gpmx7ubw1yj31ef0u0aq0](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn7k9fvxgj31ef0l2gsz.jpg)
+![数据检索](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn7k9fvxgj31ef0l2gsz.jpg)
 
 审核通过后下载数据，数据格式如下图所示：
 
-![image-20210418002444137](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn7e5vqv4j31ep053q4f.jpg)
+![逐小时观测资料](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn7e5vqv4j31ep053q4f.jpg)
 
 可以看到数据只要站点编号，缺少站点信息数据，再次下载站点数据，数据格式如下图所示：
 
-![image-20210418003231978](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn7m9zs8nj30b8067mxo.jpg)
+![站点数据](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn7m9zs8nj30b8067mxo.jpg)
 
 下面进行数据合并处理
 
@@ -344,29 +344,27 @@ fs.writeFileSync('result.json', JSON.stringify(srouceData))
 
 #### 3.3.2 各气象站点海拔高度分布
 
-![image-20210418022846876](https://tva1.sinaimg.cn/large/008eGmZEgy1gpnazcyyktj31m30u04qp.jpg)
-
-
+![各气象站点海拔高度分布](https://tva1.sinaimg.cn/large/008eGmZEgy1gpnazcyyktj31m30u04qp.jpg)
 
 #### 3.3.3 各气象站点中午气温分布
 
-![image-20210418011104447](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn8qdp3mxj31ly0u0x6f.jpg)
+![各气象站点中午气温分布](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn8qdp3mxj31ly0u0x6f.jpg)
 
 #### 3.3.4 各气象站点中午气压热力图
 
-![image-20210418012929648](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn99k4p7fj31lr0u0e81.jpg)
+![各气象站点中午气压热力图](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn99k4p7fj31lr0u0e81.jpg)
 
 #### 3.3.5 各气象站点聚合分布图
 
-![image-20210418013404513](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn9ebh693j31m00u0u09.jpg)
+![各气象站点聚合分布图](https://tva1.sinaimg.cn/large/008eGmZEgy1gpn9ebh693j31m00u0u09.jpg)
 
 #### 3.3.6 各气象站点栅格化最大风速三维视图
 
-![image-20210418015608610](https://tva1.sinaimg.cn/large/008eGmZEgy1gpna1g2wmzj31lv0u0tx8.jpg)
+![各气象站点栅格化最大风速三维视图](https://tva1.sinaimg.cn/large/008eGmZEgy1gpna1g2wmzj31lv0u0tx8.jpg)
 
 #### 3.3.7 各气象站点体感温度三维视图
 
-![image-20210418021638826](https://tva1.sinaimg.cn/large/008eGmZEgy1gpnamm6a72j31m00u0e45.jpg)
+![各气象站点体感温度三维视图](https://tva1.sinaimg.cn/large/008eGmZEgy1gpnamm6a72j31m00u0e45.jpg)
 
 
 ## 4. 写在后面
@@ -375,7 +373,7 @@ fs.writeFileSync('result.json', JSON.stringify(srouceData))
 
 | [Polygon](https://kepler.gl/demo/sfcontour) - 海拔等高线     | [Polygon](https://kepler.gl/demo/nyc_census) - 区域人口      | [Arc](https://kepler.gl/demo/ukcommute) - 通勤起终点         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![kepler-gl](https://tva1.sinaimg.cn/large/008eGmZEgy1gpnp0djq3ej31hc0u0b2b.jpg) | ![kepler-gl (1)](https://tva1.sinaimg.cn/large/008eGmZEgy1gpnp3kfi73j31hc0u01ky.jpg) | ![kepler-gl (2)](https://tva1.sinaimg.cn/large/008eGmZEgy1gpnp5gnt9wj31hc0u0x6q.jpg) |
+| ![海拔等高线](https://tva1.sinaimg.cn/large/008eGmZEgy1gpnp0djq3ej31hc0u0b2b.jpg) | ![区域人口](https://tva1.sinaimg.cn/large/008eGmZEgy1gpnp3kfi73j31hc0u01ky.jpg) | ![通勤起终点](https://tva1.sinaimg.cn/large/008eGmZEgy1gpnp5gnt9wj31hc0u0x6q.jpg) |
 
 除此之外也有供比较详细的[用户手册](https://docs.kepler.gl/docs/user-guides/j-get-started)，对无编码经验的同学也能快速上手制作一份地理数据可视化解决方案。
 
