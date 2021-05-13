@@ -201,11 +201,15 @@ _打包原理解析与实现_
 
 ## Browser
 
+### 架构
+
+- [深入理解现代浏览器](https://mp.weixin.qq.com/s/LkKNjrkx1V32lCjv92Cuuw) - 译文[来源](https://developers.google.com/web/updates/2018/09/inside-browser-part1)。
+
 ### 内存
 
 - [前端内存泄漏及万善的解决方案](https://juejin.cn/post/6914092198170460168) - 前端常见的内存泄漏场景。
-
 - [V8引擎的垃圾回收](https://segmentfault.com/a/1190000014383214) - v8 内存结构、垃圾回收机制（标记清除、引用计数）、V8垃圾回收策略（新生代、老生代）。
+- [内存泄漏排查](https://juejin.cn/post/6947841638118998029) - 以 Chrome devTools 为案例查看内存情况。
 
 ### BOM
 
@@ -279,6 +283,7 @@ _打包原理解析与实现_
 ## WebAssembly
 
 - [WebAssembly 现状与实战](https://www.ibm.com/developerworks/cn/web/wa-lo-webassembly-status-and-reality/index.html)
+- [使用 FFmpeg 与 WebAssembly 实现纯前端视频截帧](https://mp.weixin.qq.com/s/HJpexn0pRWtucmkgLTGdPQ)
 
 ## Node
 
