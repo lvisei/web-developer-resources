@@ -221,6 +221,7 @@ _打包原理解析与实现_
 ### 加载
 
 - [从输入 URL 到页面加载的过程](https://segmentfault.com/a/1190000013662126#articleHeader56) - 梳理一个较为完整的前端向知识体系。
+- [Event Loop 和 JS 引擎、渲染引擎的关系](https://mp.weixin.qq.com/s/jD5DAKsdLf1J2nqBxih2Aw) -  JS 引擎的编译流水线、渲染引擎的渲染流程，以及引入 Event Loop 作用。
 
 ### 渲染
 
