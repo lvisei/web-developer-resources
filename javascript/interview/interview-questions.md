@@ -115,3 +115,40 @@ data.role[0] = 'X'
 - loader，它是一个转换器，将A文件进行编译成B文件，比如：将A.less转换为A.css，单纯的文件转换过程。
 - plugin 是一个扩展器，它丰富了 webpack 本身，针对是 loader 结束后，webpack 打包的整个过程，它并不直接操作文件，而是基于事件机制工作，会监听 webpack 打包过程中的某些节点，执行广泛的任务。
 
+### 10. 简易版的 React Hooks 实现
+
+```js
+let memorizedState = [] // 存放hooks
+let cursor = 0
+let lastRef
+
+function useState(intialState) {
+    memorizedState[cursor] = memeorizedState[cursor] || initialState
+    const currentCursor = cursor;
+    function setState(newState) {
+        memorizedState[currentCursor] = newState
+        render()
+    }
+    
+    return [ memorizedState[cursor++], setState]
+}
+
+function useEffect(callback, depArr) {
+    const noDepArr = !depArr
+    const deps = memorizedState[cursor]
+    const hasDepsChanged = deps
+    ? !depArr.every((el, i) => el === deps[i])
+    : true
+    if (noDepArr || hasDepsChanged) {
+        callback()
+        memorizedState[cursor] = depArr
+    }
+    cursor++
+}
+
+function useRef(value){   
+  lastRef = lastRef || { current: value }   
+  return lastRef 
+}
+```
+
