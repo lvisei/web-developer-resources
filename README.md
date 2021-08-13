@@ -282,6 +282,10 @@ _打包原理解析与实现_
 
 - [搭建一个属于自己的在线 IDE](https://juejin.cn/post/6882541950205952013) - 探究 CodeSandbox 实现在线 SandBox。
 
+## Web Workers
+
+- [Web Workers 分类及 5 个使用场景](https://github.com/Troland/how-javascript-works/blob/master/worker.md) - 译文[来自](https://blog.sessionstack.com/how-javascript-works-the-building-blocks-of-web-workers-5-cases-when-you-should-use-them-a547c0757f6a)，Web Workers 概览及应用场景。
+
 ## WebAssembly
 
 - [WebAssembly 现状与实战](https://www.ibm.com/developerworks/cn/web/wa-lo-webassembly-status-and-reality/index.html)
