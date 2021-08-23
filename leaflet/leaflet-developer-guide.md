@@ -3,7 +3,7 @@
 ### 文档
 
 - Leaflet 官方[文档](https://leafletjs.com/index.html)，Leaflet [插件](https://leafletjs.com/plugins.html)集。
-- Leaflet 中文[文档](http://leaflet.marsgis.cn/go.html?id=13)，中文[插件](http://leaflet.marsgis.cn/go.html?id=14)集。火星科技翻译，文档所使用的Leaflet版本是 v1.0.3。
+- Leaflet 中文[文档](https://leafletjs.cn)，中文[插件](https://leafletjs.cn/plugins.html)集。
 - Leaflet 常用 API 结构[图](https://github.com/liuvigongzuoshi/Leaflet_Demo/blob/master/tree/Leaflet%20API.png)。
 - Leaflet 类之间继承关系[图](http://leaflet.marsgis.cn/forleaflet/examples/extending/class-diagram.html)。
 
