@@ -276,6 +276,7 @@ _打包原理解析与实现_
 
 ## Micro Front-End
 
+- [从场景倒推我们要什么样的微前端体系](https://juejin.cn/post/6981638032768106526) - 独立上线，互不干扰，微前端的体系化。
 - [基于 Vue 技术栈的微前端方案实践](https://github.com/mcuking/blog/issues/81) - 通过预加载路由与懒加载路由两种方式来实现基于 Vue 技术栈的微前端系统。
 
 ### Code SandBox
