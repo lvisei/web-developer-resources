@@ -286,7 +286,7 @@ _打包原理解析与实现_
 ## Web Workers
 
 - [Web Workers 分类及 5 个使用场景](https://github.com/Troland/how-javascript-works/blob/master/worker.md) - 译文[来自](https://blog.sessionstack.com/how-javascript-works-the-building-blocks-of-web-workers-5-cases-when-you-should-use-them-a547c0757f6a)，Web Workers 概览及应用场景。
-- [2021 Web Worker 现状](https://zhuanlan.zhihu.com/p/393428948) - 译文[来自](https://www.smashingmagazine.com/2021/06/web-workers-2021/)，Web Workers 现状及JavaScript 的并发模型介绍，[Comlink]() WebWorkers postMessage 消息通信管理。
+- [2021 Web Worker 现状](https://zhuanlan.zhihu.com/p/393428948) - 译文[来自](https://www.smashingmagazine.com/2021/06/web-workers-2021/)，Web Workers 现状及JavaScript 的并发模型介绍，[Comlink](https://github.com/GoogleChromeLabs/comlink) WebWorkers postMessage 消息通信管理。
 
 ## WebAssembly
 
