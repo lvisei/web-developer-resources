@@ -109,6 +109,7 @@ _jQuery 的 Deferred/Promise_
 
 - [Canvas 教程](https://airingursb.gitbooks.io/canvas/content/) - 连载详细的 Canvas 教程
 - [canvas 图像旋转与翻转](https://aotu.io/notes/2017/05/25/canvas-img-rotate-and-flip/) - canvas 图像旋转与翻转几种方式。
+- [跨平台Web Canvas渲染引擎架构的设计与思考](https://zhuanlan.zhihu.com/p/361655438) - 主要从技术视角介绍下跨平台WebCanvas的架构设计以及一些关键模块的实现方案(以Android为主)。
 
 ## Front-End Frame
 
