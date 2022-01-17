@@ -13,7 +13,8 @@
 
 ### Compilation
 
-- [初识 Golang 汇编](https://mp.weixin.qq.com/s/MFN9eqT9bsotvpV-m1eqCQ) - 腾讯VTeam技术团队分享深入理解 Go汇编。
+- [初识 Golang 汇编](https://mp.weixin.qq.com/s/MFN9eqT9bsotvpV-m1eqCQ) - 腾讯VTeam技术团队分享深入理解 Go 汇编。
+- [Go 编译器定制简介](https://wa-lang.org/ugo-compiler-book/talks/go-compiler-intro.html#1) - 基于 Go 从零实现 [µGo](https://github.com/wa-lang/ugo) 语言的[编译器](https://github.com/wa-lang/ugo-compiler-book)，最终以 Clang 执行编译为 LLVM 的汇编语言。
 
 ### GC garbage collection
 
