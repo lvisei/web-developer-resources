@@ -312,7 +312,7 @@ _打包原理解析与实现_
 ### Flutter Web
 
 - [Flutter Web 是怎么工作的](https://ithelp.ithome.com.tw/articles/10243983) - 从架构分析 Flutter Web 工作原理。
-- [FlutterWeb性能优化探索与实践](https://mp.weixin.qq.com/s/fE11vs2qnRIHAWYv1af-gA) - 美团外卖商家端基于 FlutterWeb 的技术探索。
+- [Flutter Web 在美团外卖的实践](https://mp.weixin.qq.com/s/GjFC5_85pIk9EbKPJXZsXg)及[性能优化探索与实践](https://mp.weixin.qq.com/s/fE11vs2qnRIHAWYv1af-gA) - 美团外卖商家端基于 FlutterWeb 的技术探索。
 
 ## Other
 
