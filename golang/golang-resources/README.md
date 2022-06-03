@@ -26,6 +26,10 @@
 
 - [Create Go App CLI](https://github.com/create-go-app/cli) - 帮助创建一个应用框架，包含后端（Go）、前端（JavaScript、TypeScript）和自动化部署，更专注业务逻辑开发。
 
+### Concurrency
+
+- [ants](https://github.com/panjf2000/ants) - 一个高性能的 goroutine 池，实现了对大规模 goroutine 的调度管理、goroutine 复用，在开发并发程序的时候限制 goroutine 数量，复用资源，达到更高效执行任务的效果。
+
 ### Web Framework
 
 - [Gin Web Framework](https://github.com/gin-gonic/gin) - 一个用 Go 编写的 HTTP web 框架。 
