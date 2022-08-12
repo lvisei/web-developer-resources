@@ -25,6 +25,7 @@
 ### CLI
 
 - [Create Go App CLI](https://github.com/create-go-app/cli) - 帮助创建一个应用框架，包含后端（Go）、前端（JavaScript、TypeScript）和自动化部署，更专注业务逻辑开发。
+- [infinite](https://github.com/fzdwx/infinite) - 用于开发交互式 CLI 程序的组件库，提供一系列开箱即用的组件，目前支持 window/linux。
 
 ### Concurrency
 
