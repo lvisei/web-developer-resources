@@ -43,6 +43,7 @@
 
 - [jwt-go](https://github.com/dgrijalva/jwt-go) - Golang 实现的 JSON Web Tokens (JWT) 库。
 - [Casbin](https://github.com/casbin/casbin) - 一个强大的、高效的开源访问控制框架，其权限管理机制支持多种访问控制模型。
+- [Go Captcha](https://github.com/wenlng/go-captcha) - 图像交互式安全验证码，可用于机器人验证。
 
 ### Messages in real-time
 
