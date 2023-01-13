@@ -73,9 +73,10 @@ gem install cocoapods --user-install
 
 解决方案四 （推荐）
 
-使用 [RVM](https://github.com/rvm/rvm) Ruby 版本管理器，更多详细 [stackoverflow](https://stackoverflow.com/questions/18599889/error-while-executing-gem-gemfilepermissionerror/25716203)
+使用 [chruby](https://github.com/postmodern/chruby) 或 [RVM](https://github.com/rvm/rvm) Ruby 版本管理器，更多详细：
 
 - [Why You Shouldn't Use the System Ruby to Install Gems on a Mac](https://www.moncefbelyamani.com/why-you-shouldn-t-use-the-system-ruby-to-install-gems-on-a-mac/)
+- [The fastest and easiest way to install Ruby on a Mac in 2023](https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/)
 - [Install Ruby on Mac. The Definitive Guide for 2023.](https://www.moncefbelyamani.com/the-definitive-guide-to-installing-ruby-gems-on-a-mac/)
 
 
