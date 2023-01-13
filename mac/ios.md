@@ -24,7 +24,7 @@ xcode-select --install
 
 ## CocoaPods 安装
 
-macOS 都安装了ruby，直接使用ruby 的包管理器 gem 命令即可安装 CocoaPods
+macOS 都安装了ruby，直接使用 ruby 的包管理器 gem 命令即可安装 CocoaPods
 
 ### 更新 gem
 
@@ -44,9 +44,9 @@ macOS 都安装了ruby，直接使用ruby 的包管理器 gem 命令即可安装
 
 如果安装失败，以下是解决方案
 
-安装失败的主要可能原因是，不能写入可执行文件到 `/usr/bin` 目录
-
 解决方案一
+
+安装失败的主要可能原因是，不能写入可执行文件到 `/usr/bin` 目录
 
 安装可执行文件到 `/usr/local/bin`
 
@@ -71,9 +71,13 @@ gem install cocoapods --user-install
 
 使用 brew 安装 cocoapods
 
-解决方案四
+解决方案四 （推荐）
 
 使用 [RVM](https://github.com/rvm/rvm) Ruby 版本管理器，更多详细 [stackoverflow](https://stackoverflow.com/questions/18599889/error-while-executing-gem-gemfilepermissionerror/25716203)
+
+- [Why You Shouldn't Use the System Ruby to Install Gems on a Mac](https://www.moncefbelyamani.com/why-you-shouldn-t-use-the-system-ruby-to-install-gems-on-a-mac/)
+- [Install Ruby on Mac. The Definitive Guide for 2023.](https://www.moncefbelyamani.com/the-definitive-guide-to-installing-ruby-gems-on-a-mac/)
+
 
 ### 检查安装包
 
