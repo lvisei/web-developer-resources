@@ -52,6 +52,10 @@
 
 ### Miscellaneous
 
+#### Modular Methods
+
+- [lo](https://github.com/samber/lo) - 跟 Lodash 一样的数据处理函数，与 [go-funk](https://github.com/thoas/go-funk) 区别的是基于 GO 范型实现的，后者基于[反射](https://golang.org/pkg/reflect/)实现的。
+
 #### Dependency Injection
 
 - [Wire](https://github.com/google/wire) -   Google 开源的一个依赖注入工具。
