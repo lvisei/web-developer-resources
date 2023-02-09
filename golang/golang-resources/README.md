@@ -11,6 +11,11 @@
 
 - [ants](https://github.com/panjf2000/ants) - 一个高性能的 goroutine 池，实现了对大规模 goroutine 的调度管理、goroutine 复用，在开发并发程序的时候限制 goroutine 数量，复用资源，达到更高效执行任务的效果。
 
+### Image Processing
+
+- [Imagor](https://github.com/cshum/imagor) - 一个 Go 语言写的图像处理服务器，可以快速返回各种大小的图像缩略图。
+
+
 ### Web Framework
 
 - [Gin Web Framework](https://github.com/gin-gonic/gin) - 一个用 Go 编写的 HTTP web 框架。 
