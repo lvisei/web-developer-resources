@@ -13,7 +13,7 @@
 
 ### Image Processing
 
-- [Imagor](https://github.com/cshum/imagor) - 一个 Go 语言写的图像处理服务器，可以快速返回各种大小的图像缩略图。
+- [Imagor](https://github.com/cshum/imagor) - 一个 Go 语言写的图像处理库/服务，可以快速处理各种大小的图像缩略图。
 
 
 ### Web Framework
